@@ -17,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 //admin routes
 Route::get('/dashboard', 'App\Http\Controllers\AdminController@show_dashboard');
 
+
+// Category product
+Route::get('/add_category_product', 'App\Http\Controllers\CategoryProduct@add_category_product');
+Route::get('/all_category_product', 'App\Http\Controllers\CategoryProduct@all_category_product');
