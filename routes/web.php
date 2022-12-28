@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('admin/home');
-});
+
+//admin routes
+Route::get('/dashboard', 'App\Http\Controllers\AdminController@show_dashboard');
+
