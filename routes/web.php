@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//login and register
+Route::get('/login', 'App\Http\Controllers\LoginController@login');
+Route::get('/register', 'App\Http\Controllers\LoginController@register');
+
 
 //admin routes
 Route::get('/dashboard', 'App\Http\Controllers\AdminController@show_dashboard');
