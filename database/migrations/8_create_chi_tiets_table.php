@@ -19,7 +19,7 @@ return new class extends Migration
             $table->bigInteger('id_san_pham')->unsigned();
             $table->integer('so_luong');
 
-            $table->foreign('id_hoa_don_nhap')->references('id')->on('hoa_don_nhap')->onDelete('cascade');
+            $table->foreign('id_hoa_don_nhap')->references('id')->on('hoa_don_nhap')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreign('id_san_pham')->references('id')->on('san_pham')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
