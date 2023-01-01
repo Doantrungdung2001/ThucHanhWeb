@@ -13,11 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('danh_muc_san_phams', function (Blueprint $table) {
+        Schema::create('hoa_don_nhap', function (Blueprint $table) {
             $table->id();
-            $table->string('ten_danh_muc', 30);
-            $table->string('mo_ta', 200);
+            $table->bigInteger('id_nguoi_dung')->unsigned();
             $table->timestamps();
+
+            $table->foreign('id_nguoi_dung')->references('id')->on('nguoi_dung')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('danh_muc_san_phams');
+        Schema::dropIfExists('hoa_don_nhap');
     }
 };

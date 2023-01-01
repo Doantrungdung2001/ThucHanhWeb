@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('don_hangs', function (Blueprint $table) {
+        Schema::create('don_hang', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('id_nguoi_dung');
-            $table->enum('trang_thai', []);
+            $table->bigInteger('id_nguoi_dung')->unsigned();
+            $table->enum('trang_thai', ['OK', 'FAILED']);
             $table->timestamps();
 
-            $table->foreign('id_nguoi_dung')->references('id')->on('nguoi_dungs')->onDelete('cascade');
+            $table->foreign('id_nguoi_dung')->references('id')->on('nguoi_dung')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('don_hangs');
+        Schema::dropIfExists('don_hang');
     }
 };

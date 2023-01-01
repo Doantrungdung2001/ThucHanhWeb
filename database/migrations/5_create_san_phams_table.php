@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('san_phams', function (Blueprint $table) {
+        Schema::create('san_pham', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('id_hang');
-            $table->bigInteger('id_danh_muc');
+            $table->bigInteger('id_hang')->unsigned();
+            $table->bigInteger('id_danh_muc')->unsigned();
             $table->string('ten_san_pham', 30);
             $table->enum('mau_sac', ['red', 'green', 'blue', 'yellow']);
             $table->enum('kich_co', ['S', 'M', 'L', 'XL', 'XXL']);
@@ -24,8 +24,8 @@ return new class extends Migration
             $table->float('gia_nhap');
             $table->timestamps();
 
-            $table->foreign('id_hang')->references('id')->on('hangs')->onDelete('cascade');
-            $table->foreign('id_phan_quyenid_danh_muc')->references('id')->on('danh_mucs')->onDelete('cascade');
+            $table->foreign('id_hang')->references('id')->on('hang')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('id_danh_muc')->references('id')->on('danh_muc_san_pham')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 
@@ -36,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('san_phams');
+        Schema::dropIfExists('san_pham');
     }
 };

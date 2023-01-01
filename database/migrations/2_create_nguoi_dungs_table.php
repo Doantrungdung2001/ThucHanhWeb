@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('nguoi_dungs', function (Blueprint $table) {
+        Schema::create('nguoi_dung', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('id_phan_quyen')->unsigned();
             $table->string('ten_dang_nhap', 30);
@@ -26,7 +26,7 @@ return new class extends Migration
             $table->enum('trang_thai', ['hoat_dong','khoa']);
             $table->timestamps();
             
-            $table->foreign('id_phan_quyen')->references('id')->on('phan_quyens')->onDelete('cascade');
+            $table->foreign('id_phan_quyen')->references('id')->on('phan_quyen')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 
@@ -37,6 +37,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nguoi_dungs');
+        Schema::dropIfExists('nguoi_dung');
     }
 };
