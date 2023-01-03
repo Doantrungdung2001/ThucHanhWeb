@@ -13,6 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+//login and register
+Route::get('/login', 'App\Http\Controllers\LoginController@login');
+Route::get('/register', 'App\Http\Controllers\LoginController@register');
+
+
+//admin routes
+Route::get('/dashboard', 'App\Http\Controllers\AdminController@show_dashboard');
+
+
+// Category product
+Route::get('/add_category_product', 'App\Http\Controllers\CategoryProduct@add_category_product');
+Route::get('/all_category_product', 'App\Http\Controllers\CategoryProduct@all_category_product');
