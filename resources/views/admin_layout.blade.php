@@ -253,10 +253,16 @@
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="auth-login-basic.html">
-                        <i class="bx bx-power-off me-2"></i>
-                        <span class="align-middle">Log Out</span>
-                      </a>
+                      <form method="POST" action="{{ route('logout') }}" x-data>
+                        @csrf
+                        
+                        <a class="dropdown-item">
+                          <i class="bx bx-power-off me-2"></i>
+                          <span class="align-middle">Log Out</span>
+                          <input type="submit">
+                        </a>
+                    </form>
+                      
                     </li>
                   </ul>
                 </li>
