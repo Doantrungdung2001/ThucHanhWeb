@@ -27,7 +27,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Register Basic - Pages | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>Đăng ký ngay | E Shopper</title>
 
     <meta name="description" content="" />
 
@@ -131,31 +131,31 @@
                       </g>
                     </svg>
                   </span>
-                  <span class="app-brand-text demo text-body fw-bolder">Sneat</span>
+                  <span class="demo text-body fw-bolder" style="font-size: 24px">E Shopeer</span>
                 </a>
               </div>
               <!-- /Logo -->
-              <h4 class="mb-2">Adventure starts here 🚀</h4>
-              <p class="mb-4">Make your app management easy and fun!</p>
+              <h4 class="mb-2">Đăng ký ngay 🚀</h4>
+              <p class="mb-4">Dịch vụ mua sắm trực tuyến E Shopper</p>
 
               <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
                 <div class="mb-3">
-                  <label for="username" class="form-label">Username</label>
+                  <label for="username" class="form-label">Tên đăng nhập</label>
                   <input
                     type="text"
                     class="form-control"
                     id="username"
                     name="username"
-                    placeholder="Enter your username"
+                    placeholder="Tên đăng nhập của bạn"
                     autofocus
                   />
                 </div>
                 <div class="mb-3">
                   <label for="email" class="form-label">Email</label>
-                  <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email" />
+                  <input type="text" class="form-control" id="email" name="email" placeholder="Email của bạn" />
                 </div>
                 <div class="mb-3 form-password-toggle">
-                  <label class="form-label" for="password">Password</label>
+                  <label class="form-label" for="password">Mật khẩu</label>
                   <div class="input-group input-group-merge">
                     <input
                       type="password"
@@ -173,18 +173,18 @@
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="terms-conditions" name="terms" />
                     <label class="form-check-label" for="terms-conditions">
-                      I agree to
-                      <a href="javascript:void(0);">privacy policy & terms</a>
+                      Tôi đồng ý với
+                      <a href="javascript:void(0);">điều khoản & chính sách dịch vụ</a>
                     </label>
                   </div>
                 </div>
-                <button class="btn btn-primary d-grid w-100">Sign up</button>
+                <button class="btn btn-primary d-grid w-100">Đăng ký nhanh</button>
               </form>
 
               <p class="text-center">
-                <span>Already have an account?</span>
+                <span>Bạn đã có tài khoản?</span>
                 <a href="auth-login-basic.html">
-                  <span>Sign in instead</span>
+                  <span>Đăng nhập</span>
                 </a>
               </p>
             </div>
