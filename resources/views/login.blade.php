@@ -135,8 +135,8 @@
                 </a>
               </div>
               <!-- /Logo -->
-              <h4 class="mb-2">Welcome to E Shopeer! 👋</h4>
-              <p class="mb-4">Please sign-in to your account and start the adventure</p>
+              <h4 class="mb-2">Chào mừng đến với E Shopper 👋</h4>
+              <p class="mb-4">Vui lòng đăng nhập tài khoản của bạn để có thể trải nghiệm những điều tuyệt vời</p>
 
               <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
                 <div class="mb-3">
@@ -146,7 +146,7 @@
                     class="form-control"
                     id="email"
                     name="email-username"
-                    placeholder="Tên đăng nhập hoặc email username"
+                    placeholder="Tên đăng nhập hoặc email"
                     autofocus
                   />
                 </div>
@@ -176,7 +176,7 @@
                   </div>
                 </div>
                 <div class="mb-3">
-                  <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
+                  <button class="btn btn-primary d-grid w-100" type="submit">Đăng ký</button>
                 </div>
               </form>
 

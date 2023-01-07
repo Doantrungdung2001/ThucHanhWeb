@@ -14,9 +14,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 //login and register
-Route::get('/login', 'App\Http\Controllers\LoginController@login');
-Route::get('/register', 'App\Http\Controllers\LoginController@register');
+// Route::get('/login', 'App\Http\Controllers\LoginController@login');
+// Route::get('/register', 'App\Http\Controllers\LoginController@register');
+Route::get('/', function() {
+    return view('index');
+});
 
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
 
 //admin routes
 Route::get('/dashboard', 'App\Http\Controllers\AdminController@show_dashboard');
@@ -26,6 +38,3 @@ Route::get('/dashboard', 'App\Http\Controllers\AdminController@show_dashboard');
 Route::get('/add_category_product', 'App\Http\Controllers\CategoryProduct@add_category_product');
 Route::get('/all_category_product', 'App\Http\Controllers\CategoryProduct@all_category_product');
 
-Route::get('/', function() {
-    return view('index');
-});
