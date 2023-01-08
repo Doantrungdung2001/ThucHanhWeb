@@ -50,4 +50,32 @@ Route::prefix('category')->group(function () {
     ]);
 });
 
+// Brand product
+Route::prefix('brand')->group(function () {
+    Route::get('/all', [
+        'as' => 'brand.all',
+        'uses' => 'App\Http\Controllers\BrandController@all'
+    ]);
+    Route::get('/add', [
+        'as' => 'brand.add',
+        'uses' => 'App\Http\Controllers\BrandController@add'
+    ]);
+    Route::post('/store', [
+        'as' => 'brand.store',
+        'uses' => 'App\Http\Controllers\BrandController@store'
+    ]);
+    Route::get('/delete/{id}', [
+        'as' => 'brand.delete',
+        'uses' => 'App\Http\Controllers\BrandController@delete'
+    ]);
+    Route::get('/edit/{id}', [
+        'as' => 'brand.edit',
+        'uses' => 'App\Http\Controllers\BrandController@edit'
+    ]);
+    Route::post('/update/{id}', [
+        'as' => 'brand.update',
+        'uses' => 'App\Http\Controllers\BrandController@update'
+    ]);
+});
+
 

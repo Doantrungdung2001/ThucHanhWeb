@@ -17,9 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('name', 30);
             $table->string('phone_number', 11);
-            $table->string('email', 30);
+            $table->string('email', 50);
             $table->string('address', 50);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

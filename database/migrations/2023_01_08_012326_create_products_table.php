@@ -23,6 +23,7 @@ return new class extends Migration
             $table->integer('quantity');
             $table->float('price');
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('brandId')->references('id')->on('brands')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreign('categoryId')->references('id')->on('categories')->cascadeOnDelete()->cascadeOnUpdate();

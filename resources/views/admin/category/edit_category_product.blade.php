@@ -35,7 +35,7 @@
                     </div>
                     <div class="row justify-content-end">
                         <div class="col-sm-10">
-                            <button type="submit" class="add_category_product">Chỉnh sửa</button>
+                            <button type="submit" class="update_category_product">Chỉnh sửa</button>
                         </div>
                     </div>
             </div>

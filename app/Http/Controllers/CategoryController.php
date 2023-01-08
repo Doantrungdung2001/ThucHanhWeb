@@ -16,12 +16,12 @@ class CategoryController extends Controller
 
     public function add() {
         $htmlOption = $this->getCategory('');
-        return view('admin.add_category_product', compact('htmlOption'));
+        return view('admin.category.add_category_product', compact('htmlOption'));
     }
 
     public function all() {
         $categories = $this->category->simplePaginate(5);
-        return view('admin.all_category_product', compact('categories'));
+        return view('admin.category.all_category_product', compact('categories'));
     }
 
     public function store(Request $request) {
@@ -48,7 +48,7 @@ class CategoryController extends Controller
     public function edit($id) {
         $categories = $this->category->find($id);
         $htmlOption = $this->getCategory($categories->parentId);
-        return view('admin.edit_category_product', compact('categories', 'htmlOption'));
+        return view('admin.category.edit_category_product', compact('categories', 'htmlOption'));
     }
 
     public function update($id, Request $request) {

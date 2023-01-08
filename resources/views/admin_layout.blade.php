@@ -138,6 +138,24 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="menu-item">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                            <div data-i18n="Account Settings">Nhãn hiệu</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="/brand/add" class="menu-link">
+                                    <div data-i18n="Account">Thêm nhãn hiệu</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="/brand/all" class="menu-link">
+                                    <div data-i18n="Notifications">Liệt kê nhãn hiệu</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
             </aside>
             <!-- / Menu -->
 
