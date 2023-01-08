@@ -41,4 +41,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected $table = 'users';
+    //protected  $name = 'name';
+    //protected $email = 'email';
+    //protected $created_at = 'created_at';
+    protected $primaryKey = 'id';
+    public function otp()
+    {
+        return $this->hasMany(EmailOtp::class);
+    }
 }
