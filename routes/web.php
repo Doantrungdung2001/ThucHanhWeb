@@ -23,5 +23,31 @@ Route::get('/dashboard', 'App\Http\Controllers\AdminController@show_dashboard');
 
 
 // Category product
-Route::get('/add_category_product', 'App\Http\Controllers\CategoryProduct@add_category_product');
-Route::get('/all_category_product', 'App\Http\Controllers\CategoryProduct@all_category_product');
+Route::prefix('category')->group(function () {
+    Route::get('/all', [
+        'as' => 'category.all',
+        'uses' => 'App\Http\Controllers\CategoryController@all'
+    ]);
+    Route::get('/add', [
+        'as' => 'category.add',
+        'uses' => 'App\Http\Controllers\CategoryController@add'
+    ]);
+    Route::post('/store', [
+        'as' => 'category.store',
+        'uses' => 'App\Http\Controllers\CategoryController@store'
+    ]);
+    Route::get('/delete/{id}', [
+        'as' => 'category.delete',
+        'uses' => 'App\Http\Controllers\CategoryController@delete'
+    ]);
+    Route::get('/edit/{id}', [
+        'as' => 'category.edit',
+        'uses' => 'App\Http\Controllers\CategoryController@edit'
+    ]);
+    Route::post('/update/{id}', [
+        'as' => 'category.update',
+        'uses' => 'App\Http\Controllers\CategoryController@update'
+    ]);
+});
+
+

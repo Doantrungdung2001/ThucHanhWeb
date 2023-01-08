@@ -13,10 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('danh_muc_san_pham', function (Blueprint $table) {
+        Schema::create('brands', function (Blueprint $table) {
             $table->id();
-            $table->string('ten_danh_muc', 30);
-            $table->string('mo_ta', 200);
+            $table->string('name', 30);
+            $table->string('phone_number', 11);
+            $table->string('email', 30);
+            $table->string('address', 50);
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('danh_muc_san_pham');
+        Schema::dropIfExists('brands');
     }
 };

@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('hang', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('ten_hang', 30);
-            $table->string('sdt', 11);
-            $table->string('email', 30);
-            $table->string('dia_chi', 50);
+            $table->string('name', 30);
+            $table->string('description', 200);
+            $table->integer('parentID');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('hang');
+        Schema::dropIfExists('categories');
     }
 };
