@@ -54,7 +54,7 @@
 
                 </div>
                 <!--end wrap shop control-->
-
+                @if($products->count() > 0)
                 <div class="row">
 
                     <ul class="product-list grid-products equal-container">
@@ -77,9 +77,10 @@
                         </li>
                         @endforeach
                     </ul>
-
                 </div>
-
+                @else
+                <p style="padding-top:30px">No Products Found</p>
+                @endif
                 <div class="wrap-pagination-info">
                     {{$products->links()}}
                     {{-- <ul class="page-numbers">
@@ -100,7 +101,8 @@
                         <ul class="list-category">
                             @foreach ($categories as $category)
                             <li class="category-item">
-                                <a href="{{route('product.category', ['category_slug'=>$category->slug])}}" class="cate-link">{{$category->name}}</a>
+                                <a href="{{route('product.category', ['category_slug'=>$category->slug])}}"
+                                    class="cate-link">{{$category->name}}</a>
                             </li>
                             @endforeach
                         </ul>
