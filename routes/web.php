@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\HomeComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,25 +17,33 @@ use Illuminate\Support\Facades\Route;
 //login and register
 // Route::get('/login', 'App\Http\Controllers\LoginController@login');
 // Route::get('/register', 'App\Http\Controllers\LoginController@register');
-Route::get('/', function() {
-    return view('index');
-});
+// Route::get('/', function() {
+//     return view('index');
+// });
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
+Route::get('/',HomeComponent::class);
 
-//admin routes
-Route::get('/dashboard', 'App\Http\Controllers\AdminController@show_dashboard');
+//Route::get('/shop', ShopComponent::class);
+
+//Route::get('/cart', CartComponent::class);
+
+//Route::get('/checkout', CheckoutComponent::class);
+
+// Route::middleware([
+//     'auth:sanctum',
+//     config('jetstream.auth_session'),
+//     'verified'
+// ])->group(function () {
+//     Route::get('/dashboard', function () {
+//         return view('dashboard');
+//     })->name('dashboard');
+// });
+
+// //admin routes
+// Route::get('/dashboard', 'App\Http\Controllers\AdminController@show_dashboard');
 
 
-// Category product
-Route::get('/add_category_product', 'App\Http\Controllers\CategoryProduct@add_category_product');
-Route::get('/all_category_product', 'App\Http\Controllers\CategoryProduct@all_category_product');
+// // Category product
+// Route::get('/add_category_product', 'App\Http\Controllers\CategoryProduct@add_category_product');
+// Route::get('/all_category_product', 'App\Http\Controllers\CategoryProduct@all_category_product');
 
