@@ -42,6 +42,8 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="/assets/js/config.js"></script>
+
+    @yield('css')
 </head>
 
 <body>
@@ -127,12 +129,12 @@
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
-                                <a href="/category/add" class="menu-link">
+                                <a href="/admin/category/add" class="menu-link">
                                     <div data-i18n="Account">Thêm danh mục sản phẩm</div>
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a href="/category/all" class="menu-link">
+                                <a href="/admin/category/all" class="menu-link">
                                     <div data-i18n="Notifications">Liệt kê danh mục sản phẩm</div>
                                 </a>
                             </li>
@@ -145,13 +147,31 @@
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
-                                <a href="/brand/add" class="menu-link">
+                                <a href="/admin/brand/add" class="menu-link">
                                     <div data-i18n="Account">Thêm nhãn hiệu</div>
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a href="/brand/all" class="menu-link">
+                                <a href="/admin/brand/all" class="menu-link">
                                     <div data-i18n="Notifications">Liệt kê nhãn hiệu</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-item">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                            <div data-i18n="Account Settings">Sản phẩm</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="/admin/product/add" class="menu-link">
+                                    <div data-i18n="Account">Thêm sản phẩm</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="/admin/product/all" class="menu-link">
+                                    <div data-i18n="Notifications">Liệt kê sản phẩm</div>
                                 </a>
                             </li>
                         </ul>
@@ -342,6 +362,7 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    @yield('js')
 </body>
 
 </html>

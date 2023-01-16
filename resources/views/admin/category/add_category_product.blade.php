@@ -9,7 +9,7 @@
                 <h5 class="mb-0">Thêm danh mục sản phẩm</h5>
             </div>
             <div class="card-body">
-                <form action="/category/store" method="post">
+                <form action="/admin/category/store" method="post">
                     @csrf
                     <div class="row mb-3">
                         <label class="col-sm-2 col-form-label" for="basic-default-name">Tên danh mục</label>

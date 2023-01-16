@@ -18,10 +18,10 @@ return new class extends Migration
             $table->bigInteger('brandId')->unsigned();
             $table->bigInteger('categoryId')->unsigned();
             $table->string('name', 30);
-            $table->enum('colors', ['red', 'green', 'blue', 'yellow']);
-            $table->enum('size', ['S', 'M', 'L', 'XL', 'XXL']);
+            $table->string('image_path')->nullable();
+            $table->text('content');
             $table->integer('quantity');
-            $table->float('price');
+            $table->integer('price');
             $table->timestamps();
             $table->softDeletes();
 

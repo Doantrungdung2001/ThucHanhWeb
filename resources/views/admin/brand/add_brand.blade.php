@@ -9,7 +9,7 @@
                 <h5 class="mb-0">Thêm nhãn hiệu sản phẩm</h5>
             </div>
             <div class="card-body">
-                <form action="/brand/store" method="post">
+                <form action="/admin/brand/store" method="post">
                     @csrf
                     <div class="row mb-3">
                         <label class="col-sm-2 col-form-label" for="basic-default-name">Tên nhãn hiệu</label>
