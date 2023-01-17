@@ -27,16 +27,16 @@ class CategoryController extends Controller
     public function store(Request $request) {
         $this->category->create([
             'name' => $request->name,
-            'parentID' => $request->parentID,
+            'parent_id' => $request->parent_id,
             'description' => $request->description
         ]);
         return redirect()->route('category.all');
     }
 
-    public function getCategory($parentID) { 
+    public function getCategory($parent_id) { 
         $data = $this->category->all();
         $recusive = new Recusive($data);
-        $htmlOption = $recusive->categoryRecusive($parentID);
+        $htmlOption = $recusive->categoryRecusive($parent_id);
         return $htmlOption;
     }
 
@@ -47,14 +47,14 @@ class CategoryController extends Controller
 
     public function edit($id) {
         $categories = $this->category->find($id);
-        $htmlOption = $this->getCategory($categories->parentId);
+        $htmlOption = $this->getCategory($categories->parent_id);
         return view('admin.category.edit_category_product', compact('categories', 'htmlOption'));
     }
 
     public function update($id, Request $request) {
         $this->category->find($id)->update([
             'name' => $request->name,
-            'parentID' => $request->parentID,
+            'parent_id' => $request->parent_id,
             'description' => $request->description
         ]);
         return redirect()->route('category.all');

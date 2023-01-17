@@ -10,6 +10,6 @@ class Category extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    protected $fillable = ['name', 'parentID', 'description'];
+    protected $fillable = ['name', 'parent_id', 'description'];
 
 }

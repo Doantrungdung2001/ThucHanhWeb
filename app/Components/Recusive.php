@@ -9,17 +9,17 @@ class Recusive {
         $this->data = $data;
     }
 
-    public function categoryRecusive($parentID, $id = 0, $text = '') {
+    public function categoryRecusive($parent_id, $id = 0, $text = '') {
         foreach ($this->data as $value) {
-            if($value['parentID'] == $id) {
-                if( (!empty($parentID)) && ($value['id'] == $parentID)) {
+            if($value['parent_id'] == $id) {
+                if( (!empty($parent_id)) && ($value['id'] == $parent_id)) {
                     $this->htmlSelect .= "<option selected value=\"" .$value['id']. "\" >" . $text . $value['name'] . "</option>";
                 }
                 else {
                     $this->htmlSelect .= "<option value=\"" .$value['id']. "\" >" . $text . $value['name'] . "</option>";
 
                 }
-                $this->categoryRecusive($parentID, $value['id'], $text .'---');
+                $this->categoryRecusive($parent_id, $value['id'], $text .'---');
             }
         }
 

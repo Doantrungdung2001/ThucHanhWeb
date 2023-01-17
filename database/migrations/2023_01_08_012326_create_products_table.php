@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('brandId')->unsigned();
-            $table->bigInteger('categoryId')->unsigned();
+            $table->bigInteger('brand_id')->unsigned();
+            $table->bigInteger('category_id')->unsigned();
             $table->string('name', 30);
             $table->string('image_path')->nullable();
             $table->text('content');
@@ -25,8 +25,8 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('brandId')->references('id')->on('brands')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreign('categoryId')->references('id')->on('categories')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('brand_id')->references('id')->on('brands')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('category_id')->references('id')->on('categories')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 

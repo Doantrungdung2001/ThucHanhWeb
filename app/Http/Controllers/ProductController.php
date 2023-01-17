@@ -42,19 +42,19 @@ class ProductController extends Controller
         return view('admin.product.add_product', compact('htmlOptionCategory', 'htmlOptionBrand', 'htmlOptionColor', 'htmlOptionSize'));
     }
 
-    public function getCategory($parentID) { 
+    public function getCategory($parent_id) { 
         $data = $this->category->all();
         $recusive = new Recusive($data);
-        $htmlOption = $recusive->categoryRecusive($parentID);
+        $htmlOption = $recusive->categoryRecusive($parent_id);
         return $htmlOption;
     }
 
-    public function getBrand($brandId) {
+    public function getBrand($brand_id) {
         $data = $this->brand->all();
 
         $htmlOption = '';
         foreach ($data as $value) {
-            if ($brandId == $value['id']) {
+            if ($brand_id == $value['id']) {
                 $htmlOption .= "<option selected value=\"" .$value['id']. "\" >" . $value['name'] . "</option>";
             }
             else {
@@ -64,19 +64,19 @@ class ProductController extends Controller
         return $htmlOption;
     }
 
-    public function getColor($productId) {
+    public function getColor($product_id) {
         $data = $this->color->all();
         $htmlOption = '';
-         if($productId == '') {
+         if($product_id == '') {
             foreach ($data as $value) {
                 $htmlOption .= "<option value=\"" .$value['id']. "\" >" . $value['name'] . "</option>";
             }
         }
         else {
-            $productColor = $this->productColor->where('productId', $productId)->get();
+            $productColor = $this->productColor->where('product_id', $product_id)->get();
             $array = [];
             foreach ($productColor as $color) {
-                array_push($array, $color['colorId']);
+                array_push($array, $color['color_id']);
             }
             foreach ($data as $value) {
                 if(in_array($value['id'], $array)) {
@@ -91,19 +91,19 @@ class ProductController extends Controller
 
     }
 
-    public function getSize($productId) {
+    public function getSize($product_id) {
         $data = $this->size->all();
         $htmlOption = '';
-        if($productId == '') {
+        if($product_id == '') {
             foreach ($data as $value) {
                 $htmlOption .= "<option value=\"" .$value['id']. "\" >" . $value['name'] . "</option>";
             }
         }
         else {
-            $productSize = $this->productSize->where('productId', $productId)->get();
+            $productSize = $this->productSize->where('product_id', $product_id)->get();
             $array = [];
             foreach ($productSize as $size) {
-                array_push($array, $size['sizeId']);
+                array_push($array, $size['size_id']);
             }
             foreach ($data as $value) {
                 if(in_array($value['id'], $array)) {
@@ -131,8 +131,8 @@ class ProductController extends Controller
                 'price' => $request->price,
                 'image_path' => $request->image_path,
                 'content' => $request->content,
-                'categoryId' => $request->categoryId,
-                'brandId' => $request->brandId,
+                'category_id' => $request->category_id,
+                'brand_id' => $request->brand_id,
                 'quantity' => 0
             ];
             $product = $this->product->create($dataProductCreate);
@@ -141,7 +141,7 @@ class ProductController extends Controller
             if (!empty($request->color)) {
                 foreach ($request->color as $color) {
                     $product->colors()->create([
-                        'colorId' => $color
+                        'color_id' => $color
                     ]);
                 }
             }
@@ -150,7 +150,7 @@ class ProductController extends Controller
             if(!empty($request->size)) {
                 foreach ($request->size as $size) {
                     $product->sizes()->create([
-                        'sizeId' => $size
+                        'size_id' => $size
                     ]);
                 }
             }
@@ -183,8 +183,8 @@ class ProductController extends Controller
 
     public function edit($id) {
         $product = $this->product->find($id);
-        $htmlOptionCategory = $this->getCategory($product->categoryId);
-        $htmlOptionBrand = $this->getBrand($product->brandId);
+        $htmlOptionCategory = $this->getCategory($product->category_id);
+        $htmlOptionBrand = $this->getBrand($product->brand_id);
         $htmlOptionColor = $this->getColor($product->id);
         $htmlOptionSize = $this->getSize($product->id);
         
@@ -200,28 +200,28 @@ class ProductController extends Controller
                 'price' => $request->price,
                 'image_path' => $request->image_path,
                 'content' => $request->content,
-                'categoryId' => $request->categoryId,
-                'brandId' => $request->brandId,
+                'category_id' => $request->category_id,
+                'brand_id' => $request->brand_id,
                 'quantity' => 0
             ];
             $this->product->find($id)->update($dataProductUpdate);
             $product = $this->product->find($id);
             //Update product color information
             if (!empty($request->color)) {
-                $this->productColor->where('productId', $id)->delete();
+                $this->productColor->where('product_id', $id)->delete();
                 foreach ($request->color as $color) {
                     $product->colors()->create([
-                        'colorId' => $color
+                        'color_id' => $color
                     ]);
                 }
             }
             
             //Update product size information
             if(!empty($request->size)) {
-                $this->productSize->where('productId', $id)->delete();
+                $this->productSize->where('product_id', $id)->delete();
                 foreach ($request->size as $size) {
                     $product->sizes()->create([
-                        'sizeId' => $size
+                        'size_id' => $size
                     ]);
                 }
             }

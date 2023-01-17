@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('product_sizes', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('productId')->unsigned();;
-            $table->bigInteger('sizeId')->unsigned();
+            $table->bigInteger('product_id')->unsigned();;
+            $table->bigInteger('size_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('sizeId')->references('id')->on('sizes')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreign('productId')->references('id')->on('products')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('size_id')->references('id')->on('sizes')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('product_id')->references('id')->on('products')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 
