@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('brand_id')->unsigned();
             $table->bigInteger('category_id')->unsigned();
-            $table->string('name', 30);
+            $table->string('name');
+            $table->string("slug")->unique();
             $table->string('image_path')->nullable();
             $table->text('content');
             $table->integer('quantity');

@@ -1,9 +1,11 @@
 $(function () {
     $(".color_select2").select2({
+        placeholder: "Chọn màu sắc",
         tags: true,
         tokenSeparators: [',', ' ']
     })
     $(".size_select2").select2({
+        placeholder: "Chọn kích cỡ",
         tags: true,
         tokenSeparators: [',', ' ']
     })

@@ -36,10 +36,17 @@
                             </div>
                         </div>
                         <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="basic-default-name">Slug</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="basic-default-name"
+                                    placeholder="Slug" name="slug" />
+                            </div>
+                        </div>
+                        <div class="row mb-3">
                             <label for="largeSelect" class="col-sm-2 col-form-label">Chọn danh mục sản phẩm</label>
                             <div class="col-sm-10">
-                                <select id="largeSelect" class="form-select form-select-lg category_select2" name="category_id">
-                                    <option value="">Chọn danh mục</option>
+                                <select id="largeSelect" class="form-select form-select-lg category_select2"
+                                    name="category_id">
                                     {!! $htmlOptionCategory !!}
                                 </select>
                             </div>
@@ -48,7 +55,6 @@
                             <label for="largeSelect" class="col-sm-2 col-form-label">Chọn nhãn hiệu sản phẩm</label>
                             <div class="col-sm-10">
                                 <select id="largeSelect" class="form-select form-select-lg brand_select2" name="brand_id">
-                                    <option value="">Chọn nhãn hiệu</option>
                                     {!! $htmlOptionBrand !!}
                                 </select>
                             </div>

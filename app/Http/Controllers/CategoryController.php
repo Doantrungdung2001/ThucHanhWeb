@@ -4,58 +4,55 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
-use App\Components\Recusive;
-use Illuminate\Pagination\Paginator;
+
 class CategoryController extends Controller
 {
     private $category;
 
-    public function __construct(Category $category) {
+    public function __construct(Category $category)
+    {
         $this->category = $category;
     }
 
-    public function add() {
-        $htmlOption = $this->getCategory('');
-        return view('admin.category.add_category_product', compact('htmlOption'));
+    public function add()
+    {
+        return view('admin.category.add_category_product');
     }
 
-    public function all() {
+    public function all()
+    {
         $categories = $this->category->simplePaginate(5);
         return view('admin.category.all_category_product', compact('categories'));
     }
 
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
+        //dd($request->slug);
         $this->category->create([
             'name' => $request->name,
-            'parent_id' => $request->parent_id,
-            'description' => $request->description
+            'slug' => $request->slug
         ]);
+
         return redirect()->route('category.all');
     }
 
-    public function getCategory($parent_id) { 
-        $data = $this->category->all();
-        $recusive = new Recusive($data);
-        $htmlOption = $recusive->categoryRecusive($parent_id);
-        return $htmlOption;
-    }
-
-    public function delete($id) {
+    public function delete($id)
+    {
         $this->category->find($id)->delete();
         return redirect()->route('category.all');
     }
 
-    public function edit($id) {
+    public function edit($id)
+    {
         $categories = $this->category->find($id);
-        $htmlOption = $this->getCategory($categories->parent_id);
-        return view('admin.category.edit_category_product', compact('categories', 'htmlOption'));
+        return view('admin.category.edit_category_product', compact('categories'));
     }
 
-    public function update($id, Request $request) {
+    public function update($id, Request $request)
+    {
         $this->category->find($id)->update([
             'name' => $request->name,
-            'parent_id' => $request->parent_id,
-            'description' => $request->description
+            'slug' => $request->slug
         ]);
         return redirect()->route('category.all');
     }

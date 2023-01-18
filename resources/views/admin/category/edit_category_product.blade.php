@@ -18,21 +18,13 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label" for="basic-default-message">Mô tả danh mục</label>
+                            <label class="col-sm-2 col-form-label" for="basic-default-name">Slug</label>
                             <div class="col-sm-10">
-                                <textarea style="resize:none" row="5" id="basic-default-message" class="form-control"
-                                    placeholder="Mô tả danh mục" aria-describedby="basic-icon-default-message2" name="description">{{ $categories->description }}</textarea>
+                                <input type="text" class="form-control" id="basic-default-name" placeholder="Slug"
+                                    name="slug" value="{{ $categories->slug }}" />
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <label for="largeSelect" class="col-sm-2 col-form-label">Chọn danh mục cha</label>
-                            <div class="col-sm-10">
-                                <select id="largeSelect" class="form-select form-select-lg" name="parent_id">
-                                    <option value="0">Chọn danh mục cha</option>
-                                    {!! $htmlOption !!}
-                                </select>
-                            </div>
-                        </div>
+
                         <div class="row justify-content-end">
                             <div class="col-sm-10">
                                 <button type="submit" class="update_category_product">Chỉnh sửa</button>

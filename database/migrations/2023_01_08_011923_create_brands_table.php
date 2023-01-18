@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('brands', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 30);
-            $table->string('phone_number', 11);
-            $table->string('email', 50);
-            $table->string('address', 50);
+            $table->string('name');
+            $table->string('phone_number');
+            $table->string('email');
+            $table->string('address');
             $table->timestamps();
             $table->softDeletes();
         });
