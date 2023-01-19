@@ -21,6 +21,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'ho_va_ten',
+        'sdt',
+        'dia_chi',
+        'ngay_sinh',
     ];
 
     /**
@@ -43,9 +47,6 @@ class User extends Authenticatable
     ];
 
     protected $table = 'users';
-    //protected  $name = 'name';
-    //protected $email = 'email';
-    //protected $created_at = 'created_at';
     protected $primaryKey = 'id';
     public function otp()
     {

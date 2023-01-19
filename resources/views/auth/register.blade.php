@@ -38,6 +38,14 @@
                                 @enderror
                             </div>
                         </div>
+                        
+                        ho_va_ten<input id="ho_va_ten" type="text" class="form-control " name="ho_va_ten" ><br>
+                        sdt<input id="sdt" type="text" class="form-control " name="sdt" ><br>
+                        dia_chi<input id="dia_chi" type="text" class="form-control " name="dia_chi" ><br>
+                        ngay sinh <input id="text" type="date" class="form-control " name="ngay_sinh" ><br>
+                        
+
+                        
 
                         <div class="row mb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>

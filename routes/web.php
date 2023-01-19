@@ -30,6 +30,12 @@ Route::post('/change-password', [App\Http\Controllers\ProfileController::class, 
 Route::get('/confirm-otp', [App\Http\Controllers\ProfileController::class, 'confirmOTPform'])->name('confirm-otp');
 Route::post('/confirm-otp', [App\Http\Controllers\ProfileController::class, 'validateOtp'])->name('validate-otp');
 # doi mail
-#Route::get('/change-email', [App\Http\Controllers\ProfileController::class, 'changeEmail'])->name('change-email');
+Route::get('/sendchange-email', [App\Http\Controllers\ProfileController::class, 'sendChangeEmail'])->name('sendChange-email');
+Route::get('/change-email', [App\Http\Controllers\ProfileController::class, 'changeEmail'])->name('change-email');
+Route::post('/change-email', [App\Http\Controllers\ProfileController::class, 'validateEmail'])->name('validate-email');
+# edit thong tin 
+
+
+
 
 

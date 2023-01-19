@@ -7,7 +7,11 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
 use App\Mail\SendOtp;
+use App\Mail\SendEmailChangePass;
+
 use App\Models\EmailOtp;
+#use App\Models\EmailChangeEmail;
+
 use Illuminate\Support\Facades\Mail;
 
 class ProfileController extends Controller
@@ -22,6 +26,32 @@ class ProfileController extends Controller
 
     public function changePassword(){
         return view('profile.change-password');
+    }
+
+    public function sendChangeEmail(){
+        #send email
+        
+        if(Mail::to(auth()->user()->email)->send(new SendEmailChangePass())){
+            return back()->with("status", "Đã gửi mail thay đổi");
+            //return redirect()->route('profile');
+        }
+       
+    }
+
+    public function changeEmail(){
+        return view('profile.change-email');
+    }
+
+    public function validateEmail(Request $request){
+        $request->validate([
+            'email' => 'required|email|unique:users',
+        ]);
+        
+        User::whereId(auth()->user()->id)->update([
+            'email' => $request->email
+        ]);
+        return redirect()->route('profile')->with("status", "Đã thay đổi email thành công !!!");
+
     }
 
     public function confirmOTPform(){
@@ -52,7 +82,8 @@ class ProfileController extends Controller
         //dd($request->all());
         $request->validate([
             'old_password' => 'required',
-            'new_password' => 'required|confirmed',
+            'new_password' => 'required|confirmed|min:8|different:old_password',
+            
         ]);
 
 
