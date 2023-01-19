@@ -36,13 +36,13 @@
                         <br>
                         <br>
                         <ul class="social-list">
-                            <li>Ten dang nhap: {{ $user->name }}</li>
+                            <li>Tên đăng nhập: {{ $user->name }}</li>
                             <li>Email: {{ $user->email }}</li>
-                            <li>Ho va ten: {{ $user->ho_va_ten}}</li>
-                            <li>So dien thoai: {{ $user->sdt }}</li>
-                            <li>Ngay sinh: {{ $user->ngay_sinh }}</li>
-                            <li>Dia chi: {{ $user->dia_chi }}</li>
-                            <li>Ngay tao:{{ $user->created_at }}</li>
+                            <li>Họ và tên: {{ $user->ho_va_ten}}</li>
+                            <li>Số điện thoại: {{ $user->sdt }}</li>
+                            <li>Ngày sinh: {{ $user->ngay_sinh }}</li>
+                            <li>Địa chỉ: {{ $user->dia_chi }}</li>
+                            <li>Ngày tạo:{{ $user->created_at }}</li>
                         </ul>
                         
                         <div class="buttons">
@@ -54,7 +54,7 @@
                                 <a style="text-decoration: none" href="{{ route('sendChange-email') }}">{{ __('Change email') }}</a>
                             </button>
                             <button class="btn btn-outline-primary px-4">
-                                <a style="text-decoration: none " href="{{ route('change-password') }}">{{ __('Edit') }}</a>
+                                <a style="text-decoration: none " href="{{ route('edit-infor') }}">{{ __('Edit') }}</a>
                             </button>
                         </div>
                         

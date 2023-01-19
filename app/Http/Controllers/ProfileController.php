@@ -54,6 +54,31 @@ class ProfileController extends Controller
 
     }
 
+    public function editInfor(){
+        $user = User::whereId(auth()->user()->id)->first();
+
+        return view('profile.edit-infor',[
+            'user' => $user,
+        ]);
+    }
+
+    public function validateInfor(Request $request){
+        $request->validate([
+            'name' => 'required|max:30',
+            'ho_va_ten' => 'required|max:30',
+            'dia_chi' => 'required|max:50',
+            'sdt' => 'required|numeric|digits:10',
+        ]);
+
+        User::whereId(auth()->user()->id)->update([
+            'name' => $request->name,
+            'ho_va_ten' =>$request->ho_va_ten,
+            'dia_chi' =>$request->dia_chi,
+            'sdt' =>$request->sdt,
+        ]);
+        return redirect()->route('profile')->with("status", "Đã thay đổi thông tin thành công !!!");
+    }
+
     public function confirmOTPform(){
 
         if (auth()->user()->otp->count() <= 0) {
@@ -71,7 +96,7 @@ class ProfileController extends Controller
             ]);
             # delete otp
             $otp->delete();
-            return redirect()->route('home');
+            return redirect()->route('profile')->with("status", "Đã thay đổi mật khẩu thành công !!!");
         }else{
             return back()->withError('Incorrect OTP');
         }

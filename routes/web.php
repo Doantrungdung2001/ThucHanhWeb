@@ -34,6 +34,10 @@ Route::get('/sendchange-email', [App\Http\Controllers\ProfileController::class, 
 Route::get('/change-email', [App\Http\Controllers\ProfileController::class, 'changeEmail'])->name('change-email');
 Route::post('/change-email', [App\Http\Controllers\ProfileController::class, 'validateEmail'])->name('validate-email');
 # edit thong tin 
+Route::get('/edit-information', [App\Http\Controllers\ProfileController::class, 'editInfor'])->name('edit-infor');
+Route::post('/edit-information', [App\Http\Controllers\ProfileController::class, 'validateInfor'])->name('validate-infor');
+
+
 
 
 
