@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 
 <!-- =========================================================
-* Sneat - Bootstrap 5 HTML Admin Template - Pro | v1.0.0
+* E Shopeer - Bootstrap 5 HTML Admin Template - Pro | v1.0.0
 ==============================================================
-
-* Product Page: https://themeselection.com/products/sneat-bootstrap-html-admin-template/
+* Product Page: https://themeselection.com/products/E Shopeer-bootstrap-html-admin-template/
 * Created by: ThemeSelection
 * License: You must have a valid license purchased in order to legally use the theme for your project.
 * Copyright ThemeSelection (https://themeselection.com)
-
 =========================================================
  -->
 <!-- beautify ignore:start -->
@@ -27,7 +25,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Login Basic - Pages | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>Đăng nhập tài khoản | Mua sắm trực tuyến | E Shopper </title>
 
     <meta name="description" content="" />
 
@@ -131,30 +129,30 @@
                       </g>
                     </svg>
                   </span>
-                  <span class="app-brand-text demo text-body fw-bolder">Sneat</span>
+                  <span class="demo text-body fw-bolder" style="font-size: 24px">E Shopeer</span>
                 </a>
               </div>
               <!-- /Logo -->
-              <h4 class="mb-2">Welcome to Sneat! 👋</h4>
-              <p class="mb-4">Please sign-in to your account and start the adventure</p>
+              <h4 class="mb-2">Chào mừng đến với E Shopper 👋</h4>
+              <p class="mb-4">Vui lòng đăng nhập tài khoản của bạn để có thể trải nghiệm những điều tuyệt vời</p>
 
               <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
                 <div class="mb-3">
-                  <label for="email" class="form-label">Email or Username</label>
+                  <label for="email" class="form-label">Tài khoản</label>
                   <input
                     type="text"
                     class="form-control"
                     id="email"
                     name="email-username"
-                    placeholder="Enter your email or username"
+                    placeholder="Tên đăng nhập hoặc email"
                     autofocus
                   />
                 </div>
                 <div class="mb-3 form-password-toggle">
                   <div class="d-flex justify-content-between">
-                    <label class="form-label" for="password">Password</label>
+                    <label class="form-label" for="password">Mật khẩu</label>
                     <a href="auth-forgot-password-basic.html">
-                      <small>Forgot Password?</small>
+                      <small>Quên mật khẩu?</small>
                     </a>
                   </div>
                   <div class="input-group input-group-merge">
@@ -172,18 +170,18 @@
                 <div class="mb-3">
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="remember-me" />
-                    <label class="form-check-label" for="remember-me"> Remember Me </label>
+                    <label class="form-check-label" for="remember-me"> Ghi nhớ đăng nhập </label>
                   </div>
                 </div>
                 <div class="mb-3">
-                  <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
+                  <button class="btn btn-primary d-grid w-100" type="submit">Đăng ký</button>
                 </div>
               </form>
 
               <p class="text-center">
-                <span>New on our platform?</span>
+                <span>Bạn chưa có tài khoản?</span>
                 <a href="/register">
-                  <span>Create an account</span>
+                  <span>Đăng ký ngay</span>
                 </a>
               </p>
             </div>
@@ -194,15 +192,6 @@
     </div>
 
     <!-- / Content -->
-
-    <div class="buy-now">
-      <a
-        href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/"
-        target="_blank"
-        class="btn btn-danger btn-buy-now"
-        >Upgrade to Pro</a
-      >
-    </div>
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
