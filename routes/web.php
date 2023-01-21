@@ -32,9 +32,13 @@ Route::get('/product-category/{category_slug}', CategoryComponent::class)->name(
 Route::get('/search', SearchComponent::class)->name('product.search');
 
 //login and register
-Route::get('/login', array('as' => 'login', function () {
-    return view('login');
-}));
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/admin', 'App\Http\Controllers\AdminController@redirectUser');
+});
 
 //admin routes
 Route::get('/admin', 'App\Http\Controllers\AdminController@show_dashboard');
@@ -124,3 +128,5 @@ Route::prefix('admin')->group(function () {
         ]);
     });
 });
+
+

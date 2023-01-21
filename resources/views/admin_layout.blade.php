@@ -43,6 +43,14 @@
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="/assets/js/config.js"></script>
 
+    <style>
+        .logout-form {
+            padding: 0;
+            border: none;
+            background: none;
+        }
+    </style>
+
     @yield('css')
 </head>
 
@@ -266,10 +274,13 @@
                                         <div class="dropdown-divider"></div>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="auth-login-basic.html">
-                                            <i class="bx bx-power-off me-2"></i>
-                                            <span class="align-middle">Log Out</span>
-                                        </a>
+                                        <form class="dropdown-item" action="{{ url('logout') }}" method="POST">
+                                            @csrf
+                                            <button class="logout-form dropdown-item d-flex align-items-center align-middle" type="submit">
+                                                <i class="bx bx-power-off me-2"></i>
+                                                <span class="align-middle">Log Out</span>
+                                            </button>
+                                        </form>
                                     </li>
                                 </ul>
                             </li>
