@@ -20,6 +20,13 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/chosen.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/color-01.css') }}">
+    <style>
+        .logout-form {
+            padding: 0;
+            border: none;
+            background: none;
+        }
+    </style>
     @livewireStyles
 </head>
 
@@ -49,9 +56,21 @@
                         </div>
                         <div class="topbar-menu right-menu">
                             <ul>
-                                <li class="menu-item"><a title="Register or Login" href="{{ route('login') }}">Login</a></li>
-                                <li class="menu-item"><a title="Register or Login" href="{{ route('register') }}">Register</a>
+                                @if(Auth::check())
+                                {{-- <li class="menu-item"><a title="Logout" href="{{ route('logout') }}">Logout</a></li> --}}
+                                <li class="menu-item">
+                                    <form action="{{ url('logout') }}" method="POST">
+                                        @csrf
+                                        <button class="logout-form" type="submit">
+                                            <span title="Logout">Log Out</span>
+                                        </button>
+                                    </form>    
                                 </li>
+                                
+                                @else
+                                <li class="menu-item"><a title="Register or Login" href="{{ route('login') }}">Login</a></li>
+                                <li class="menu-item"><a title="Register or Login" href="{{ route('register') }}">Register</a></li>
+                                @endif
                                 <li class="menu-item lang-menu menu-item-has-children parent">
                                     <a title="English" href="#"><span class="img label-before"><img
                                                 src=" {{ asset('assets/images/lang-en.png') }}"
