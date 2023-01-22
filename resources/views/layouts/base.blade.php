@@ -28,7 +28,7 @@
         }
         
         .logout-form__text:hover {
-            color: red;x
+            color: red;
         }
     </style>
     @livewireStyles
