@@ -26,6 +26,10 @@
             border: none;
             background: none;
         }
+        
+        .logout-form__text:hover {
+            color: red;x
+        }
     </style>
     @livewireStyles
 </head>
@@ -62,7 +66,7 @@
                                     <form action="{{ url('logout') }}" method="POST">
                                         @csrf
                                         <button class="logout-form" type="submit">
-                                            <span title="Logout">Log Out</span>
+                                            <span class="logout-form__text" title="Logout">Log Out</span>
                                         </button>
                                     </form>    
                                 </li>
