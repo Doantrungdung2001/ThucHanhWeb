@@ -10,7 +10,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Change Password') }}</div>
+                    <div class="card-header">{{ __('Đổi mật khẩu') }}</div>
 
                     <form action="{{ route('validate-password') }}" method="POST">
                         @csrf
@@ -26,31 +26,31 @@
                             @endif
 
                             <div class="mb-3">
-                                <label for="oldPasswordInput" class="form-label">Old Password</label>
+                                <label for="oldPasswordInput" class="form-label">Mật khẩu cũ</label>
                                 <input name="old_password" type="password" class="form-control @error('old_password') is-invalid @enderror" id="oldPasswordInput"
-                                    placeholder="Old Password">
+                                    placeholder="Mật khẩu cũ">
                                 @error('old_password')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="newPasswordInput" class="form-label">New Password</label>
+                                <label for="newPasswordInput" class="form-label">Mật khẩu mới</label>
                                 <input name="new_password" type="password" class="form-control @error('new_password') is-invalid @enderror" id="newPasswordInput"
-                                    placeholder="New Password">
+                                    placeholder="Mật khẩu mới">
                                 @error('new_password')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="confirmNewPasswordInput" class="form-label">Confirm New Password</label>
+                                <label for="confirmNewPasswordInput" class="form-label">Xác nhận mật khẩu mới</label>
                                 <input name="new_password_confirmation" type="password" class="form-control" id="confirmNewPasswordInput"
-                                    placeholder="Confirm New Password">
+                                    placeholder="Xác nhận mật khẩu mới">
                             </div>
 
                         </div>
 
                         <div class="card-footer">
-                            <button class="btn btn-outline-primary px-4">Submit</button>
+                            <button class="btn btn-outline-primary px-4">Thay đổi</button>
                         </div>
 
                     </form>

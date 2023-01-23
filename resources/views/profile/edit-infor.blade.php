@@ -10,7 +10,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Edit Information') }}</div>
+                    <div class="card-header">{{ __('Thay đổi thông tin cá nhân') }}</div>
 
                     <form action="{{ route('validate-infor') }}" method="POST">
                         @csrf
@@ -56,7 +56,7 @@
                         </div>
 
                         <div class="card-footer">
-                            <button class="btn btn-outline-primary px-4">Submit</button>
+                            <button class="btn btn-outline-primary px-4">Lưu</button>
                         </div>
 
                     </form>

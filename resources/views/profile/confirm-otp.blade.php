@@ -14,13 +14,13 @@
                         </div>
                     @endif
 
-                    <p>An OTP has been sent to your register email, enter it to change password.</p>
+                    <p>Một OTP đã được gửi đến email đăng ký của bạn, hãy nhập nó để thay đổi mật khẩu.</p>
 
                     <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Enter OTP to change your password</div>
+                <div class="card-header">Nhập OTP để đổi mật khẩu</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('validate-otp') }}">
@@ -32,7 +32,7 @@
                             </div>
                         @endif
                         <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">Enter OTP</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-end">Nhập OTP</label>
 
                             <div class="col-md-6">
                                 <input  class="form-control @error('otp') is-invalid @enderror" name="otp" >

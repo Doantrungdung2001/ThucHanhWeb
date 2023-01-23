@@ -10,7 +10,7 @@
             justify-content:center;
             padding:0;
         }
-        .btn-outline-primary px-4 :hover{
+        .btn-outline-primary px-4 a :hover{
             color: white;!important
         }
 
@@ -48,13 +48,13 @@
                         <div class="buttons">
                             
                             <button class="btn btn-outline-primary px-4">
-                                <a style="text-decoration: none" href="{{ route('change-password') }}">{{ __('Change pass') }}</a>
+                                <a style="text-decoration: none" href="{{ route('change-password') }}">{{ __('Thay đổi mật khẩu') }}</a>
                             </button>
                             <button class="btn btn-outline-primary px-4">
-                                <a style="text-decoration: none" href="{{ route('sendChange-email') }}">{{ __('Change email') }}</a>
+                                <a style="text-decoration: none" href="{{ route('sendChange-email') }}">{{ __('Thay đổi email') }}</a>
                             </button>
                             <button class="btn btn-outline-primary px-4">
-                                <a style="text-decoration: none " href="{{ route('edit-infor') }}">{{ __('Edit') }}</a>
+                                <a style="text-decoration: none " href="{{ route('edit-infor') }}">{{ __('Thay đổi thông tin') }}</a>
                             </button>
                         </div>
                         
@@ -73,5 +73,4 @@
     </div>
 
 @endsection
-
 

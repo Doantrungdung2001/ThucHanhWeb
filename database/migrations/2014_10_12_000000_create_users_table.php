@@ -31,6 +31,7 @@ return new class extends Migration
             $table->date('ngay_sinh');
             $table->string('dia_chi', 50);
             $table->enum('trang_thai', ['hoat_dong','khoa']);
+            $table->string('profile_image')->nullable();
 
             //$table->string('token');
             //$table->foreign('id_phan_quyen')->references('id')->on('phan_quyen')->cascadeOnDelete()->cascadeOnUpdate();
