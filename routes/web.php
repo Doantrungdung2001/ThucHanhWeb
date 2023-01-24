@@ -131,4 +131,10 @@ Route::prefix('admin')->group(function () {
     });
 });
 
+//User Profile API 
+Route::get('/user-info', [
+    'as' => 'user.info',
+    'uses'=> 'App\Http\Controllers\UserProfileController@showInfo'
+]);
+
 

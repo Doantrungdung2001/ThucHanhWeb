@@ -61,16 +61,17 @@
                         <div class="topbar-menu right-menu">
                             <ul>
                                 @if(Auth::check())
-                                {{-- <li class="menu-item"><a title="Logout" href="{{ route('logout') }}">Logout</a></li> --}}
                                 <li class="menu-item">
-                                    <form action="{{ url('logout') }}" method="POST">
+                                    <form action="{{ url('logout') }}" class="menu-item" method="POST">
                                         @csrf
                                         <button class="logout-form" type="submit">
                                             <span class="logout-form__text" title="Logout">Log Out</span>
                                         </button>
                                     </form>    
                                 </li>
-                                
+                                <li class="menu-item">
+                                    <a title="Profile" href="{{ url('user/profile') }}">Profile</a>
+                                </li>
                                 @else
                                 <li class="menu-item"><a title="Register or Login" href="{{ route('login') }}">Login</a></li>
                                 <li class="menu-item"><a title="Register or Login" href="{{ route('register') }}">Register</a></li>
