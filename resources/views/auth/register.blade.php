@@ -165,6 +165,50 @@
                             :value="old('email')"
                             required
                         />
+                        <div class="mb-3">
+                          <x-jet-label for="ho_va_ten" class="form-label" value="{{ __('Tên đầy đủ') }}"/>
+                          <x-jet-input
+                              type="text"
+                              class="form-control"
+                              id="ho_va_ten"
+                              name="ho_va_ten"
+                              placeholder="Tên đầy đủ của bạn"
+                              :value="old('ho_va_ten')"
+                              required
+                          />
+                          <div class="mb-3">
+                            <x-jet-label for="sdt" class="form-label" value="{{ __('Số điện thoại') }}"/>
+                            <x-jet-input
+                                type="text"
+                                class="form-control"
+                                id="sdt"
+                                name="sdt"
+                                placeholder="Số điện thoại của bạn"
+                                :value="old('sdt')"
+                                required
+                            />
+                            <div class="mb-3">
+                              <x-jet-label for="dia_chi" class="form-label" value="{{ __('Địa chỉ') }}"/>
+                              <x-jet-input
+                                  type="dia_chi"
+                                  class="form-control"
+                                  id="dia_chi"
+                                  name="dia_chi"
+                                  placeholder="dia_chi"
+                                  :value="old('dia_chi')"
+                                  required
+                              />
+                              <div class="mb-3">
+                                <x-jet-label for="ngay_sinh" class="form-label" value="{{ __('Ngày sinh') }}"/>
+                                <x-jet-input
+                                    type="date"
+                                    class="form-control"
+                                    id="ngay_sinh"
+                                    name="ngay_sinh"
+                                    placeholder=" ngay_sinh"
+                                    :value="old('ngay_sinh')"
+                                    required
+                                />
                       </div>
                       <div class="mb-3 form-password-toggle">
                         <div class="d-flex justify-content-between">
