@@ -21,6 +21,13 @@ return new class extends Migration
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
+            $table->bigInteger('id_phan_quyen')->unsigned();
+            $table->string('ho_va_ten', 30);
+            $table->string('sdt', 11);
+            $table->date('ngay_sinh');
+            $table->string('dia_chi', 50);
+            $table->enum('trang_thai', ['hoat_dong','khoa']);
+
             $table->timestamps();
         });
     }
