@@ -25,6 +25,8 @@
                                     <th>Giá</th>
                                     <th>Danh mục sản phẩm</th>
                                     <th>Hãng</th>
+                                    <th>Màu sắc</th>
+                                    <th>Kích cỡ</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -41,6 +43,16 @@
                                         <td>{{ optional($product->category)->name }}</td>
                                         <td>{{ $product->brand->name }}</td>
                                         <td>
+                                            @foreach ($product->colors()->select('color_id')->get() as $color)
+                                                <button>{{ $colors[((int) $color->color_id) - 1]->name }}</button>
+                                            @endforeach
+                                        </td>
+                                        <td>
+                                            @foreach ($product->sizes()->select('size_id')->get() as $size)
+                                                <button>{{ $sizes[((int) $size->size_id) - 1]->name }}</button>
+                                            @endforeach
+                                        </td>
+                                        <td>
                                             <div class="dropdown">
                                                 <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
                                                     data-bs-toggle="dropdown">
@@ -50,7 +62,8 @@
                                                     <a class="dropdown-item"
                                                         href="{{ route('product.edit', ['id' => $product->id]) }}"><i
                                                             class="bx bx-edit-alt me-1"></i> Chỉnh sửa</a>
-                                                    <a class="dropdown-item action_delete" href="" data-url="{{ route('product.delete', ['id' => $product->id]) }}"><i
+                                                    <a class="dropdown-item action_delete" href=""
+                                                        data-url="{{ route('product.delete', ['id' => $product->id]) }}"><i
                                                             class="bx bx-trash me-1"></i> Xóa</a>
                                                 </div>
                                             </div>

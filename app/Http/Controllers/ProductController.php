@@ -133,7 +133,9 @@ class ProductController extends Controller
     public function all()
     {
         $products = $this->product->simplePaginate(5);
-        return view('admin.product.all_product', compact('products'));
+        $colors = $this->color->all();
+        $sizes = $this->size->all();
+        return view('admin.product.all_product', compact('products', 'colors', 'sizes'));
     }
 
     public function store(Request $request)
