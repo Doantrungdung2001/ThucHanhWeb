@@ -21,7 +21,7 @@ return new class extends Migration
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
-            $table->bigInteger('id_phan_quyen')->unsigned();
+            $table->bigInteger('id_phan_quyen')->unsigned()->nullable();
             $table->string('ho_va_ten', 30);
             $table->string('sdt', 11);
             $table->date('ngay_sinh');

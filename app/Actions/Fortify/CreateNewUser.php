@@ -38,6 +38,7 @@ class CreateNewUser implements CreatesNewUsers
             'ho_va_ten' => $input['ho_va_ten'],
             'dia_chi' => $input['dia_chi'],
             'ngay_sinh' => $input['ngay_sinh'],
+            'sdt' => $input['sdt'],
             'password' => Hash::make($input['password']),
         ]);
     }
