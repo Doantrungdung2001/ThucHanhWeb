@@ -43,9 +43,9 @@ Route::middleware([
 });
 
 //admin routes
-Route::get('/admin', 'App\Http\Controllers\AdminController@show_dashboard');
+Route::get('/admin', 'App\Http\Controllers\AdminController@show_dashboard')->middleware('admin');
 
-Route::prefix('admin')->group(function () {
+Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     // Category product
     Route::prefix('category')->group(function () {
         Route::get('/all', [
@@ -136,7 +136,6 @@ Route::get('/user-info', [
     'as' => 'user.info',
     'uses'=> 'App\Http\Controllers\UserProfileController@showInfo'
 ]);
-
 
 //CART - CHECKOUT - INVOICE
 Route::get('/cart-home', 'App\Http\Controllers\CartsController@Index');
