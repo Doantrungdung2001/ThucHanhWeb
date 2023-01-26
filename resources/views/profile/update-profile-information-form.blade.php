@@ -64,6 +64,22 @@
             <x-jet-label for="email" value="{{ __('Email') }}" />
             <x-jet-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="state.email" />
             <x-jet-input-error for="email" class="mt-2" />
+        
+            @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::emailVerification()) && ! $this->user->hasVerifiedEmail())
+                <p class="text-sm mt-2">
+                    {{ __('Địa chỉ email của bạn chưa được xác minh.') }}
+
+                    <button type="button" class="underline text-sm text-gray-600 hover:text-gray-900" wire:click.prevent="sendEmailVerification">
+                        {{ __('Nhấp vào đây để gửi lại email xác minh.') }}
+                    </button>
+                </p>
+
+                @if ($this->verificationLinkSent)
+                    <p v-show="verificationLinkSent" class="mt-2 font-medium text-sm text-green-600">
+                        {{ __('Một liên kết xác minh mới đã được gửi đến địa chỉ email của bạn.') }}
+                    </p>
+                @endif
+            @endif
         </div>
         <!-- Họ và tên -->
         <div class="col-span-6 sm:col-span-4">
@@ -88,22 +104,6 @@
             <x-jet-label for="dia_chi" value="{{ __('Địa chỉ') }}" />
             <x-jet-input id="dia_chi" type="text" class="mt-1 block w-full" wire:model.defer="state.dia_chi" />
             <x-jet-input-error for="dia_chi" class="mt-2" />
-        </div>
-            @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::emailVerification()) && ! $this->user->hasVerifiedEmail())
-                <p class="text-sm mt-2">
-                    {{ __('Địa chỉ email của bạn chưa được xác minh.') }}
-
-                    <button type="button" class="underline text-sm text-gray-600 hover:text-gray-900" wire:click.prevent="sendEmailVerification">
-                        {{ __('Nhấp vào đây để gửi lại email xác minh.') }}
-                    </button>
-                </p>
-
-                @if ($this->verificationLinkSent)
-                    <p v-show="verificationLinkSent" class="mt-2 font-medium text-sm text-green-600">
-                        {{ __('Một liên kết xác minh mới đã được gửi đến địa chỉ email của bạn.') }}
-                    </p>
-                @endif
-            @endif
         </div>
     </x-slot>
 
