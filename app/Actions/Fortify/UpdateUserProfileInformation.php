@@ -21,6 +21,11 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
             'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
+            'ho_va_ten' => ['required', 'string', 'max:255'],
+            'dia_chi' => ['required', 'string', 'max:255'],
+            'sdt' => ['nullable', 'numeric','digits:10'],
+            'ngay_sinh' => ['required','date','date_format:Y-m-d','before:'.now()->subYears(18)->toDateString()],
+
         ])->validateWithBag('updateProfileInformation');
 
         if (isset($input['photo'])) {
@@ -34,6 +39,10 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             $user->forceFill([
                 'name' => $input['name'],
                 'email' => $input['email'],
+                'ho_va_ten' => $input['ho_va_ten'],
+                'dia_chi' => $input['dia_chi'],
+                'sdt' => $input['sdt'],
+                'ngay_sinh' => $input['ngay_sinh'],
             ])->save();
         }
     }
@@ -49,6 +58,10 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             'name' => $input['name'],
             'email' => $input['email'],
             'email_verified_at' => null,
+            'ho_va_ten' => $input['ho_va_ten'],
+            'dia_chi' => $input['dia_chi'],
+            'sdt' => $input['sdt'],
+            'ngay_sinh' => $input['ngay_sinh'],
         ])->save();
 
         $user->sendEmailVerificationNotification();
