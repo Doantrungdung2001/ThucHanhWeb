@@ -31,6 +31,9 @@
         .cart-pic img{
             width: 100%;
         }
+        .proceed-checkout button{
+            width: 100%;
+        }
     </style>
 </head>
 
@@ -115,14 +118,14 @@
                                         $vn_to_usd = $totalPrice/23083;
                                     @endphp
                                 </ul>
-                                <form action="{{url('/VN-pay-payment')}}" method="post">
+                                <form action="{{url('/Sucess-payment')}}" method="get" class="pay">
+                                    @csrf
+                                    <button type="submit" class="proceed-btn-pay" name="redirect">Thanh toán nhận hàng</button>
+                                </form>
+                                <form action="{{url('/VN-pay-payment')}}" method="post" >
                                     @csrf
                                     <input type="hidden" name="totalPrice" value="{{$totalPrice}}">
-                                    <button type="submit" class="proceed-btn" name="redirect">Thanh toán VNpay</button>
-                                </form>
-                                <form action="{{url('/Sucess-payment')}}" method="get">
-                                    @csrf
-                                    <button type="submit" class="proceed-btn" name="redirect">Thanh toán nhan hang</button>
+                                    <button type="submit" class="proceed-btn-pay" name="redirect">Thanh toán VNpay</button>
                                 </form>
                                 <div id="paypal-button" class="proceed-btn-3"></div>
                                 <input type="hidden" id="vn_to_usd" value="{{round($vn_to_usd,2)}}">

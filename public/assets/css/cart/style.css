@@ -2833,7 +2833,14 @@ ol {
 	padding-top: 16px;
 	padding-bottom: 20px;
 }
-
+/* .proceed-checkout form {
+	border: 2px solid #ebebeb;
+	background: #f3f3f3;
+	padding-left: 25px;
+	padding-right: 25px;
+	padding-top: 16px;
+	padding-bottom: 20px;
+} */
 .proceed-checkout-buy ul {
 	border: 2px solid #ebebeb;
 	background: #f3f3f3;
@@ -2890,7 +2897,16 @@ ol {
 	display: block;
 	text-align: center;
 }
-
+.proceed-checkout .proceed-btn-pay {
+	font-size: 14px;
+	font-weight: 700;
+	color: #ffffff;
+	background: #252525;
+	text-transform: uppercase;
+	padding: 15px 25px 14px 25px;
+	display: block;
+	text-align: center;
+}
 .proceed-checkout .proceed-btn-2 {
 	font-size: 14px;
 	font-weight: 700;
