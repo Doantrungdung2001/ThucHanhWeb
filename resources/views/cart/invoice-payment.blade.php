@@ -8,6 +8,13 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <style>
+        .card button{
+            width: 100px;
+        }
+       
+    </style>
 </head>
 
 <body>
@@ -44,7 +51,7 @@
                         <thead>
                             <tr>
                                 <th class="center">#</th>
-                                <th>Mặ hàng</th>
+                                <th>Mặt hàng</th>
                                 <th>Mô tả</th>
                                 <th class="right">Giá</th>
                                 <th class="center">Số lượng</th>

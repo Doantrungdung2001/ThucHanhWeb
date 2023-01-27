@@ -18,7 +18,7 @@
             <tbody>
                 @foreach($cart as $item)
                 <tr>
-                    <td class="cart-pic first-row"><img src="{{$item->image_url}}" alt=""></td>
+                    <td class="cart-pic first-row"><img src="{{ asset('assets/images/products') }}/{{ $item->image_url }}" alt=""></td>
                     <td class="cart-title first-row">
                         <h5>{{$item->name}}</h5>
                     </td>

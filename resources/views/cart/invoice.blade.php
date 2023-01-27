@@ -50,7 +50,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text product-more">
-                        <a href=""><i class="fa fa-home"></i> Trang chủ</a>
+                        <a href="{{url('/Cart')}}"><i class="fa fa-home"></i> Giỏ hàng</a>
                         <span>Hóa đơn</span>
                     </div>
                 </div>
@@ -83,7 +83,7 @@
                             <tbody>
                                 @foreach($product as $item)
                                 <tr>
-                                    <td class="cart-pic-buy-again second-row"><img src="{{$item->image_url}}" alt=""></td>
+                                    <td class="cart-pic-buy-again second-row"><img src="{{ asset('assets/images/products') }}/{{ $item->image_url }}" alt=""></td>
                                     <td class="cart-title second-row">
                                         
                                         <div class="row2">

@@ -92,7 +92,7 @@
                             <tbody>
                                 @foreach($cart as $item)
                                 <tr>
-                                    <td class="cart-pic-buy-again second-row"><img src="{{$item->image_url}}" alt=""></td>
+                                    <td class="cart-pic-buy-again second-row"><img src="{{ asset('assets/images/products') }}/{{ $item->image_url }}" alt=""></td>
                                     <td class="cart-title second-row">
                                         <div class="row2">
                                             <div class="col-lg-12 offset-lg-24">

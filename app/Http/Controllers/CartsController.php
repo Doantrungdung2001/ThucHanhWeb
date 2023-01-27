@@ -28,56 +28,23 @@ class CartsController extends Controller
     }
 
     public function AddToCart(Request $req,$id){
-        // $res = Http::get('https://p01-product-api-production.up.railway.app/api/user/products');
-        // // $id_user = $req->id;
+        //$req->value = 
         // $id_user = Auth::user()->id;
-        // $cart_item = new ItemCart();
-        // foreach($res['data'] as $prd){
-        //     if($prd['sub_products'] != null){
-        //         foreach($prd['sub_products'] as $item){
-        //             if($item['id'] == $id){
-        //                 if(ItemCart::where('id_user',$id_user)->where('id_product',$id)->where('status',1)->exists()){
-        //                     $now_quanty = ItemCart::where('id_user',$id_user)->where('id_product',$id)->where('status',1)->first();
-        //                     $i = $now_quanty->quanty + 1;
-        //                     $cost = $prd['cost'] * $i;
-        //                     ItemCart::where('id_user',$id_user)
-        //                     ->where('id_product',$id)
-        //                     ->update(['quanty'=>$i]);
-        //                     ItemCart::where('id_user',$id_user)
-        //                     ->where('id_product',$id)
-        //                     ->update(['total_price'=>$cost]);
-        //                 }else{
-        //                     $cart_item->id_user = $id_user;
-        //                     $cart_item->id_product = $item['id'];
-        //                     $cart_item->name = $prd['name'];
-        //                     $cart_item->quanty = 1;
-        //                     $cart_item->size = $item['size'];
-        //                     $cart_item->color = $item['color'];
-        //                     $cart_item->price = $prd['cost'];
-        //                     $cart_item->total_price = $prd['cost'];
-        //                     $cart_item->image_url = $item['image_url'];
-        //                     $cart_item->status = 1;
-
-        //                     $cart_item->save();
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
-        $id_user = Auth::user()->id;
+        $id_user = 2;
         $cart_item = new ItemCart();
         $item = DB::table('products')->where('id',$id)->first();
         if($item){
             if($item->quantity > 0){
                 $size = DB::table('sizes')
-                        ->join('product_sizes', 'sizes.id', '=', 'product_sizes.size_id')
-                        ->join('products', 'product_sizes.product_id', '=', 'products.id')
-                        ->select('sizes.name')
+                        ->rightJoin('product_sizes', 'sizes.id', '=', 'product_sizes.size_id')
+                        ->rightJoin('products', 'product_sizes.product_id', '=', 'products.id')
+                        ->where('products.id',$id)
                         ->get();
                 $color = DB::table('colors')
                         ->join('product_colors', 'colors.id', '=', 'product_colors.color_id')
                         ->join('products', 'product_colors.product_id', '=', 'products.id')
-                        ->select('sizes.name')
+                        ->select('colors.name')
+                        ->where('products.id',$id)
                         ->first();
                 if(ItemCart::where('id_user',$id_user)->where('id_product',$id)->where('status',1)->exists()){
                     $now_quanty = ItemCart::where('id_user',$id_user)->where('id_product',$id)->where('status',1)->first();
@@ -94,15 +61,17 @@ class CartsController extends Controller
                     $cart_item->id_product = $item->id;
                     $cart_item->name = $item->name;
                     $cart_item->quanty = 1;
-                    $cart_item->size = $size;//
-                    $cart_item->color = $item['color'];//
+                    $cart_item->size = "XL";
+                    $cart_item->color = "red";//
                     $cart_item->price = $item->price;
                     $cart_item->total_price = $item->price;
-                    $cart_item->image_url = $item['image_url'];//
+                    $cart_item->image_url = $item->image_path;
                     $cart_item->status = 1;
             
                     $cart_item->save();
                 }
+                //return $size;
+                return $cart_item;
             }
         }
         
