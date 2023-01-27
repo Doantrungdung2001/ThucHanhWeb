@@ -64,8 +64,35 @@ class CartsController extends Controller
         //         }
         //     }
         // }
+        $id_user = Auth::user()->id;
         $cart_item = new ItemCart();
-        $item = DB::table('products')->where('id',$id)->get();
+        $item = DB::table('products')->where('id',$id)->first();
+        if($item->quantity > 0){
+            if(ItemCart::where('id_user',$id_user)->where('id_product',$id)->where('status',1)->exists()){
+                $now_quanty = ItemCart::where('id_user',$id_user)->where('id_product',$id)->where('status',1)->first();
+                $i = $now_quanty->quanty + 1;
+                $cost = $now_quanty->price * $i;
+                ItemCart::where('id_user',$id_user)
+                    ->where('id_product',$id)
+                    ->update(['quanty'=>$i]);
+                ItemCart::where('id_user',$id_user)
+                        ->where('id_product',$id)
+                        ->update(['total_price'=>$cost]);
+            }else{
+                $cart_item->id_user = $id_user;
+                $cart_item->id_product = $item->id;
+                $cart_item->name = $item->name;
+                $cart_item->quanty = 1;
+                $cart_item->size = $item['size'];//
+                $cart_item->color = $item['color'];//
+                $cart_item->price = $item->price;
+                $cart_item->total_price = $item->price;
+                $cart_item->image_url = $item['image_url'];//
+                $cart_item->status = 1;
+        
+                $cart_item->save();
+            }
+        }
     }
 
     public function ViewToCart(){
