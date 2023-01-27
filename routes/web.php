@@ -6,6 +6,7 @@ use App\Http\Livewire\CartComponent;
 use App\Http\Livewire\CategoryComponent;
 use App\Http\Livewire\CheckoutComponent;
 use App\Http\Livewire\SearchComponent;
+use App\Http\Livewire\DetailComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +31,9 @@ Route::get('/checkout', CheckoutComponent::class);
 Route::get('/product-category/{category_slug}', CategoryComponent::class)->name('product.category');
 
 Route::get('/search', SearchComponent::class)->name('product.search');
+
+Route::get('/detail/{slug}', DetailComponent::class)->name('product.details');
+
 
 //login and register
 Route::middleware([
