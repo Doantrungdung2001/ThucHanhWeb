@@ -8,12 +8,22 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+   
     <style>
         .card button{
+            /* position: relative;
             width: 100px;
+            margin-left: auto; */
+            margin: auto;
+            position: relative; 
+            left: 0px;
+            width: 60%;
+            border: 2px solid black;
+            padding: 10px;
+            background-color: #b0e0e6;
         }
-       
+        
     </style>
 </head>
 
@@ -69,30 +79,6 @@
                                 <td class="right">{{$item->total_price}}</td>
                             </tr>
                             @endforeach
-                            {{-- <tr>
-                                <td class="center">2</td>
-                                <td class="left">Iphone 8X</td>
-                                <td class="left">Iphone 8X with extended warranty</td>
-                                <td class="right">$1200</td>
-                                <td class="center">10</td>
-                                <td class="right">$12,000</td>
-                            </tr>
-                            <tr>
-                                <td class="center">3</td>
-                                <td class="left">Samsung 4C</td>
-                                <td class="left">Samsung 4C with extended warranty</td>
-                                <td class="right">$800</td>
-                                <td class="center">10</td>
-                                <td class="right">$8000</td>
-                            </tr>
-                            <tr>
-                                <td class="center">4</td>
-                                <td class="left">Google Pixel</td>
-                                <td class="left">Google prime with Amazon prime membership</td>
-                                <td class="right">$500</td>
-                                <td class="center">10</td>
-                                <td class="right">$5000</td>
-                            </tr> --}}
                         </tbody>
                     </table>
                 </div>
@@ -102,7 +88,7 @@
                     <div class="col-lg-4 col-sm-5 ml-auto">
                         <table class="table table-clear">
                             <tbody>
-                                <tr>
+                                {{-- <tr>
                                     <td class="left">
                                         <strong class="text-dark">Tổng số tiền</strong>
                                     </td>
@@ -120,9 +106,9 @@
                                     </td>
                                     <td class="right">$2,304,00</td>
                                 </tr>
-                                <tr>
+                                <tr> --}}
                                     <td class="left">
-                                        <strong class="text-dark">Total</strong>
+                                        <strong class="text-dark">Tổng số tiền</strong>
                                     </td>
                                     <td class="right">
                                         <strong class="text-dark">{{number_format($totalPrice)}}₫</strong>
@@ -132,9 +118,9 @@
                         </table>
                     </div>
                 </div>
-                <form action="{{url('/Cart')}}" method="get">
+                <form action="{{url('/Sucess-payment')}}" method="get">
                     @csrf
-                    <button type="submit">ok</button>
+                    <button type="submit">OK</button>
                 </form>
             </div>
             <div class="card-footer bg-white">
