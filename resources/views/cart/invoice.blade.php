@@ -47,8 +47,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text product-more">
-                        <a href=""><i class="fa fa-home"></i> Home</a>
-                        <span>Invoice</span>
+                        <a href=""><i class="fa fa-home"></i> Trang chủ</a>
+                        <span>Hóa đơn</span>
                     </div>
                 </div>
             </div>

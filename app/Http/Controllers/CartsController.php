@@ -28,42 +28,44 @@ class CartsController extends Controller
     }
 
     public function AddToCart(Request $req,$id){
-        $res = Http::get('https://p01-product-api-production.up.railway.app/api/user/products');
-        // $id_user = $req->id;
-        $id_user = Auth::user()->id;
-        $cart_item = new ItemCart();
-        foreach($res['data'] as $prd){
-            if($prd['sub_products'] != null){
-                foreach($prd['sub_products'] as $item){
-                    if($item['id'] == $id){
-                        if(ItemCart::where('id_user',$id_user)->where('id_product',$id)->where('status',1)->exists()){
-                            $now_quanty = ItemCart::where('id_user',$id_user)->where('id_product',$id)->where('status',1)->first();
-                            $i = $now_quanty->quanty + 1;
-                            $cost = $prd['cost'] * $i;
-                            ItemCart::where('id_user',$id_user)
-                            ->where('id_product',$id)
-                            ->update(['quanty'=>$i]);
-                            ItemCart::where('id_user',$id_user)
-                            ->where('id_product',$id)
-                            ->update(['total_price'=>$cost]);
-                        }else{
-                            $cart_item->id_user = $id_user;
-                            $cart_item->id_product = $item['id'];
-                            $cart_item->name = $prd['name'];
-                            $cart_item->quanty = 1;
-                            $cart_item->size = $item['size'];
-                            $cart_item->color = $item['color'];
-                            $cart_item->price = $prd['cost'];
-                            $cart_item->total_price = $prd['cost'];
-                            $cart_item->image_url = $item['image_url'];
-                            $cart_item->status = 1;
+        // $res = Http::get('https://p01-product-api-production.up.railway.app/api/user/products');
+        // // $id_user = $req->id;
+        // $id_user = Auth::user()->id;
+        // $cart_item = new ItemCart();
+        // foreach($res['data'] as $prd){
+        //     if($prd['sub_products'] != null){
+        //         foreach($prd['sub_products'] as $item){
+        //             if($item['id'] == $id){
+        //                 if(ItemCart::where('id_user',$id_user)->where('id_product',$id)->where('status',1)->exists()){
+        //                     $now_quanty = ItemCart::where('id_user',$id_user)->where('id_product',$id)->where('status',1)->first();
+        //                     $i = $now_quanty->quanty + 1;
+        //                     $cost = $prd['cost'] * $i;
+        //                     ItemCart::where('id_user',$id_user)
+        //                     ->where('id_product',$id)
+        //                     ->update(['quanty'=>$i]);
+        //                     ItemCart::where('id_user',$id_user)
+        //                     ->where('id_product',$id)
+        //                     ->update(['total_price'=>$cost]);
+        //                 }else{
+        //                     $cart_item->id_user = $id_user;
+        //                     $cart_item->id_product = $item['id'];
+        //                     $cart_item->name = $prd['name'];
+        //                     $cart_item->quanty = 1;
+        //                     $cart_item->size = $item['size'];
+        //                     $cart_item->color = $item['color'];
+        //                     $cart_item->price = $prd['cost'];
+        //                     $cart_item->total_price = $prd['cost'];
+        //                     $cart_item->image_url = $item['image_url'];
+        //                     $cart_item->status = 1;
 
-                            $cart_item->save();
-                        }
-                    }
-                }
-            }
-        }
+        //                     $cart_item->save();
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
+        $cart_item = new ItemCart();
+        $item = DB::table('products')->where('id',$id)->get();
     }
 
     public function ViewToCart(){
