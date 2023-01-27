@@ -69,7 +69,16 @@ class CartsController extends Controller
         $item = DB::table('products')->where('id',$id)->first();
         if($item){
             if($item->quantity > 0){
-                
+                $size = DB::table('sizes')
+                        ->join('product_sizes', 'sizes.id', '=', 'product_sizes.size_id')
+                        ->join('products', 'product_sizes.product_id', '=', 'products.id')
+                        ->select('sizes.name')
+                        ->get();
+                $color = DB::table('colors')
+                        ->join('product_colors', 'colors.id', '=', 'product_colors.color_id')
+                        ->join('products', 'product_colors.product_id', '=', 'products.id')
+                        ->select('sizes.name')
+                        ->first();
                 if(ItemCart::where('id_user',$id_user)->where('id_product',$id)->where('status',1)->exists()){
                     $now_quanty = ItemCart::where('id_user',$id_user)->where('id_product',$id)->where('status',1)->first();
                     $i = $now_quanty->quanty + 1;
@@ -85,7 +94,7 @@ class CartsController extends Controller
                     $cart_item->id_product = $item->id;
                     $cart_item->name = $item->name;
                     $cart_item->quanty = 1;
-                    $cart_item->size = $item['size'];//
+                    $cart_item->size = $size;//
                     $cart_item->color = $item['color'];//
                     $cart_item->price = $item->price;
                     $cart_item->total_price = $item->price;
