@@ -24,6 +24,8 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             'ho_va_ten' => ['required', 'string', 'max:255'],
             'dia_chi' => ['required', 'string', 'max:255'],
             'sdt' => ['nullable', 'numeric','digits:10'],
+            'ngay_sinh' => ['required','date','date_format:Y-m-d','before:'.now()->subYears(18)->toDateString()],
+
         ])->validateWithBag('updateProfileInformation');
 
         if (isset($input['photo'])) {
