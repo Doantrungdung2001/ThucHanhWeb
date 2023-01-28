@@ -115,7 +115,7 @@
                                     <span class="flash-item new-label">new</span>
                                 </div>
                                 <div class="wrap-btn">
-                                    <a href="#" class="function-link">quick view</a>
+                                    <a href="#" class="function-link">xem nhanh</a>
                                 </div>
                             </div>
                             <div class="product-info">
@@ -136,7 +136,7 @@
                                     <span class="flash-item sale-label">sale</span>
                                 </div>
                                 <div class="wrap-btn">
-                                    <a href="#" class="function-link">quick view</a>
+                                    <a href="#" class="function-link">xem nhanh</a>
                                 </div>
                             </div>
                             <div class="product-info">
@@ -162,7 +162,7 @@
                                     <span class="flash-item sale-label">sale</span>
                                 </div>
                                 <div class="wrap-btn">
-                                    <a href="#" class="function-link">quick view</a>
+                                    <a href="#" class="function-link">xem nhanh</a>
                                 </div>
                             </div>
                             <div class="product-info">
@@ -187,7 +187,7 @@
                                     <span class="flash-item bestseller-label">Bestseller</span>
                                 </div>
                                 <div class="wrap-btn">
-                                    <a href="#" class="function-link">quick view</a>
+                                    <a href="#" class="function-link">xem nhanh</a>
                                 </div>
                             </div>
                             <div class="product-info">
@@ -205,7 +205,7 @@
                                     </figure>
                                 </a>
                                 <div class="wrap-btn">
-                                    <a href="#" class="function-link">quick view</a>
+                                    <a href="#" class="function-link">xem nhanh</a>
                                 </div>
                             </div>
                             <div class="product-info">
@@ -226,7 +226,7 @@
                                     <span class="flash-item sale-label">sale</span>
                                 </div>
                                 <div class="wrap-btn">
-                                    <a href="#" class="function-link">quick view</a>
+                                    <a href="#" class="function-link">xem nhanh</a>
                                 </div>
                             </div>
                             <div class="product-info">
@@ -251,7 +251,7 @@
                                     <span class="flash-item new-label">new</span>
                                 </div>
                                 <div class="wrap-btn">
-                                    <a href="#" class="function-link">quick view</a>
+                                    <a href="#" class="function-link">xem nhanh</a>
                                 </div>
                             </div>
                             <div class="product-info">
@@ -272,7 +272,7 @@
                                     <span class="flash-item bestseller-label">Bestseller</span>
                                 </div>
                                 <div class="wrap-btn">
-                                    <a href="#" class="function-link">quick view</a>
+                                    <a href="#" class="function-link">xem nhanh</a>
                                 </div>
                             </div>
                             <div class="product-info">

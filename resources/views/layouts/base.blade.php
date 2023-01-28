@@ -193,7 +193,7 @@
                                     <a href="/shop" class="link-term mercado-item-title">Shop</a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="/cart" class="link-term mercado-item-title">Giỏ hàng</a>
+                                    <a href="{{ url('/Cart') }}" class="link-term mercado-item-title">Giỏ hàng</a>
                                 </li>
                                 <li class="menu-item">
                                     <a href="/checkout" class="link-term mercado-item-title">Thanh Toán</a>
