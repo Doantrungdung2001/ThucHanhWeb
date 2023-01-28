@@ -78,15 +78,7 @@
                         <table>
                             <thead>
                                 <tr>
-                                    {{-- <th>Hình ảnh</th>
-                                    <th class=""></th> 
-                                    {{-- <th>Giá</th>
-                                    <th>Số lượng</th>
-                                    <th>Kích thước</th>
-                                    <th>Màu sắc</th>
-                                    <th>Tổng</th>
-                                    <th>Lưu</th> --}}
-                                    {{-- <th>Xóa</th>--}}
+                                
                                 </tr>
                             </thead>
                             <tbody>
@@ -100,8 +92,8 @@
                                                     <ul>
                                                         <li class="subtotal">Tên sản phẩm  : <span>{{$item->name}}</span></li>
                                                         <li class="cart-total">Giá :<span>{{number_format($item->price)}}₫</span></li>
-                                                        <li class="cart-total">Giá :<span>{{number_format($item->price)}}₫</span></li>
-                                                        <li class="cart-total">Giá :<span>{{number_format($item->price)}}₫</span></li>
+                                                        <li class="cart-total">Màu sắc :<span>{{$item->color}}</span></li>
+                                                        <li class="cart-total">Số lượng :<span>{{$item->quanty}}</span></li>
                                                     </ul>
                                                     
                                                 </div>
@@ -110,8 +102,8 @@
                                         <div class="row2">
                                             <div class="col-lg-4 offset-lg-8">
                                                 <div class="proceed-checkout">
-                                                    <a href="#" class="proceed-btn">Mua lại hàng</a>
-                                                    <a href="#" class="proceed-btn-2">Xóa</a>
+                                                    <a onclick="AddCart({{$item->id_product}})" href="javascript:" class="proceed-btn">Mua lại hàng</a>
+                                                    <a href="#" class="proceed-btn-2" onclick="DeleteItemListCart({{$item->id_product}});">Xóa</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -173,6 +165,23 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
 
     <script>
+        function AddCart(id){
+            $.ajax({
+                url:'detail/AddtoCart/'+id,
+                type:'GET',
+
+                success:function(response){
+                    RenderListCart(response);
+                    alertify.success('Thêm sản phẩm thành công');
+                },
+                error:function(response , error){
+                    // handleException(request , message , error);
+                    console.log(error);
+                    console.log(response);
+                }
+            });
+        }
+
         function DeleteItemListCart(id){
             //console.log(id);
             $.ajax({
@@ -185,28 +194,6 @@
             });
         }
         
-        function SaveItemListCart(id){
-            //console.log(id);
-            
-            $.ajax({
-                url:'Save-Item-List-Cart/'+id+'/'+$("#quanty-item-"+id).val(),
-                type:'GET',
-            }).done(function(response){
-                //console.log($("#quanty-item-"+id).val());
-                if($("#quanty-item-"+id).val() == 0){
-                    DeleteItemListCart(id);
-                }else{
-                    if($("#quanty-item-"+id).val() >= 100){
-                        alertify.success('Cập nhật thất bại');
-                    }else{
-                        RenderListCart(response);
-                        alertify.success('Cập nhật thành công');
-                    }
-                }
-                
-            });
-           
-        }
         
         function RenderListCart(response){
             $("#list-cart").empty();

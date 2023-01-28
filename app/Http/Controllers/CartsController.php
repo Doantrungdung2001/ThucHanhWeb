@@ -17,9 +17,17 @@ class CartsController extends Controller
     }
 
     public function SameProduct(){
-        $res = Http::get('https://p01-product-api-production.up.railway.app/api/user/products');
-        return view('cart.same-product',['product'=> $res['data']]);
-    
+        // $id_user = Auth::user()->id;
+        $id_user = 2;
+        $item = DB::table('item_carts')
+                ->join('products','item_carts.id_product','=','products.id')
+                ->where('id_user',$id_user)->where('status',1)->first();
+        //$product_brand = DB::table('brand')->where('id_pr')
+        // $res = Http::get('https://p01-product-api-production.up.railway.app/api/user/products');
+        // return view('cart.same-product',['product'=> $res['data']]);
+        // return $item->brand_id;
+        $brand_prd = DB::table('products')->where('brand_id',$item->brand_id)->get();
+        return view('cart.same-product',['brand_product'=> $brand_prd]);
     }
 
     public function BuyAgain(){

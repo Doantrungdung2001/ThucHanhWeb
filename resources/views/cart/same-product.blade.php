@@ -68,41 +68,35 @@
                 <div class="col-lg-12 order-1 order-lg-2">
                     <div class="product-list">
                         <div class="row">
-                            @foreach($product as $prd)
-                                @if($prd['sub_products'] != null )
-                                    @foreach($prd['sub_products'] as $item)
-                                    <div class="col-lg-4 col-sm-6">
-                                        <div class="product-item">
+                            @foreach($brand_product as $prd)
+                                <div class="col-lg-4 col-sm-6">
+                                    <div class="product-item">
                                             
-                                            <div class="pi-pic">
-                                                <img src="{{$item['image_url']}}" alt="" >
-                                                <div class="sale pp-sale">Sale</div>
-                                                <div class="icon">
-                                                    <i class="icon_heart_alt"></i>
-                                                </div>
-                                                <ul>
-                                                    <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                                    <li class="quick-view" ><a onclick="AddCart({{$item['id']}})" href="javascript:">Thêm giỏ hàng</a></li>
-                                                    <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                                </ul>
+                                        <div class="pi-pic">
+                                            <img src="{{ asset('assets/images/products') }}/{{ $prd->image_path}}" alt="" >
+                                            <div class="sale pp-sale">Sale</div>
+                                            <div class="icon">
+                                                <i class="icon_heart_alt"></i>
                                             </div>
+                                            <ul>
+                                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+                                                <li class="quick-view" ><a onclick="AddCart({{$prd->id}})" href="javascript:">Thêm giỏ hàng</a></li>
+                                                <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+                                            </ul>
+                                        </div>
                                             
-                                            <div class="pi-text">
-                                                <div class="catagory-name">Towel</div>
-                                                <a href="#">
-                                                    <h5>{{$prd['name']}}</h5>
-                                                </a>
-                                                <div class="product-price">
-                                                    {{number_format($prd['cost'])}}₫
-                                                </div>
+                                        <div class="pi-text">
+                                            <div class="catagory-name">Towel</div>
+                                            <a href="#">
+                                                <h5>{{$prd->name}}</h5>
+                                            </a>
+                                            <div class="product-price">
+                                                {{number_format($prd->price)}}₫
                                             </div>
+                                        </div>
                                            
                                         </div>
                                     </div>                           
-                                                               
-                                    
-                                    @endforeach          
-                                @endif
                              @endforeach                          
                         </div>
                     </div>
@@ -250,7 +244,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
         function AddCart(id){
             $.ajax({
-                url:'AddtoCart/'+id,
+                url:'detail/AddtoCart/'+id,
                 type:'GET', 
                 
                 success:function(response){
