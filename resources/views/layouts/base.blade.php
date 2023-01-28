@@ -187,7 +187,7 @@
                                             aria-hidden="true"></i></a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="about-us.html" class="link-term mercado-item-title">Về Chúng Tôi</a>
+                                    <a href="#" class="link-term mercado-item-title">Về Chúng Tôi</a>
                                 </li>
                                 <li class="menu-item">
                                     <a href="/shop" class="link-term mercado-item-title">Shop</a>
@@ -199,7 +199,7 @@
                                     <a href="/checkout" class="link-term mercado-item-title">Thanh Toán</a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="contact-us.html" class="link-term mercado-item-title">Liên Hệ</a>
+                                    <a href="#" class="link-term mercado-item-title">Liên Hệ</a>
                                 </li>
                             </ul>
                         </div>

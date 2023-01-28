@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class CartsController extends Controller
 {
@@ -17,8 +18,8 @@ class CartsController extends Controller
     }
 
     public function SameProduct(){
-        // $id_user = Auth::user()->id;
-        $id_user = 2;
+        $id_user = Auth::user()->id;
+        // $id_user = 2;
         $item = DB::table('item_carts')
                 ->join('products','item_carts.id_product','=','products.id')
                 ->where('id_user',$id_user)->where('status',1)->first();
@@ -37,8 +38,14 @@ class CartsController extends Controller
 
     public function AddToCart(Request $req,$id){
         //$req->value = 
-        // $id_user = Auth::user()->id;
-        $id_user = 2;
+        // $id_user = 2;
+        if (Auth::check()) {
+            $id_user = Auth::user()->id;
+        } else {
+            return Redirect::to('/login');
+        }
+
+        
         $cart_item = new ItemCart();
         $color_id = $req->color;
         $size_id = $req->size;
@@ -82,10 +89,11 @@ class CartsController extends Controller
     }
 
     public function ViewToCart(){
-        $cart = DB::table('item_carts')->where('status',1)->get();
+        $id_user = Auth::user()->id;
+        $cart = DB::table('item_carts')->where('id_user', $id_user)->where('status',1)->get();
 
-        $totalQuanty = DB::table('item_carts')->where('status',1)->sum('quanty');
-        $totalPrice = DB::table('item_carts')->where('status',1)->sum('total_price');
+        $totalQuanty = DB::table('item_carts')->where('id_user', $id_user)->where('status',1)->sum('quanty');
+        $totalPrice = DB::table('item_carts')->where('id_user', $id_user)->where('status',1)->sum('total_price');
         return view('cart.cart',compact('cart'),compact('totalQuanty','totalPrice'));
     }
 
@@ -101,6 +109,7 @@ class CartsController extends Controller
     }
 
     public function SaveItemListToCart(Request $req,$id,$quanty){
+        $id_user = Auth::user()->id;
         if(ItemCart::where('id_product',$id)->exists()){
             ItemCart::where('id_product',$id)
             ->update(['quanty'=>$quanty]);
