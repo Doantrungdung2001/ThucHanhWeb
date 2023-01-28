@@ -29,6 +29,7 @@ return new class extends Migration
             $table->enum('trang_thai', ['hoat_dong','khoa'])->nullable();
 
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

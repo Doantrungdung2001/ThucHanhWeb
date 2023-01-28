@@ -161,7 +161,25 @@
                             </li>
                             <li class="menu-item">
                                 <a href="/admin/brand/all" class="menu-link">
-                                    <div data-i18n="Notifications">Liệt kê nhãn hiệu</div>
+                                    <div data-i18n="Notifications">Danh sách nhãn hiệu</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-item">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                            <div data-i18n="Account Settings">Người dùng</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="/admin/user/add" class="menu-link">
+                                    <div data-i18n="Account">Thêm người dùng</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="/admin/user/all" class="menu-link">
+                                    <div data-i18n="Notifications">Danh sách người dùng</div>
                                 </a>
                             </li>
                         </ul>
@@ -179,7 +197,7 @@
                             </li>
                             <li class="menu-item">
                                 <a href="/admin/product/all" class="menu-link">
-                                    <div data-i18n="Notifications">Liệt kê sản phẩm</div>
+                                    <div data-i18n="Notifications">Danh sách sản phẩm</div>
                                 </a>
                             </li>
                         </ul>
@@ -200,25 +218,7 @@
                     </div>
 
                     <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-                        <!-- Search -->
-                        <div class="navbar-nav align-items-center">
-                            <div class="nav-item d-flex align-items-center">
-                                <i class="bx bx-search fs-4 lh-0"></i>
-                                <input type="text" class="form-control border-0 shadow-none"
-                                    placeholder="Search..." aria-label="Search..." />
-                            </div>
-                        </div>
-                        <!-- /Search -->
-
                         <ul class="navbar-nav flex-row align-items-center ms-auto">
-                            <!-- Place this tag where you want the button to render. -->
-                            <li class="nav-item lh-1 me-3">
-                                <a class="github-button"
-                                    href="https://github.com/themeselection/sneat-html-admin-template-free"
-                                    data-icon="octicon-star" data-size="large" data-show-count="true"
-                                    aria-label="Star themeselection/sneat-html-admin-template-free on GitHub">Star</a>
-                            </li>
-
                             <!-- User -->
                             <li class="nav-item navbar-dropdown dropdown-user dropdown">
                                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
@@ -276,7 +276,9 @@
                                     <li>
                                         <form class="dropdown-item" action="{{ url('logout') }}" method="POST">
                                             @csrf
-                                            <button class="logout-form dropdown-item d-flex align-items-center align-middle" type="submit">
+                                            <button
+                                                class="logout-form dropdown-item d-flex align-items-center align-middle"
+                                                type="submit">
                                                 <i class="bx bx-power-off me-2"></i>
                                                 <span class="align-middle">Log Out</span>
                                             </button>
@@ -345,11 +347,6 @@
     <div class="layout-overlay layout-menu-toggle"></div>
     </div>
     <!-- / Layout wrapper -->
-
-    <div class="buy-now">
-        <a href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/" target="_blank"
-            class="btn btn-danger btn-buy-now">Upgrade to Pro</a>
-    </div>
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->

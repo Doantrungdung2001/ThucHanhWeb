@@ -133,6 +133,34 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
             'uses' => 'App\Http\Controllers\ProductController@update'
         ]);
     });
+
+    // User
+    Route::prefix('user')->group(function () {
+        Route::get('/all', [
+            'as' => 'user.all',
+            'uses' => 'App\Http\Controllers\UserController@all'
+        ]);
+        Route::get('/add', [
+            'as' => 'user.add',
+            'uses' => 'App\Http\Controllers\UserController@add'
+        ]);
+        Route::post('/store', [
+            'as' => 'user.store',
+            'uses' => 'App\Http\Controllers\UserController@store'
+        ]);
+        Route::get('/delete/{id}', [
+            'as' => 'user.delete',
+            'uses' => 'App\Http\Controllers\UserController@delete'
+        ]);
+        Route::get('/edit/{id}', [
+            'as' => 'user.edit',
+            'uses' => 'App\Http\Controllers\UserController@edit'
+        ]);
+        Route::post('/update/{id}', [
+            'as' => 'user.update',
+            'uses' => 'App\Http\Controllers\UserController@update'
+        ]);
+    });
 });
 
 //User Profile API 
