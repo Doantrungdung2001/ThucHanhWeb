@@ -78,7 +78,7 @@ class CartsController extends Controller
                
                 }
         }
-        return $cart_item;
+        //return $cart_item;
     }
 
     public function ViewToCart(){
