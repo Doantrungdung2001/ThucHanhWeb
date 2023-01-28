@@ -152,6 +152,8 @@ Route::get('/Delete-Item-List-Cart/{id}', 'App\Http\Controllers\CartsController@
 Route::get('/Save-Item-List-Cart/{id}/{quanty}', 'App\Http\Controllers\CartsController@SaveItemListToCart');
 Route::get('/Update-Item-List-Cart/{id}/{quanty}', 'App\Http\Controllers\CartController@UpdateItemListCart');
 
+Route::get('/AddtoCart1/{id}', 'App\Http\Controllers\CartsController@AddToCart1')->name('product.addToCart');
+
 //API
 Route::get('/Api/Product-Cart', 'App\Http\Controllers\CartController@product_cart');
 Route::get('/Api/totalQuanty-Product-Cart', 'App\Http\Controllers\CartController@total_product_cart');

@@ -32,27 +32,47 @@
                                 <li>FaceTime HD Camera 7.0 MP Photos</li>
                             </ul>
                         </div> --}}
-                        <div class="wrap-social">
+                        {{-- <div class="wrap-social">
                             <a class="link-socail" href="#"><img
                                     src="{{ asset('assets/images/social-list.png') }}" alt=""></a>
-                        </div>
+                        </div> --}}
                         <div class="wrap-price"><span class="product-price">${{ $product->price }}</span></div>
                         <div class="stock-info in-stock">
                             <p class="availability">Availability: <b>In Stock</b></p>
                         </div>
-                        <div class="quantity">
-                            <span>Quantity:</span>
-                            <div class="quantity-input">
-                                <input type="text" name="product-quatity" value="1" data-max="120"
-                                    pattern="[0-9]*">
+                        <form action="{{ route('product.addToCart', ['id' => $product->id]) }}" method="get">
+                            <p>Màu sắc:</p>
+                            @foreach ($product->colors()->select('color_id')->get() as $color)
+                                <input type="radio" id="{{ $color->color_id }}" name="color"
+                                    value="{{ $colors[((int) $color->color_id) - 1]->name }}">
+                                <label
+                                    for="{{ $color->color_id }}">{{ $colors[((int) $color->color_id) - 1]->name }}</label>
+                            @endforeach
+                            <br>
 
-                                <a class="btn btn-reduce" href="#"></a>
-                                <a class="btn btn-increase" href="#"></a>
+                            <p>Kích cỡ</p>
+                            @foreach ($product->sizes()->select('size_id')->get() as $size)
+                                <input type="radio" id="{{ $size->size_id }}" name="size"
+                                    value="{{ $sizes[((int) $size->size_id) - 1]->name }}">
+                                <label
+                                    for="{{ $size->size_id }}">{{ $sizes[((int) $size->size_id) - 1]->name }}</label>
+                            @endforeach
+
+                            <div class="quantity">
+                                <span>Quantity:</span>
+                                <div class="quantity-input">
+                                    <input type="text" name="product-quatity" value="1" data-max="120"
+                                        pattern="[0-9]*">
+
+                                    <a class="btn btn-reduce" href="#"></a>
+                                    <a class="btn btn-increase" href="#"></a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="wrap-butons">
-                            <a href="#" class="btn add-to-cart">Add to Cart</a>
-                        </div>
+                            <div class="wrap-butons">
+                                <input class="btn add-to-cart" type="submit" value="Add to Cart">
+                            </div>
+
+                        </form>
                     </div>
                     <div class="advance-info">
                         <div class="tab-control normal">
@@ -60,16 +80,7 @@
                         </div>
                         <div class="tab-contents">
                             <div class="tab-content-item active" id="description">
-                                <p>Lorem ipsum dolor sit amet, an munere tibique consequat mel, congue albucius no qui,
-                                    a t everti meliore erroribus sea. ro cum. Sea ne accusata voluptatibus. Ne cum falli
-                                    dolor voluptua, duo ei sonet choro facilisis, labores officiis torquatos cum ei.</p>
-                                <p>Cum altera mandamus in, mea verear disputationi et. Vel regione discere ut, legere
-                                    expetenda ut eos. In nam nibh invenire similique. Atqui mollis ea his, ius graecis
-                                    accommodare te. No eam tota nostrum eque. Est cu nibh clita. Sed an nominavi, et
-                                    stituto, duo id rebum lucilius. Te eam iisque deseruisse, ipsum euismod his at. Eu
-                                    putent habemus voluptua sit, sit cu rationibus scripserit, modus taria . </p>
-                                <p>experian soleat maluisset per. Has eu idque similique, et blandit scriptorem tatibus
-                                    mea. Vis quaeque ocurreret ea.cu bus scripserit, modus voluptaria ex per.</p>
+                                {{ $product->content }}
                             </div>
                         </div>
                     </div>

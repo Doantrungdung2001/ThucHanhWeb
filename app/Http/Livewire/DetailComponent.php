@@ -20,6 +20,8 @@ class DetailComponent extends Component
     public function render()
     {
         $product = Product::where('slug', $this->slug)->first();
-        return view('livewire.detail-component', ['product' => $product])->layout("layouts.base");
+        $colors = Color::all();
+        $sizes = Size::all();
+        return view('livewire.detail-component', ['product' => $product, 'colors' => $colors, 'sizes' => $sizes])->layout("layouts.base");
     }
 }
