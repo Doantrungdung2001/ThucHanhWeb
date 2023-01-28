@@ -14,7 +14,7 @@
 
     <!-- Css Styles -->
     <link rel="stylesheet" href="assets/css/cart/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="assets/css/cart/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="assets/css/cart/themify-icons.css" type="text/css">
     <link rel="stylesheet" href="assets/css/cart/elegant-icons.css" type="text/css">
     <link rel="stylesheet" href="assets/css/cart/owl.carousel.min.css" type="text/css">
@@ -111,8 +111,8 @@
                                         <h5>{{$item->color}}</h5>
                                     </td>
                                     <td class="total-price first-row">{{number_format($item->total_price)}}₫</td>
-                                    <td class="close-td first-row"><i class="ti-save" onclick="SaveItemListCart({{$item->id_product}});"></i></td>
-                                    <td class="close-td first-row"><i class="ti-close" onclick="DeleteItemListCart({{$item->id_product}});"></i></td>
+                                    <td class="close-td first-row"><i class="fa fa-save" onclick="SaveItemListCart({{$item->id_product}});"></i></td>
+                                    <td class="close-td first-row"><i class="fa fa-close" onclick="DeleteItemListCart({{$item->id_product}});"></i></td>
                                     
                                 </tr>
                                 @endforeach

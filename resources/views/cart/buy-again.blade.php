@@ -14,7 +14,7 @@
 
     <!-- Css Styles -->
     <link rel="stylesheet" href="assets/css/cart/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="assets/css/cart/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="assets/css/cart/themify-icons.css" type="text/css">
     <link rel="stylesheet" href="assets/css/cart/elegant-icons.css" type="text/css">
     <link rel="stylesheet" href="assets/css/cart/owl.carousel.min.css" type="text/css">
