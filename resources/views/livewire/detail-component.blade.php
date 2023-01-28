@@ -40,7 +40,8 @@
                         <div class="stock-info in-stock">
                             <p class="availability">Availability: <b>In Stock</b></p>
                         </div>
-                        <form action="{{ route('product.addToCart', ['id' => $product->id]) }}" method="get">
+                        {{-- <form action="{{ route('product.addToCart', ['id' => $product->id]) }}" method="get" id="change-item-cart"> --}}
+                        <form method="get" id="change-item-cart">
                             <p>Màu sắc:</p>
                             @foreach ($product->colors()->select('color_id')->get() as $color)
                                 <input type="radio" id="{{ $color->color_id }}" name="color"
@@ -61,7 +62,7 @@
                             <div class="quantity">
                                 <span>Quantity:</span>
                                 <div class="quantity-input">
-                                    <input type="text" name="product-quatity" value="1" data-max="120"
+                                    <input type="text" name="quatity" value="1" data-max="120"
                                         pattern="[0-9]*">
 
                                     <a class="btn btn-reduce" href="#"></a>
@@ -69,7 +70,8 @@
                                 </div>
                             </div>
                             <div class="wrap-butons">
-                                <input class="btn add-to-cart" type="submit" value="Add to Cart">
+                                {{-- <input class="btn add-to-cart" type="submit" value="Add to Cart"> --}}
+                                <a onclick="AddCart({{$product->id}})" href="javascript:">+ Add Cart</a>
                             </div>
 
                         </form>
@@ -220,5 +222,43 @@
 
     </div>
     <!--end container-->
+    <body>
+        <!-- JavaScript -->
+        <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 
+        <!-- CSS -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+        <!-- Default theme -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+        <!-- Semantic UI theme -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
+        <!-- Bootstrap theme -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+        <script>
+
+            function AddCart(id){
+                $.ajax({
+                    url:'AddtoCart/'+id,
+                    type:'GET', 
+                    
+                    success:function(response){
+                        RenderCart(response);
+                        alertify.success('Thêm sản phẩm thành công');
+                    },
+                    error:function(response , error){
+                        // handleException(request , message , error);
+                        console.log(error);
+                        console.log(response);
+                    }
+                });
+            }
+                //console.log(id);
+            
+            function RenderCart(response){
+                $("#change-item-cart").empty();
+                $("#change-item-cart").html(response);
+               
+            }
+        </script>
+    </body>
 </main>

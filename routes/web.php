@@ -143,7 +143,7 @@ Route::get('/user-info', [
 
 //CART - CHECKOUT - INVOICE
 Route::get('/cart-home', 'App\Http\Controllers\CartsController@Index');
-Route::get('/AddtoCart/{id}', 'App\Http\Controllers\CartsController@AddToCart');
+Route::get('/detail/AddtoCart/{id}', 'App\Http\Controllers\CartsController@AddToCart');
 Route::get('/Delete-Item-Cart/{id}', 'App\Http\Controllers\CartsController@DeleteItemToCart');
 Route::get('/Cart', 'App\Http\Controllers\CartsController@ViewtoCart');
 Route::get('/same-product', 'App\Http\Controllers\CartsController@SameProduct');
