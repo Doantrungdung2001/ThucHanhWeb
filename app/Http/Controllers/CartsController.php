@@ -88,7 +88,7 @@ class CartsController extends Controller
         //return $cart_item;
     }
 
-    public function ViewToCart(){
+    public function ViewToCart(Request $req){
         $id_user = Auth::user()->id;
         $cart = DB::table('item_carts')->where('id_user', $id_user)->where('status',1)->get();
 
@@ -97,7 +97,8 @@ class CartsController extends Controller
         return view('cart.cart',compact('cart'),compact('totalQuanty','totalPrice'));
     }
 
-    public function DeleteItemListToCart($id){
+    public function DeleteItemListToCart(Request $req,$id){
+        $id_user = Auth::user()->id;
        if(ItemCart::where('id_product',$id)->exists()){
         ItemCart::where('id_product',$id)
         ->update(['status'=>0]);
@@ -110,18 +111,18 @@ class CartsController extends Controller
 
     public function SaveItemListToCart(Request $req,$id,$quanty){
         $id_user = Auth::user()->id;
-        if(ItemCart::where('id_product',$id)->exists()){
+        if(ItemCart::where('id_product',$id)->where('id_user',$id_user)->exists()){
             ItemCart::where('id_product',$id)
             ->update(['quanty'=>$quanty]);
-            $now_quanty = ItemCart::where('id_product',$id)->where('status',1)->first();
+            $now_quanty = ItemCart::where('id_product',$id)->where('id_user',$id_user)->where('status',1)->first();
             $i = $now_quanty->quanty;
             $cost = $now_quanty->price * $i;
             ItemCart::where('id_product',$id)
             ->update(['total_price'=>$cost]);
         }
-        $cart = DB::table('item_carts')->where('status',1)->get();
-        $totalQuanty = DB::table('item_carts')->where('status',1)->sum('quanty');
-        $totalPrice = DB::table('item_carts')->where('status',1)->sum('total_price');
+        $cart = DB::table('item_carts')->where('id_user',$id_user)->where('status',1)->get();
+        $totalQuanty = DB::table('item_carts')->where('id_user',$id_user)->where('status',1)->sum('quanty');
+        $totalPrice = DB::table('item_carts')->where('id_user',$id_user)->where('status',1)->sum('total_price');
         return view('cart.list-cart',compact('cart'),compact('totalQuanty','totalPrice'));
     }
 
