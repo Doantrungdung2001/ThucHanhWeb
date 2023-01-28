@@ -71,7 +71,7 @@
                             </div>
                             <div class="wrap-butons">
                                 {{-- <input class="btn add-to-cart" type="submit" value="Add to Cart"> --}}
-                                <a onclick="AddCart({{$product->id}})" href="javascript:">+ Add Cart</a>
+                                <a class="btn add-to-cart" onclick="AddCart({{$product->id}})" href="javascript:">Add To Cart</a>
                             </div>
 
                         </form>
