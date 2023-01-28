@@ -44,7 +44,7 @@
                             <p>Màu sắc:</p>
                             @foreach ($product->colors()->select('color_id')->get() as $color)
                                 <input type="radio" id="{{ $color->color_id }}" name="color"
-                                    value="{{ $colors[((int) $color->color_id) - 1]->name }}">
+                                    value="{{ $color->color_id }}">
                                 <label
                                     for="{{ $color->color_id }}">{{ $colors[((int) $color->color_id) - 1]->name }}</label>
                             @endforeach
@@ -53,7 +53,7 @@
                             <p>Kích cỡ</p>
                             @foreach ($product->sizes()->select('size_id')->get() as $size)
                                 <input type="radio" id="{{ $size->size_id }}" name="size"
-                                    value="{{ $sizes[((int) $size->size_id) - 1]->name }}">
+                                    value="{{ $size->size_id }}">
                                 <label
                                     for="{{ $size->size_id }}">{{ $sizes[((int) $size->size_id) - 1]->name }}</label>
                             @endforeach
