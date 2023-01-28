@@ -80,7 +80,7 @@
                     </div>
                     <div class="col-lg-7 col-md-7">
                         <div class="advanced-search">
-                            <button type="button" class="category-btn">All Categories</button>
+                            <button type="button" class="category-btn">Tất cả</button>
                             <form action="#" class="input-group">
                                 <input type="text" placeholder="What do you need?">
                                 <button type="button"><i class="ti-search"></i></button>
@@ -98,11 +98,11 @@
                                     <i class="icon_bag_alt"></i>
                                     @if(Session::has("Cart") != null)
                                         <span id="total-quanty-show">{{Session::get('Cart')->totalQuanty}}</span>
-                                    
+
                                     @else
                                         <span id="total-quanty-show">0</span>
                                     @endif
-                                    
+
                                 </a>
                                 <div class="cart-hover">
                                     <div id ="change-item-cart">
@@ -133,7 +133,7 @@
                                         </div>
                                         @endif
                                     </div>
-                                    
+
                                     <div class="select-button">
                                         <a href="{{url('/Cart')}}" class="primary-btn view-card">VIEW CART</a>
                                         <a href="#" class="primary-btn checkout-btn">CHECK OUT</a>
@@ -206,7 +206,7 @@
                                     @foreach($prd['sub_products'] as $item)
                                     <div class="col-lg-4 col-sm-6">
                                         <div class="product-item">
-                                            
+
                                             <div class="pi-pic">
                                                 <img src="{{$item['image_url']}}" alt="" >
                                                 <div class="sale pp-sale">Sale</div>
@@ -219,7 +219,7 @@
                                                     <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
                                                 </ul>
                                             </div>
-                                            
+
                                             <div class="pi-text">
                                                 <div class="catagory-name">Towel</div>
                                                 <a href="#">
@@ -229,14 +229,14 @@
                                                     {{number_format($prd['cost'])}}₫
                                                 </div>
                                             </div>
-                                           
+
                                         </div>
-                                    </div>                           
-                                                               
-                                    
-                                    @endforeach          
+                                    </div>
+
+
+                                    @endforeach
                                 @endif
-                             @endforeach                          
+                             @endforeach
                         </div>
                     </div>
                     </div>
@@ -341,7 +341,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="copyright-text">
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. 
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://www.facebook.com/thuy.huynhvan" target="_blank">Huynh Van Thuy</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </div>
@@ -384,8 +384,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         function AddCart(id){
             $.ajax({
                 url:'AddtoCart/'+id,
-                type:'GET', 
-                
+                type:'GET',
+
                 success:function(response){
                     RenderCart(response);
                     alertify.success('Thêm sản phẩm thành công');
@@ -410,7 +410,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                 alertify.success('Xóa sản phẩm thành công');
             });
         });
-        
+
         function RenderCart(response){
             $("#change-item-cart").empty();
             $("#change-item-cart").html(response);

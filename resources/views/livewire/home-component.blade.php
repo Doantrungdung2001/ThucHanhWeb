@@ -17,11 +17,11 @@
                 <div class="item-slide">
                     <img src=" {{ asset('assets/images/main-slider-1-2.jpg') }}" alt="" class="img-slide">
                     <div class="slide-info slide-2">
-                        <h2 class="f-title">Extra 25% Off</h2>
-                        <span class="f-subtitle">On online payments</span>
-                        <p class="discount-code">Use Code: #FA6868</p>
-                        <h4 class="s-title">Get Free</h4>
-                        <p class="s-subtitle">TRansparent Bra Straps</p>
+                        <h2 class="f-title">Giảm 25% Khi</h2>
+                        <span class="f-subtitle">Thanh Toán Online</span>
+                        <p class="discount-code">Mã Giảm Giá: #FA6868</p>
+                        <h4 class="s-title">Tặng Miễn Phí</h4>
+                        <p class="s-subtitle">Quần Lọt Khe</p>
                     </div>
                 </div>
                 <div class="item-slide">
@@ -54,8 +54,8 @@
 
         <!--On Sale-->
         <div class="wrap-show-advance-info-box style-1 has-countdown">
-            <h3 class="title-box">On Sale</h3>
-            <div class="wrap-countdown mercado-countdown" data-expire="2023/02/02 12:34:56"></div>
+            <h3 class="title-box">Tháng giêng là tháng ăn chơi</h3>
+            <div class="wrap-countdown mercado-countdown" data-expire="2023/02/20 00:00:00"></div>
             <div class="wrap-products slide-carousel owl-carousel style-nav-1 equal-container " data-items="5"
                 data-loop="false" data-nav="true" data-dots="false"
                 data-responsive='{"0":{"items":"1"},"480":{"items":"2"},"768":{"items":"3"},"992":{"items":"4"},"1200":{"items":"5"}}'>
@@ -68,7 +68,7 @@
                             </figure>
                         </a>
                         <div class="group-flash">
-                            <span class="flash-item sale-label">sale</span>
+                            <span class="flash-item sale-label">giảm giá</span>
                         </div>
                         <div class="wrap-btn">
                             <a href="#" class="function-link">quick view</a>
@@ -89,7 +89,7 @@
                             </figure>
                         </a>
                         <div class="group-flash">
-                            <span class="flash-item sale-label">sale</span>
+                            <span class="flash-item sale-label">giảm giá</span>
                         </div>
                         <div class="wrap-btn">
                             <a href="#" class="function-link">quick view</a>
@@ -113,7 +113,7 @@
                                     height="800" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
                         </a>
                         <div class="group-flash">
-                            <span class="flash-item sale-label">sale</span>
+                            <span class="flash-item sale-label">giảm giá</span>
                         </div>
                         <div class="wrap-btn">
                             <a href="#" class="function-link">quick view</a>
@@ -134,7 +134,7 @@
                             </figure>
                         </a>
                         <div class="group-flash">
-                            <span class="flash-item sale-label">sale</span>
+                            <span class="flash-item sale-label">giảm giá</span>
                         </div>
                         <div class="wrap-btn">
                             <a href="#" class="function-link">quick view</a>
@@ -158,7 +158,7 @@
                                     width="800" height="800" alt=""></figure>
                         </a>
                         <div class="group-flash">
-                            <span class="flash-item sale-label">sale</span>
+                            <span class="flash-item sale-label">giảm giá</span>
                         </div>
                         <div class="wrap-btn">
                             <a href="#" class="function-link">quick view</a>
@@ -178,7 +178,7 @@
                                     height="800" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
                         </a>
                         <div class="group-flash">
-                            <span class="flash-item sale-label">sale</span>
+                            <span class="flash-item sale-label">giảm giá</span>
                         </div>
                         <div class="wrap-btn">
                             <a href="#" class="function-link">quick view</a>
@@ -202,7 +202,7 @@
                                     height="800" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
                         </a>
                         <div class="group-flash">
-                            <span class="flash-item sale-label">sale</span>
+                            <span class="flash-item sale-label">giảm giá</span>
                         </div>
                         <div class="wrap-btn">
                             <a href="#" class="function-link">quick view</a>
@@ -222,7 +222,7 @@
                                     height="800" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
                         </a>
                         <div class="group-flash">
-                            <span class="flash-item sale-label">sale</span>
+                            <span class="flash-item sale-label">giảm giá</span>
                         </div>
                         <div class="wrap-btn">
                             <a href="#" class="function-link">quick view</a>
@@ -244,7 +244,7 @@
 
         <!--Latest Products-->
         <div class="wrap-show-advance-info-box style-1">
-            <h3 class="title-box">Latest Products</h3>
+            <h3 class="title-box">Sản phẩm mới nhất</h3>
             <div class="wrap-top-banner">
                 <a href="#" class="link-banner banner-effect-2">
                     <figure><img src=" {{ asset('assets/images/digital-electronic-banner.jpg') }}" width="1170"
@@ -269,7 +269,7 @@
                                             </figure>
                                         </a>
                                         <div class="group-flash">
-                                            <span class="flash-item new-label">new</span>
+                                            <span class="flash-item new-label">mới</span>
                                         </div>
                                         <div class="wrap-btn">
                                             <a href="#" class="function-link">quick view</a>
@@ -292,7 +292,7 @@
                                             </figure>
                                         </a>
                                         <div class="group-flash">
-                                            <span class="flash-item sale-label">sale</span>
+                                            <span class="flash-item sale-label">giảm giá</span>
                                         </div>
                                         <div class="wrap-btn">
                                             <a href="#" class="function-link">quick view</a>
@@ -319,8 +319,8 @@
                                             </figure>
                                         </a>
                                         <div class="group-flash">
-                                            <span class="flash-item new-label">new</span>
-                                            <span class="flash-item sale-label">sale</span>
+                                            <span class="flash-item new-label">mới</span>
+                                            <span class="flash-item sale-label">giảm giá</span>
                                         </div>
                                         <div class="wrap-btn">
                                             <a href="#" class="function-link">quick view</a>
@@ -347,7 +347,7 @@
                                             </figure>
                                         </a>
                                         <div class="group-flash">
-                                            <span class="flash-item bestseller-label">Bestseller</span>
+                                            <span class="flash-item bestseller-label">bán chạy</span>
                                         </div>
                                         <div class="wrap-btn">
                                             <a href="#" class="function-link">quick view</a>
@@ -390,7 +390,7 @@
                                             </figure>
                                         </a>
                                         <div class="group-flash">
-                                            <span class="flash-item sale-label">sale</span>
+                                            <span class="flash-item sale-label">giảm giá</span>
                                         </div>
                                         <div class="wrap-btn">
                                             <a href="#" class="function-link">quick view</a>
@@ -417,7 +417,7 @@
                                             </figure>
                                         </a>
                                         <div class="group-flash">
-                                            <span class="flash-item new-label">new</span>
+                                            <span class="flash-item new-label">mới</span>
                                         </div>
                                         <div class="wrap-btn">
                                             <a href="#" class="function-link">quick view</a>
@@ -440,7 +440,7 @@
                                             </figure>
                                         </a>
                                         <div class="group-flash">
-                                            <span class="flash-item bestseller-label">Bestseller</span>
+                                            <span class="flash-item bestseller-label">bán chạy</span>
                                         </div>
                                         <div class="wrap-btn">
                                             <a href="#" class="function-link">quick view</a>
@@ -463,7 +463,7 @@
 
         <!--Product Categories-->
         <div class="wrap-show-advance-info-box style-1">
-            <h3 class="title-box">Product Categories</h3>
+            <h3 class="title-box">Danh mục sản phẩm</h3>
             <div class="wrap-top-banner">
                 <a href="#" class="link-banner banner-effect-2">
                     <figure><img src=" {{ asset('assets/images/fashion-accesories-banner.jpg') }}" width="1170"
