@@ -111,4 +111,8 @@ class CartsController extends Controller
         $totalPrice = DB::table('item_carts')->where('status',1)->sum('total_price');
         return view('cart.list-cart',compact('cart'),compact('totalQuanty','totalPrice'));
     }
+
+    public function AddToCart1(Request $request, $id) {
+        dd($request);
+    }
 }

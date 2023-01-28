@@ -6,6 +6,7 @@ use App\Http\Livewire\CartComponent;
 use App\Http\Livewire\CategoryComponent;
 use App\Http\Livewire\CheckoutComponent;
 use App\Http\Livewire\SearchComponent;
+use App\Http\Livewire\DetailComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +31,9 @@ Route::get('/checkout', CheckoutComponent::class);
 Route::get('/product-category/{category_slug}', CategoryComponent::class)->name('product.category');
 
 Route::get('/search', SearchComponent::class)->name('product.search');
+
+Route::get('/detail/{slug}', DetailComponent::class)->name('product.details');
+
 
 //login and register
 Route::middleware([
@@ -147,6 +151,8 @@ Route::get('/buy-again', 'App\Http\Controllers\CartsController@BuyAgain');
 Route::get('/Delete-Item-List-Cart/{id}', 'App\Http\Controllers\CartsController@DeleteItemListToCart');
 Route::get('/Save-Item-List-Cart/{id}/{quanty}', 'App\Http\Controllers\CartsController@SaveItemListToCart');
 Route::get('/Update-Item-List-Cart/{id}/{quanty}', 'App\Http\Controllers\CartController@UpdateItemListCart');
+
+Route::get('/AddtoCart1/{id}', 'App\Http\Controllers\CartsController@AddToCart1')->name('product.addToCart');
 
 //API
 Route::get('/Api/Product-Cart', 'App\Http\Controllers\CartController@product_cart');

@@ -26,7 +26,7 @@
             border: none;
             background: none;
         }
-        
+
         .logout-form__text:hover {
             color: red;
         }
@@ -60,21 +60,23 @@
                         </div>
                         <div class="topbar-menu right-menu">
                             <ul>
-                                @if(Auth::check())
-                                <li class="menu-item">
-                                    <form action="{{ url('logout') }}" class="menu-item" method="POST">
-                                        @csrf
-                                        <button class="logout-form" type="submit">
-                                            <span class="logout-form__text" title="Logout">Log Out</span>
-                                        </button>
-                                    </form>    
-                                </li>
-                                <li class="menu-item">
-                                    <a title="Profile" href="{{ url('user/profile') }}">Profile</a>
-                                </li>
+                                @if (Auth::check())
+                                    <li class="menu-item">
+                                        <form action="{{ url('logout') }}" class="menu-item" method="POST">
+                                            @csrf
+                                            <button class="logout-form" type="submit">
+                                                <span class="logout-form__text" title="Logout">Log Out</span>
+                                            </button>
+                                        </form>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a title="Profile" href="{{ url('user/profile') }}">Profile</a>
+                                    </li>
                                 @else
-                                <li class="menu-item"><a title="Register or Login" href="{{ route('login') }}">Login</a></li>
-                                <li class="menu-item"><a title="Register or Login" href="{{ route('register') }}">Register</a></li>
+                                    <li class="menu-item"><a title="Register or Login"
+                                            href="{{ route('login') }}">Login</a></li>
+                                    <li class="menu-item"><a title="Register or Login"
+                                            href="{{ route('register') }}">Register</a></li>
                                 @endif
                                 <li class="menu-item lang-menu menu-item-has-children parent">
                                     <a title="English" href="#"><span class="img label-before"><img
@@ -141,7 +143,7 @@
                                 </a>
                             </div>
                             <div class="wrap-icon-section minicart">
-                                <a href="{{url('/Cart')}}" class="link-direction">
+                                <a href="{{ url('/Cart') }}" class="link-direction">
                                     <i class="fa fa-shopping-basket" aria-hidden="true"></i>
                                     <div class="left-info">
                                         <span class="index">4 items</span>
@@ -523,16 +525,17 @@
             </div>
         </div>
     </footer>
-
+    <script language="JavaScript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
     <script src="{{ asset('assets/js/jquery-ui-1.12.4.minb8ff.js?ver=1.12.4') }}"></script>
-    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.flexslider.js') }}"></script>
-    {{-- <script src="{{ asset ('assets/js/chosen.jquery.min.js') }}"></script> --}}
     <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.countdown.min.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.sticky.js') }}"></script>
     <script src="{{ asset('assets/js/functions.js') }}"></script>
     <script src="{{ asset('assets/js/jquery-1.12.4.minb8ff.js?ver=1.12.4') }}"></script>
+    <script src="{{ asset('assets/js/chosen.jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+
     @livewireScripts
 </body>
 
