@@ -49,11 +49,11 @@
                     </div>
                     <div class="col-sm-6 ">
                         <h5 class="mb-3">Đến:</h5>
-                        <h3 class="text-dark mb-1">Akshay Singh</h3>
-                        <div>478, Nai Sadak</div>
-                        <div>Chandni chowk, New delhi, 110006</div>
-                        <div>Email: info@tikon.com</div>
-                        <div>SDT: +91 9895 398 009</div>
+                        <h3 class="text-dark mb-1"><?php echo(Auth::user()->name); ?></h3>
+                        {{-- <div>478, Nai Sadak</div> --}}
+                        <div><?php echo(Auth::user()->dia_chi); ?></div>
+                        <div>Email: <?php echo(Auth::user()->email); ?></div>
+                        <div>SDT: <?php echo(Auth::user()->sdt) ?></div>
                     </div>
                 </div>
                 <div class="table-responsive-sm">
