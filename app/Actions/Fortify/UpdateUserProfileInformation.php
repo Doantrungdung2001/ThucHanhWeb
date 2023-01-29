@@ -23,7 +23,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
             'dia_chi' => ['required', 'string', 'max:255'],
             'sdt' => ['nullable', 'numeric','digits:10'],
-            // 'ngay_sinh' => ['required','date','date_format:Y-m-d','before:'.now()->subYears(18)->toDateString()],
+            'ngay_sinh' => ['required','date','date_format:Y-m-d','before:'.now()->subYears(18)->toDateString()],
 
         ])->validateWithBag('updateProfileInformation');
 
@@ -40,7 +40,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                 'email' => $input['email'],
                 'dia_chi' => $input['dia_chi'],
                 'sdt' => $input['sdt'],
-                // 'ngay_sinh' => $input['ngay_sinh'],
+                'ngay_sinh' => $input['ngay_sinh'],
             ])->save();
         }
     }
@@ -58,7 +58,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             'email_verified_at' => null,
             'dia_chi' => $input['dia_chi'],
             'sdt' => $input['sdt'],
-            // 'ngay_sinh' => $input['ngay_sinh'],
+            'ngay_sinh' => $input['ngay_sinh'],
         ])->save();
 
         $user->sendEmailVerificationNotification();
