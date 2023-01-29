@@ -139,6 +139,6 @@ class CartsController extends Controller
             ItemCart::where('id_user',$id_user)
             ->update(['status'=>2]);
         }
-        return view('livewire.home-component');
+        return redirect(url('/'));
     }
 }
