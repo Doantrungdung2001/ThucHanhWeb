@@ -132,4 +132,13 @@ class CartsController extends Controller
         // $request->color;
         return $request->quatity;
     }
+    public function UpdateInvoice(Request $request){
+        $id_user = Auth::user()->id;
+        $id_user = Auth::user()->id;
+        if(ItemCart::where('id_user',$id_user)->exists()){
+            ItemCart::where('id_user',$id_user)
+            ->update(['status'=>2]);
+        }
+        return view('livewire.home-component');
+    }
 }

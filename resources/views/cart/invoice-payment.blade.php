@@ -118,7 +118,7 @@
                         </table>
                     </div>
                 </div>
-                <form action="{{url('/Sucess-payment')}}" method="get">
+                <form action="{{url('/update-invoice')}}" method="get">
                     @csrf
                     <button type="submit">OK</button>
                 </form>

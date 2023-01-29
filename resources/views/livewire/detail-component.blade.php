@@ -243,7 +243,7 @@
                     
                     success:function(response){
                         RenderCart(response);
-                        alertify.success('Thêm sản phẩm thành công');
+                        // alertify.success('Thêm sản phẩm thành công');
                     },
                     error:function(response , error){
                         // handleException(request , message , error);
