@@ -588,7 +588,7 @@ input,textarea{
 .main-info-area .right-section .wrap-icon-section{
 	display: inline-block;
 	width: 50%;
-	float: left;
+	float: right;
 }
 header.fill-color .right-section .wrap-icon-section .title{
     color: #ffffff;

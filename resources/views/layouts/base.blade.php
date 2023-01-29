@@ -22,7 +22,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/color-01.css') }}">
     <style>
         .logout-form {
-            padding: 0;
+            padding-left: 18px;
             border: none;
             background: none;
         }
@@ -62,15 +62,18 @@
                             <ul>
                                 @if(Auth::check())
                                 <li class="menu-item">
+                                    <a title="Profile" href="{{ url('user/profile') }}">
+                                        <img src="{{ Auth::user()->profile_photo_url }}" style="width:20px; height:20px" alt="">
+                                        <span>Thông Tin Cá Nhân</span>
+                                    </a>
+                                </li>
+                                <li class="menu-item">
                                     <form action="{{ url('logout') }}" class="menu-item" method="POST">
                                         @csrf
                                         <button class="logout-form" type="submit">
-                                            <span class="logout-form__text" title="Logout">Log Out</span>
+                                            <span class="logout-form__text" title="Logout">Đăng Xuất</span>
                                         </button>
                                     </form>
-                                </li>
-                                <li class="menu-item">
-                                    <a title="Profile" href="{{ url('user/profile') }}">Profile</a>
                                 </li>
                                 @else
                                 <li class="menu-item"><a title="Register or Login" href="{{ route('login') }}">Đăng nhập</a>
@@ -133,7 +136,7 @@
                         @livewire('header-search-component')
 
                         <div class="wrap-icon right-section">
-                            <div class="wrap-icon-section wishlist">
+                            {{-- <div class="wrap-icon-section wishlist">
                                 <a href="#" class="link-direction">
                                     <i class="fa fa-heart" aria-hidden="true"></i>
                                     <div class="left-info">
@@ -141,7 +144,7 @@
                                         <span class="title">YÊU THÍCH</span>
                                     </div>
                                 </a>
-                            </div>
+                            </div> --}}
                             <div class="wrap-icon-section minicart">
                                 <a href="{{ url('/Cart') }}" class="link-direction">
                                     <i class="fa fa-shopping-basket" aria-hidden="true"></i>
