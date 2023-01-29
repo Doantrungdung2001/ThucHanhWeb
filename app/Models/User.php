@@ -11,7 +11,7 @@ use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens;
     use HasFactory;
@@ -30,7 +30,6 @@ class User extends Authenticatable
         'email',
         'role',
         'password',
-        'sdt',
         'ngay_sinh',
         'dia_chi',
         'trang_thai',
