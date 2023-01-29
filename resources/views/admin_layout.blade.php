@@ -309,7 +309,7 @@
 
                     <!-- Footer -->
                     <footer class="content-footer footer bg-footer-theme">
-                        <div
+                        {{-- <div
                             class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
                             <div class="mb-2 mb-md-0">
                                 ©
@@ -332,7 +332,7 @@
                                 <a href="https://github.com/themeselection/sneat-html-admin-template-free/issues"
                                     target="_blank" class="footer-link me-4">Support</a>
                             </div>
-                        </div>
+                        </div> --}}
                     </footer>
                     <!-- / Footer -->
                 </div>
