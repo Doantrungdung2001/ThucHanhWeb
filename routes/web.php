@@ -170,27 +170,27 @@ Route::get('/user-info', [
 ]);
 
 //CART - CHECKOUT - INVOICE
-Route::get('/cart-home', 'App\Http\Controllers\CartsController@Index');
-Route::get('/detail/AddtoCart/{id}', 'App\Http\Controllers\CartsController@AddToCart');
-Route::get('/Delete-Item-Cart/{id}', 'App\Http\Controllers\CartsController@DeleteItemToCart');
-Route::get('/Cart', 'App\Http\Controllers\CartsController@ViewtoCart');
-Route::get('/same-product', 'App\Http\Controllers\CartsController@SameProduct');
-Route::get('/buy-again', 'App\Http\Controllers\CartsController@BuyAgain');
-Route::get('/Delete-Item-List-Cart/{id}', 'App\Http\Controllers\CartsController@DeleteItemListToCart');
-Route::get('/Save-Item-List-Cart/{id}/{quanty}', 'App\Http\Controllers\CartsController@SaveItemListToCart');
-Route::get('/Update-Item-List-Cart/{id}/{quanty}', 'App\Http\Controllers\CartController@UpdateItemListCart');
+Route::get('/cart-home', 'App\Http\Controllers\CartsController@Index')->middleware('user');
+Route::get('/detail/AddtoCart/{id}', 'App\Http\Controllers\CartsController@AddToCart')->middleware('user');
+Route::get('/Delete-Item-Cart/{id}', 'App\Http\Controllers\CartsController@DeleteItemToCart')->middleware('user');
+Route::get('/Cart', 'App\Http\Controllers\CartsController@ViewtoCart')->middleware('user');
+Route::get('/same-product', 'App\Http\Controllers\CartsController@SameProduct')->middleware('user');
+Route::get('/buy-again', 'App\Http\Controllers\CartsController@BuyAgain')->middleware('user');
+Route::get('/Delete-Item-List-Cart/{id}', 'App\Http\Controllers\CartsController@DeleteItemListToCart')->middleware('user');
+Route::get('/Save-Item-List-Cart/{id}/{quanty}', 'App\Http\Controllers\CartsController@SaveItemListToCart')->middleware('user');
+Route::get('/Update-Item-List-Cart/{id}/{quanty}', 'App\Http\Controllers\CartController@UpdateItemListCart')->middleware('user');
 
-Route::get('/AddtoCart1/{id}', 'App\Http\Controllers\CartsController@AddToCart1')->name('product.addToCart');
+Route::get('/AddtoCart1/{id}', 'App\Http\Controllers\CartsController@AddToCart1')->name('product.addToCart')->middleware('user');
 
 //API
-Route::get('/Api/Product-Cart', 'App\Http\Controllers\CartController@product_cart');
-Route::get('/Api/totalQuanty-Product-Cart', 'App\Http\Controllers\CartController@total_product_cart');
+Route::get('/Api/Product-Cart', 'App\Http\Controllers\CartController@product_cart')->middleware('user');
+Route::get('/Api/totalQuanty-Product-Cart', 'App\Http\Controllers\CartController@total_product_cart')->middleware('user');
 
 //Invoice
-Route::get('/create-invoice','App\Http\Controllers\InvoiceController@Invoice');
-Route::get('/payment','App\Http\Controllers\InvoiceController@SaveInvoice');
+Route::get('/create-invoice','App\Http\Controllers\InvoiceController@Invoice')->middleware('user');
+Route::get('/payment','App\Http\Controllers\InvoiceController@SaveInvoice')->middleware('user');
 
 //Payment
-Route::get('/Sucess-payment','App\Http\Controllers\PaymentController@DonePayment');
-Route::post('/VN-pay-payment','App\Http\Controllers\PaymentController@VnpayPayment');
-Route::get('/Paypal-payment','App\Http\Controllers\PaymentController@PaypalPayment');
+Route::get('/Sucess-payment','App\Http\Controllers\PaymentController@DonePayment')->middleware('user');
+Route::post('/VN-pay-payment','App\Http\Controllers\PaymentController@VnpayPayment')->middleware('user');
+Route::get('/Paypal-payment','App\Http\Controllers\PaymentController@PaypalPayment')->middleware('user');
