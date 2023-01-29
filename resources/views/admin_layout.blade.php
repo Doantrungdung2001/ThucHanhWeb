@@ -280,7 +280,7 @@
                                                 class="logout-form dropdown-item d-flex align-items-center align-middle"
                                                 type="submit">
                                                 <i class="bx bx-power-off me-2"></i>
-                                                <span class="align-middle">Log Out</span>
+                                                <span class="align-middle">Đăng xuất</span>
                                             </button>
                                         </form>
                                     </li>

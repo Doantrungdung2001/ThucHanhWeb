@@ -81,12 +81,12 @@
                 @endif
             @endif
         </div>
-        <!-- Họ và tên -->
-        <div class="col-span-6 sm:col-span-4">
+        <!-- Họ và tên -- PHẦN NÀY CÓ Ở BÊN TRÊN RỒI NHÉ -->
+        {{-- <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="ho_va_ten" value="{{ __('Họ và tên') }}" />
             <x-jet-input id="ho_va_ten" type="text" class="mt-1 block w-full" wire:model.defer="state.ho_va_ten" />
             <x-jet-input-error for="ho_va_ten" class="mt-2" />
-        </div>
+        </div> --}}
         <!-- Sdt -->
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="sdt" value="{{ __('Số điện thoại') }}" />

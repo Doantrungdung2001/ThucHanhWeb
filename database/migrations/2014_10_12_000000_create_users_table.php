@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -29,8 +31,28 @@ return new class extends Migration
             $table->enum('trang_thai', ['hoat_dong','khoa'])->nullable();
 
             $table->timestamps();
-            $table->softDeletes();
+            // $table->softDeletes($column = 'deleted_at', $precision = 0);
         });
+
+        DB::table('users')
+            ->insert([
+                [
+                    'name'  => 'Nguyễn Trọng Tuệ',
+                    'email' => 'diepanhng0711@gmail.com',
+                    'role'  => 'ADMIN',
+                    'password'  => Hash::make('admin4552'),
+                    'sdt'   =>  '0946103302',
+                    'dia_chi' => 'TDP Lâm Khang - TT Quất Lâm - Giao Thủy - Nam Định'
+                ],
+                [
+                    'name'  => 'Nguyễn Việt Nam',
+                    'email' => 'vietnammuonnam2308@gmail.com',
+                    'role'  => 'USER',
+                    'password'  => Hash::make('12345678'),
+                    'sdt'   =>  '0945321487',
+                    'dia_chi' => '47 Phạm Văn Đồng - Mai Dịch - Cầu Giấy - Hà Nội'
+                ]
+            ]);
     }
 
     /**
