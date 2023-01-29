@@ -30,7 +30,7 @@ return new class extends Migration
             $table->enum('trang_thai', ['hoat_dong','khoa'])->nullable();
 
             $table->timestamps();
-            // $table->softDeletes($column = 'deleted_at', $precision = 0);
+            $table->softDeletes();
         });
 
         DB::table('users')
