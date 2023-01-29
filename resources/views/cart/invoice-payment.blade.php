@@ -31,7 +31,7 @@
     <div class="offset-xl-2 col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12 padding">
         <div class="card">
             <div class="card-header p-4">
-                <a class="pt-2 d-inline-block" href="index.html" data-abc="true"></a>
+                <a class="pt-2 d-inline-block" href="{{ url('/') }}" data-abc="true"></a>
                 <div class="float-right">
                     <h3 class="mb-0">Hóa đơn</h3>
                     Date: 12 Jun,2019
@@ -120,7 +120,7 @@
                 </div>
                 <form action="{{url('/update-invoice')}}" method="get">
                     @csrf
-                    <button type="submit">OK</button>
+                    <button type="submit">Hoàn tất thanh toán</button>
                 </form>
             </div>
             <div class="card-footer bg-white">
