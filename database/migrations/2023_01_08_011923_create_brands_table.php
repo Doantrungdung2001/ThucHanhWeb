@@ -16,12 +16,19 @@ return new class extends Migration
         Schema::create('brands', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('phone_number');
-            $table->string('email');
-            $table->string('address');
+            $table->string('phone_number')->nullable();
+            $table->string('email')->nullable();
+            $table->string('address')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
+
+        DB::table('brands')
+            ->insert([
+                [
+                    'name' => 'ODIN CLUB',
+                ],
+            ]);
     }
 
     /**

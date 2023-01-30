@@ -20,8 +20,8 @@ class ProductColorFactory extends Factory
     public function definition()
     {
         return [
-            'product_id' => $this->faker->numberBetween(1, 22),
-            'color_id' => $this->faker->numberBetween(1, 10)
+            'product_id' => $this->faker->numberBetween(1, 20),
+            'color_id' => $this->faker->numberBetween(1, 7)
         ];
     }
 }
