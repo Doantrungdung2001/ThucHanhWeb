@@ -47,7 +47,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text product-more">
-                        <a href=""><i class="fa fa-home"></i> Home</a>
+                        <a href="{{url('/')}}"><i class="fa fa-home"></i> Home</a>
                         <span>Shopping Cart</span>
                     </div>
                 </div>
@@ -173,6 +173,7 @@
                 success:function(response){
                     RenderListCart(response);
                     alertify.success('Thêm sản phẩm thành công');
+                    // window.location.replace('/buy-again');
                 },
                 error:function(response , error){
                     // handleException(request , message , error);
@@ -185,12 +186,13 @@
         function DeleteItemListCart(id){
             //console.log(id);
             $.ajax({
-                url:'Delete-Item-List-Cart/'+id,
+                url:'Delete-Item-Product/'+id,
                 type:'GET',
             }).done(function(response){
             
                 RenderListCart(response);
                 alertify.success('Xóa sẩn phẩm thành công');
+                // window.location.replace('/buy-again');
             });
         }
         

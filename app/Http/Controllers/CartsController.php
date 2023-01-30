@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\ItemCart;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Symfony\Polyfill\Intl\Idn\Resources\unidata\Regex;
 
 class CartsController extends Controller
 {
@@ -27,12 +29,15 @@ class CartsController extends Controller
         // $res = Http::get('https://p01-product-api-production.up.railway.app/api/user/products');
         // return view('cart.same-product',['product'=> $res['data']]);
         // return $item->brand_id;
-        $brand_prd = DB::table('products')->where('brand_id',$item->brand_id)->get();
-        return view('cart.same-product',['brand_product'=> $brand_prd]);
+        if(Product::where('brand_id',$item->brand_id)->exists()){
+            $brand_prd = DB::table('products')->where('brand_id',$item->brand_id)->get();
+            return view('cart.same-product',['brand_product'=> $brand_prd]);
+        }
+        return view('cart.cart');
     }
 
     public function BuyAgain(){
-        $cart = DB::table('item_carts')->where('status',1)->get();
+        $cart = DB::table('item_carts')->where('status',2)->get();
         return view('cart.buy-again',compact('cart'));   
     }
 
@@ -100,13 +105,23 @@ class CartsController extends Controller
     public function DeleteItemListToCart(Request $req,$id){
         $id_user = Auth::user()->id;
        if(ItemCart::where('id_product',$id)->exists()){
-        ItemCart::where('id_product',$id)
+        ItemCart::where('id_product',$id)->where('id_user', $id_user)->where('status',1)
         ->update(['status'=>0]);
        }
        $cart = DB::table('item_carts')->where('status',1)->get();
        $totalQuanty = DB::table('item_carts')->where('status',1)->sum('quanty');
        $totalPrice = DB::table('item_carts')->where('status',1)->sum('total_price');
        return view('cart.list-cart',compact('cart'),compact('totalQuanty','totalPrice'));
+    }
+
+    public function DeleteItemListProduct(Request $req,$id){
+        $id_user = Auth::user()->id;
+       if(ItemCart::where('id_product',$id)->exists()){
+        ItemCart::where('id_product',$id)->where('id_user', $id_user)->where('status',2)
+        ->update(['status'=>0]);
+       }
+       $cart = DB::table('item_carts')->where('status',2)->get();
+       return view('cart.list-product',compact('cart'));
     }
 
     public function SaveItemListToCart(Request $req,$id,$quanty){
@@ -134,11 +149,18 @@ class CartsController extends Controller
     }
     public function UpdateInvoice(Request $request){
         $id_user = Auth::user()->id;
-        $id_user = Auth::user()->id;
         if(ItemCart::where('id_user',$id_user)->exists()){
-            ItemCart::where('id_user',$id_user)
+            ItemCart::where('id_user',$id_user)->where('status',1)
             ->update(['status'=>2]);
         }
         return redirect(url('/'));
     }
+    public function UpdateQuatityCart(Request $request){
+        $id_user = Auth::user()->id;
+        if($id_user){
+            $totalQuanty = DB::table('item_carts')->where('id_user',$id_user)->where('status',1)->sum('quanty');
+            return view('layouts.base',compact('totalQuanty'));
+        }
+    }
+        
 }

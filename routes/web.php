@@ -173,13 +173,14 @@ Route::get('/user-info', [
 Route::get('/cart-home', 'App\Http\Controllers\CartsController@Index')->middleware('user');
 Route::get('/detail/AddtoCart/{id}', 'App\Http\Controllers\CartsController@AddToCart')->middleware('user');
 Route::get('/Delete-Item-Cart/{id}', 'App\Http\Controllers\CartsController@DeleteItemToCart')->middleware('user');
+Route::get('/Delete-Item-Product/{id}', 'App\Http\Controllers\CartsController@DeleteItemListProduct')->middleware('user');
 Route::get('/Cart', 'App\Http\Controllers\CartsController@ViewtoCart')->middleware('user');
 Route::get('/same-product', 'App\Http\Controllers\CartsController@SameProduct')->middleware('user');
 Route::get('/buy-again', 'App\Http\Controllers\CartsController@BuyAgain')->middleware('user');
 Route::get('/Delete-Item-List-Cart/{id}', 'App\Http\Controllers\CartsController@DeleteItemListToCart')->middleware('user');
 Route::get('/Save-Item-List-Cart/{id}/{quanty}', 'App\Http\Controllers\CartsController@SaveItemListToCart')->middleware('user');
 Route::get('/Update-Item-List-Cart/{id}/{quanty}', 'App\Http\Controllers\CartController@UpdateItemListCart')->middleware('user');
-
+Route::get('/Update-Total-Quantity', 'App\Http\Controllers\CartController@UpdateQuatityCart')->middleware('user');
 Route::get('/AddtoCart1/{id}', 'App\Http\Controllers\CartsController@AddToCart1')->name('product.addToCart')->middleware('user');
 
 //API

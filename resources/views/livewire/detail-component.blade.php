@@ -244,7 +244,10 @@ a<main id="main" class="main-site">
 
                     success: function(response) {
                         RenderCart(response);
-                        // alertify.success('Thêm sản phẩm thành công');
+                        //alertify.success('Thêm sản phẩm thành công');
+                        
+                        //window.location.replace('/Update-Total-Quantity');
+                        //window.location.replace('/shop');
                     },
                     error: function(response, error) {
                         // handleException(request , message , error);
