@@ -71,8 +71,11 @@ a<main id="main" class="main-site">
                             </div>
                             <div class="wrap-butons">
                                 {{-- <input class="btn add-to-cart" type="submit" value="Add to Cart"> --}}
-                                <a class="btn add-to-cart" onclick="AddCart({{ $product->id }})"
-                                    href="javascript:">Add To Cart</a>
+                                @if(Auth::check())
+                                <a class="btn add-to-cart" onclick="AddCart({{$product->id}})" href="javascript:">Add To Cart</a>
+                                @else
+                                <a class="btn add-to-cart" href="{{ url('/login') }}">Add To Cart</a>
+                                @endif
                             </div>
 
                         </form>
