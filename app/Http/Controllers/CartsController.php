@@ -37,7 +37,8 @@ class CartsController extends Controller
     }
 
     public function BuyAgain(){
-        $cart = DB::table('item_carts')->where('status',2)->get();
+        $id_user = Auth::user()->id;
+        $cart = DB::table('item_carts')->where('id_user',$id_user)->where('status',2)->get();
         return view('cart.buy-again',compact('cart'));   
     }
 
@@ -76,8 +77,9 @@ class CartsController extends Controller
                     $cart_item->name = $item->name;
                     $cart_item->quanty = 1;
                     // $cart_item->size = $size->name;
-                    $cart_item->size = "XL";
                     // $cart_item->color = $color->name;
+                    $cart_item->size = "XL";
+                    
                     $cart_item->color = "Bule";
                     $cart_item->price = $item->price;
                     $cart_item->total_price = $item->price;
@@ -86,9 +88,9 @@ class CartsController extends Controller
             
                     $cart_item->save();
                 }
-                //return $size;
-               
+                             
                 }
+                return $color_id;
         }
         //return $cart_item;
     }
