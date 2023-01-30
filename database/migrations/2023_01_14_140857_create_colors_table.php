@@ -19,6 +19,31 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
+
+        DB::table('colors')
+            ->insert([
+                [
+                    'name' => 'Be'
+                ],
+                [
+                    'name' => 'Đen'
+                ],
+                [
+                    'name' => 'Trắng'
+                ],
+                [
+                    'name' => 'Xám'
+                ],
+                [
+                    'name' => 'Xanh đậm'
+                ],
+                [
+                    'name' => 'Xanh lá'
+                ],
+                [
+                    'name' => 'Xanh lá đậm'
+                ],
+            ]);
     }
 
     /**

@@ -20,6 +20,38 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
+
+        DB::table('categories')
+            ->insert([
+                [
+                    'name' => 'Áo Polo',
+                    'slug' => 'Áo-polo'
+                ],
+                [
+                    'name' => 'Áo sơ mi cộc tay',
+                    'slug' => 'Áo-sơ-mi-cộc-tay'
+                ],
+                [
+                    'name' => 'Áo sơ mi dài tay',
+                    'slug' => 'Áo-sơ-mi-dài-tay'
+                ],
+                [
+                    'name' => 'Áo sơ mi',
+                    'slug' => 'Áo-sơ-mi'
+                ],
+                [
+                    'name' => 'Áo thun',
+                    'slug' => 'Áo-thun'
+                ],
+                [
+                    'name' => 'Quần dài',
+                    'slug' => 'Quần-dài'
+                ],
+                [
+                    'name' => 'Quần short',
+                    'slug' => 'Quần-short'
+                ],
+            ]);
     }
 
     /**

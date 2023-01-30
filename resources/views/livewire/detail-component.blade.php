@@ -11,8 +11,7 @@ a<main id="main" class="main-site">
                 <div class="wrap-product-detail">
                     <div class="detail-media">
                         <div class="product-gallery">
-                            <img src="{{ asset('assets/images/products') }}/{{ $product->image_path }}"
-                                alt="product thumbnail" />
+                            <img src="{{ $product->image_path }}" {{-- src="{{ asset('assets/images/products') }}/{{ $product->image_path }}" --}} alt="product thumbnail" />
                         </div>
                     </div>
                     <div class="detail-info">
