@@ -70,8 +70,11 @@ a<main id="main" class="main-site">
                             </div>
                             <div class="wrap-butons">
                                 {{-- <input class="btn add-to-cart" type="submit" value="Add to Cart"> --}}
-                                <a class="btn add-to-cart" onclick="AddCart({{ $product->id }})"
-                                    href="javascript:">Add To Cart</a>
+                                @if(Auth::check())
+                                <a class="btn add-to-cart" onclick="AddCart({{$product->id}})" href="javascript:">Add To Cart</a>
+                                @else
+                                <a class="btn add-to-cart" href="{{ url('/login') }}">Add To Cart</a>
+                                @endif
                             </div>
 
                         </form>
@@ -243,7 +246,10 @@ a<main id="main" class="main-site">
 
                     success: function(response) {
                         RenderCart(response);
-                        // alertify.success('Thêm sản phẩm thành công');
+                        //alertify.success('Thêm sản phẩm thành công');
+                        
+                        //window.location.replace('/Update-Total-Quantity');
+                        //window.location.replace('/shop');
                     },
                     error: function(response, error) {
                         // handleException(request , message , error);
