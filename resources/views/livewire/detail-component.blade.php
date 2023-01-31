@@ -36,7 +36,7 @@
                             <a class="link-socail" href="#"><img
                                     src="{{ asset('assets/images/social-list.png') }}" alt=""></a>
                         </div> --}}
-                        <div class="wrap-price"><span class="product-price">${{ $product->price }}</span></div>
+                        <div class="wrap-price"><span class="product-price">{{ $product->price }} VND</span></div>
                         <div class="stock-info in-stock">
                             <p class="availability">Availability: <b>In Stock</b></p>
                         </div>
