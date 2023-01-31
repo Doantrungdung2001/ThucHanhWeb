@@ -224,7 +224,7 @@ return new class extends Migration
                 ],
                 [
                     'brand_id' => '1',
-                    'category_id' => '2',
+                    'category_id' => '1',
                     'name' => 'Áo thun oversize ODIN CLUB Waffle Atelier',
                     'slug' => 'Áo-thun-oversize-ODIN-CLUB-Waffle-Atelier',
                     'image_path' => 'https://lh3.googleusercontent.com/TtgzPqnhCh6iE356kWKRAc1GeBUjQH--le7uBTvo9qFJKrozMtCDCOl9kQRShkq6viIiWZPTuRZz5uoq4FauXALe3xlR1zeEnB5pR34bMB0gsdnzF2J4U-XSI1E0NyBWHJsJ24pAJg=w2400',
