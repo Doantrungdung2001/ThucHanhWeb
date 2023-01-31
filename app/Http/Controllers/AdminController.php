@@ -10,16 +10,20 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\invoice;
 
 class AdminController extends Controller
 {
     private User $user;
     private Product $product;
+    private Category $category;
+    private invoice $invoice;
 
-    public function __construct(User $user, Product $product, Category $category) {
+    public function __construct(User $user, Product $product, Category $category, invoice $invoice) {
         $this->user = $user;
         $this->product = $product;
         $this->category = $category;
+        $this->invoice = $invoice;
     }
 
     public function redirectUser() {
@@ -32,6 +36,9 @@ class AdminController extends Controller
         $total = [];
         array_push($total, $this->user->count());
         array_push($total, $this->product->count());
+        array_push($total, ($this->invoice->select('id_invoice')->groupBy('id_invoice')->get())->count());
+
+        // User table
         $users = $this->user
         ->select('role', DB::raw('count(id) as countUser'))
         ->groupBy('role')
@@ -46,6 +53,7 @@ class AdminController extends Controller
         $chart->labels = $role;
         $chart->dataset = $countUser;
 
+        //Product table
         $products = $this->product
         ->select('category_id', DB::raw('count(id) as countProduct'))
         ->groupBy('category_id')
@@ -60,7 +68,14 @@ class AdminController extends Controller
         $chart1->labels = $categories;
         $chart1->dataset = $countProduct;
 
-        // dd($total);
+        //Invoice table
+        $invoices = $this->invoice->all();
+        $money = 0;
+        foreach($invoices as $invoice) {
+            $money += $invoice->quanty * $invoice->price;
+        }
+        array_push($total, $money);
+        //dd($products1);
         return view('admin.dashboard', compact('total','chart', 'chart1'));
     }
 }

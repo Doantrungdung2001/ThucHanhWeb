@@ -1,4 +1,4 @@
-aa<main id="main" class="main-site">
+<main id="main" class="main-site">
     <div class="container">
         <div class="wrap-breadcrumb">
             <ul>
@@ -40,8 +40,9 @@ aa<main id="main" class="main-site">
                         <div class="stock-info in-stock">
                             <p class="availability">Availability: <b>In Stock</b></p>
                         </div>
-                        <form action="{{ route('product.addToCart', ['id' => $product->id]) }}" method="get" id="change-item-cart">
-                        {{-- <form method="get" id="change-item-cart"> --}}
+                        <form action="{{ route('product.addToCart', ['id' => $product->id]) }}" method="get"
+                            id="change-item-cart">
+                            {{-- <form method="get" id="change-item-cart"> --}}
                             <p>Màu sắc:</p>
                             @foreach ($product->colors()->select('color_id')->get() as $color)
                                 <input type="radio" id="{{ $color->color_id }}" name="color"
@@ -70,7 +71,7 @@ aa<main id="main" class="main-site">
                                 </div>
                             </div>
                             <div class="wrap-butons">
-                                @if(Auth::check())
+                                @if (Auth::check())
                                     <input class="btn add-to-cart" type="submit" value="Add to Cart">
                                 @else
                                     <a class="btn add-to-cart" href="{{ url('/login') }}">Thêm vào giỏ hàng</a>
@@ -255,7 +256,7 @@ aa<main id="main" class="main-site">
                     success: function(response) {
                         RenderCart(response);
                         alertify.success('Thêm sản phẩm thành công');
-                        
+
                         //alertify.success('Thêm sản phẩm thành công');
                         //window.location.replace('/Update-Total-Quantity');
                         //window.location.replace('/shop');
