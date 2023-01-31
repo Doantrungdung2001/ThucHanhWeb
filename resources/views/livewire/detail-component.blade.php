@@ -255,7 +255,7 @@ aa<main id="main" class="main-site">
                     success: function(response) {
                         RenderCart(response);
                         alertify.success('Thêm sản phẩm thành công');
-                        
+                        window.location.reload();
                         //alertify.success('Thêm sản phẩm thành công');
                         //window.location.replace('/Update-Total-Quantity');
                         //window.location.replace('/shop');
