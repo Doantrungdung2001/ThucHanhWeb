@@ -24,32 +24,20 @@ return new class extends Migration
         DB::table('categories')
             ->insert([
                 [
-                    'name' => 'Áo Polo',
-                    'slug' => 'Áo-polo'
+                    'name' => 'Áo',
+                    'slug' => 'Ao'
                 ],
                 [
-                    'name' => 'Áo sơ mi cộc tay',
-                    'slug' => 'Áo-sơ-mi-cộc-tay'
+                    'name' => 'Quần',
+                    'slug' => 'Quan'
                 ],
                 [
-                    'name' => 'Áo sơ mi dài tay',
-                    'slug' => 'Áo-sơ-mi-dài-tay'
+                    'name' => 'Giầy dép',
+                    'slug' => 'Giay-dep'
                 ],
                 [
-                    'name' => 'Áo sơ mi',
-                    'slug' => 'Áo-sơ-mi'
-                ],
-                [
-                    'name' => 'Áo thun',
-                    'slug' => 'Áo-thun'
-                ],
-                [
-                    'name' => 'Quần dài',
-                    'slug' => 'Quần-dài'
-                ],
-                [
-                    'name' => 'Quần short',
-                    'slug' => 'Quần-short'
+                    'name' => 'Phụ kiện',
+                    'slug' => 'Phu-kien'
                 ],
             ]);
     }

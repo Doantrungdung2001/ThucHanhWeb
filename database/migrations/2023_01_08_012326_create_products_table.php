@@ -64,7 +64,7 @@ return new class extends Migration
                 ],
                 [
                     'brand_id' => '1',
-                    'category_id' => '3',
+                    'category_id' => '1',
                     'name' => 'Áo sơmi dài tay Flannel ODIN',
                     'slug' => 'Áo-sơmi-dài-tay-Flannel-ODIN',
                     'image_path' => 'https://lh3.googleusercontent.com/UDILqzFvdwae-ISKZ85Rb_LTYljxUfLyoUUc5F1NSjr-Qgz06Ho-_Fui1brkGNJ92UZMtdV7rsxwNAX4VJxFZniIKkMc7YrUj3X39rU4DxA5GRvPpN5k5h6wCBm-SbcsQgzMuAwqDQ=w2400',
@@ -74,7 +74,7 @@ return new class extends Migration
                 ],
                 [
                     'brand_id' => '1',
-                    'category_id' => '6',
+                    'category_id' => '2',
                     'name' => 'Quần dài Corduroy ODIN Pants',
                     'slug' => 'Quần-dài-Corduroy-ODIN-Pants',
                     'image_path' => 'https://lh3.googleusercontent.com/Ii1a9AnEwEP1W2X0jlEI57B3kPzjxVq35TZHLlsQ6ipDRnTI1kpMrpqzXB1sXIxjG1JSM84N85nUcoEGYlCy8HYp-4nVfiSB0u9nHp3-vjDVMh11TkJ6qUvr8AQvfmxZV8_qECzSEw=w2400',
@@ -84,7 +84,7 @@ return new class extends Migration
                 ],
                 [
                     'brand_id' => '1',
-                    'category_id' => '7',
+                    'category_id' => '2',
                     'name' => 'Quần short nỉ Odin Essentials',
                     'slug' => 'Quần-short-nỉ-Odin-Essentials',
                     'image_path' => '',
@@ -94,7 +94,7 @@ return new class extends Migration
                 ],
                 [
                     'brand_id' => '1',
-                    'category_id' => '2',
+                    'category_id' => '1',
                     'name' => 'Áo sơmi cộc tay ODIN CLUB Embroider',
                     'slug' => 'Áo-sơmi-cộc-tay-ODIN-CLUB-Embroider',
                     'image_path' => '',
@@ -104,7 +104,7 @@ return new class extends Migration
                 ],
                 [
                     'brand_id' => '1',
-                    'category_id' => '4',
+                    'category_id' => '1',
                     'name' => 'Áo sơmi Odin Club Light',
                     'slug' => 'Áo-sơmi-Odin-Club-Light',
                     'image_path' => '',
@@ -114,7 +114,7 @@ return new class extends Migration
                 ],
                 [
                     'brand_id' => '1',
-                    'category_id' => '4',
+                    'category_id' => '1',
                     'name' => 'Áo sơmi ODIN CLUB Sake',
                     'slug' => 'Áo-sơmi-ODIN-CLUB-Sake',
                     'image_path' => '',
@@ -124,7 +124,7 @@ return new class extends Migration
                 ],
                 [
                     'brand_id' => '1',
-                    'category_id' => '5',
+                    'category_id' => '1',
                     'name' => 'Áo thun AS RIGHT AS RAIN',
                     'slug' => 'Áo-thun-AS-RIGHT-AS-RAIN',
                     'image_path' => '',
@@ -134,7 +134,7 @@ return new class extends Migration
                 ],
                 [
                     'brand_id' => '1',
-                    'category_id' => '5',
+                    'category_id' => '1',
                     'name' => 'Áo thun CARD GAME',
                     'slug' => 'Áo-thun-CARD-GAME',
                     'image_path' => '',
@@ -144,7 +144,7 @@ return new class extends Migration
                 ],
                 [
                     'brand_id' => '1',
-                    'category_id' => '5',
+                    'category_id' => '1',
                     'name' => 'Áo thun EASY DOES IT',
                     'slug' => 'Áo-thun-EASY-DOES-IT',
                     'image_path' => '',
@@ -154,7 +154,7 @@ return new class extends Migration
                 ],
                 [
                     'brand_id' => '1',
-                    'category_id' => '5',
+                    'category_id' => '1',
                     'name' => 'Áo thun ETERNITY ITA',
                     'slug' => 'Áo-thun-ETERNITY-ITA',
                     'image_path' => '',
@@ -164,7 +164,7 @@ return new class extends Migration
                 ],
                 [
                     'brand_id' => '1',
-                    'category_id' => '5',
+                    'category_id' => '1',
                     'name' => 'Áo thun OD DARK SHADOW',
                     'slug' => 'Áo-thun-OD-DARK-SHADOW',
                     'image_path' => '',
@@ -174,7 +174,7 @@ return new class extends Migration
                 ],
                 [
                     'brand_id' => '1',
-                    'category_id' => '5',
+                    'category_id' => '1',
                     'name' => 'Áo thun ODIN CLUB IGNITER',
                     'slug' => 'Áo-thun-ODIN-CLUB-IGNITER',
                     'image_path' => '',
@@ -184,7 +184,7 @@ return new class extends Migration
                 ],
                 [
                     'brand_id' => '1',
-                    'category_id' => '5',
+                    'category_id' => '1',
                     'name' => 'Áo thun ODIN LET\'S ROCK',
                     'slug' => 'Áo-thun-ODIN-LET\'S-ROCK',
                     'image_path' => '',
@@ -194,7 +194,7 @@ return new class extends Migration
                 ],
                 [
                     'brand_id' => '1',
-                    'category_id' => '5',
+                    'category_id' => '1',
                     'name' => 'Áo thun YES EYE SEE',
                     'slug' => 'Áo-thun-YES-EYE-SEE',
                     'image_path' => '',
@@ -204,7 +204,7 @@ return new class extends Migration
                 ],
                 [
                     'brand_id' => '1',
-                    'category_id' => '7',
+                    'category_id' => '2',
                     'name' => 'Quần short Corduroy Buttons ODIN CLUB',
                     'slug' => 'Quần-short-Corduroy-Buttons-ODIN-CLUB',
                     'image_path' => '',
@@ -214,7 +214,7 @@ return new class extends Migration
                 ],
                 [
                     'brand_id' => '1',
-                    'category_id' => '7',
+                    'category_id' => '2',
                     'name' => 'Quần Short Odin Club Windy',
                     'slug' => 'Quần-Short-Odin-Club-Windy',
                     'image_path' => '',
@@ -224,7 +224,7 @@ return new class extends Migration
                 ],
                 [
                     'brand_id' => '1',
-                    'category_id' => '5',
+                    'category_id' => '2',
                     'name' => 'Áo thun oversize ODIN CLUB Waffle Atelier',
                     'slug' => 'Áo-thun-oversize-ODIN-CLUB-Waffle-Atelier',
                     'image_path' => '',
@@ -232,7 +232,6 @@ return new class extends Migration
                     'quantity' => 10,
                     'price' => '180000',
                 ],
-                
             ]);
     }
 
