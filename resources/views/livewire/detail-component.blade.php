@@ -1,4 +1,4 @@
-a<main id="main" class="main-site">
+aa<main id="main" class="main-site">
     <div class="container">
         <div class="wrap-breadcrumb">
             <ul>
@@ -11,7 +11,8 @@ a<main id="main" class="main-site">
                 <div class="wrap-product-detail">
                     <div class="detail-media">
                         <div class="product-gallery">
-                            <img src="{{ $product->image_path }}" {{-- src="{{ asset('assets/images/products') }}/{{ $product->image_path }}" --}} alt="product thumbnail" />
+                            <img src="{{ asset('assets/images/products') }}/{{ $product->image_path }}"
+                                alt="product thumbnail" />
                         </div>
                     </div>
                     <div class="detail-info">
@@ -70,10 +71,11 @@ a<main id="main" class="main-site">
                             </div>
                             <div class="wrap-butons">
                                 {{-- <input class="btn add-to-cart" type="submit" value="Add to Cart"> --}}
-                                @if(Auth::check())
-                                <a class="btn add-to-cart" onclick="AddCart({{$product->id}})" href="javascript:">Add To Cart</a>
+                                @if (Auth::check())
+                                    <a class="btn add-to-cart" onclick="AddCart({{ $product->id }})"
+                                        href="javascript:">Add To Cart</a>
                                 @else
-                                <a class="btn add-to-cart" href="{{ url('/login') }}">Add To Cart</a>
+                                    <a class="btn add-to-cart" href="{{ url('/login') }}">Add To Cart</a>
                                 @endif
                             </div>
 
@@ -247,7 +249,7 @@ a<main id="main" class="main-site">
                     success: function(response) {
                         RenderCart(response);
                         //alertify.success('Thêm sản phẩm thành công');
-                        
+
                         //window.location.replace('/Update-Total-Quantity');
                         //window.location.replace('/shop');
                     },

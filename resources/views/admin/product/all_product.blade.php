@@ -36,8 +36,9 @@
                                         <th scope="row">{{ $product->id }}</th>
                                         <td>{{ $product->name }}</td>
                                         <td>
-                                            <img class="product_image_150_100" src="{{ $product->image_path }}"
-                                                {{-- src="{{ asset('assets/images/products') }}/{{ $product->image_path }}" --}} alt="" width="100" height="100">
+                                            <img class="product_image_150_100"
+                                                src="{{ asset('assets/images/products') }}/{{ $product->image_path }}"
+                                                alt="" width="100" height="100">
                                         </td>
                                         <td>{{ number_format($product->price) }}</td>
                                         <td>{{ optional($product->category)->name }}</td>
