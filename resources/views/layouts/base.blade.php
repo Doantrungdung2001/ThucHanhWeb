@@ -149,12 +149,7 @@
                                 <a href="{{ url('/Cart') }}" class="link-direction">
                                     <i class="fa fa-shopping-basket" aria-hidden="true"></i>
                                     <div class="left-info">
-                                        @if(Auth::check())
-                                            <span class="index">0sản phẩm</span>
-                                        @else
-                                            <span class="index">0 sản phẩm</span>
-                                        
-                                        @endif
+                                        <span class="index">GIỎ HÀNG</span>
                                         {{-- @if($totalQuanty){
                                             <span class="index">{{$totalQuanty}} sản phẩm</span>
                                         }else{
@@ -163,7 +158,7 @@
                                         @endif --}}
                                         {{-- <span class="index">0 sản phẩm</span> --}}
                                        
-                                        <span class="title">GIỎ HÀNG</span>
+                                        {{-- <span class="title">GIỎ HÀNG</span> --}}
                                     </div>
                                 </a>
                             </div>
