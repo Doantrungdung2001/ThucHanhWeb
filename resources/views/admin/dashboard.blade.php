@@ -83,76 +83,36 @@
     <div class="row">
         <div class="col-md-6 col-lg-4 col-xl-4 order-0 mb-4">
             <div class="card h-100">
-                <div class="card-header d-flex align-items-center justify-content-between pb-0">
-                    <div class="card-title mb-0">
-                        <h5 class="m-0 me-2">Thống kê đơn hàng</h5>
-                        <small class="text-muted">Tổng doanh thu: 420.125.000 VNĐ</small>
-                    </div>
+                <div class="card-header d-flex align-items-center justify-content-between">
+                    <h5 class="card-title m-0 me-2">Thống kê doanh thu</h5>
                 </div>
                 <div class="card-body">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <div class="d-flex flex-column align-items-center gap-1">
-                            <h2 class="mb-2">258</h2>
-                            <span>Tổng đơn hàng</span>
-                        </div>
-                        <div id="orderStatisticsChart"></div>
-                    </div>
                     <ul class="p-0 m-0">
                         <li class="d-flex mb-4 pb-1">
                             <div class="avatar flex-shrink-0 me-3">
-                                <span class="avatar-initial rounded bg-label-primary"><i
-                                        class="bx bx-mobile-alt"></i></span>
+                                <img src="../assets/img/icons/unicons/wallet.png" alt="User" class="rounded" />
                             </div>
                             <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                                 <div class="me-2">
-                                    <h6 class="mb-0">Quần</h6>
-                                    {{-- <small class="text-muted">Mobile, Earbuds, TV</small> --}}
+                                    <small class="text-muted d-block mb-1">Tổng số đơn hàng</small>
                                 </div>
-                                <div class="user-progress">
-                                    <small class="fw-semibold">82.5k</small>
+                                <div class="user-progress d-flex align-items-center gap-1">
+                                    <h6 class="mb-0">{{ $total[2] }}</h6>
+                                    <span class="text-muted">đơn hàng</span>
                                 </div>
                             </div>
                         </li>
                         <li class="d-flex mb-4 pb-1">
                             <div class="avatar flex-shrink-0 me-3">
-                                <span class="avatar-initial rounded bg-label-success"><i class='bx bxs-t-shirt'></i></span>
+                                <img src="../assets/img/icons/unicons/paypal.png" alt="User" class="rounded" />
                             </div>
                             <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                                 <div class="me-2">
-                                    <h6 class="mb-0">Áo</h6>
-                                    {{-- <small class="text-muted">T-shirt, Jeans, Shoes</small> --}}
+                                    <small class="text-muted d-block mb-1">Tổng doanh thu</small>
                                 </div>
-                                <div class="user-progress">
-                                    <small class="fw-semibold">23.8k</small>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="d-flex mb-4 pb-1">
-                            <div class="avatar flex-shrink-0 me-3">
-                                <span class="avatar-initial rounded bg-label-info"><i class="bx bx-home-alt"></i></span>
-                            </div>
-                            <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                <div class="me-2">
-                                    <h6 class="mb-0">Giầy, dép</h6>
-                                    {{-- <small class="text-muted">Fine Art, Dining</small> --}}
-                                </div>
-                                <div class="user-progress">
-                                    <small class="fw-semibold">849k</small>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="d-flex">
-                            <div class="avatar flex-shrink-0 me-3">
-                                <span class="avatar-initial rounded bg-label-secondary"><i
-                                        class="bx bx-football"></i></span>
-                            </div>
-                            <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                <div class="me-2">
-                                    <h6 class="mb-0">Phụ kiện</h6>
-                                    {{-- <small class="text-muted">Football, Cricket Kit</small> --}}
-                                </div>
-                                <div class="user-progress">
-                                    <small class="fw-semibold">99</small>
+                                <div class="user-progress d-flex align-items-center gap-1">
+                                    <h6 class="mb-0">{{ $total[3] }}</h6>
+                                    <span class="text-muted">VND</span>
                                 </div>
                             </div>
                         </li>

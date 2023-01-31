@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\invoice;
+use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use App\Models\ItemCart;
 class InvoiceController extends Controller
@@ -37,11 +38,26 @@ class InvoiceController extends Controller
                 'image_url'=>$item->image_url,
                 'status'=>1
             ]);
+            $prd = DB::table('products')->find($item->id_product);
+            $quanty_now = $prd->quantity;
+            $quantity_update = $quanty_now - $item->quanty;
+            Product::where('id',$item->id_product)
+                    ->update(['quantity'=>$quantity_update]);
         }
+        // foreach($product as $item){  
+        //     $prd = DB::table('products')->where('id',$item->id_product)->get();
+        //     $quanty_now = $prd->quantity;
+        //     $quantity_update = $quanty_now - $item->quanty;
+        //     Product::where('id',$item->id_product)
+        //             ->update(['quantity'=>$quantity_update]);
+        //     // $quanty_now = DB::table('products')->where('id',$prd-)
+        // }
         if(ItemCart::where('id_user',$id_user)->exists()){
             ItemCart::where('id_user',$id_user)->where('status',1)
             ->update(['status'=>2]);
-        }
-        return redirect(url('/'));  
+        }   
+        
+        return redirect(url('/')); 
+         
     }
 }

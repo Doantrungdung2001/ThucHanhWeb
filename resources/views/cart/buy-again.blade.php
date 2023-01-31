@@ -22,13 +22,13 @@
     <link rel="stylesheet" href="assets/css/cart/jquery-ui.min.css" type="text/css">
     <link rel="stylesheet" href="assets/css/cart/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="assets/css/cart/style.css" type="text/css">
-    
+
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
 
     <style>
-        .cart-pic img{
+        .cart-pic img {
             width: 100%;
         }
     </style>
@@ -47,7 +47,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text product-more">
-                        <a href="{{url('/')}}"><i class="fa fa-home"></i> Home</a>
+                        <a href="{{ url('/') }}"><i class="fa fa-home"></i> Home</a>
                         <span>Shopping Cart</span>
                     </div>
                 </div>
@@ -60,9 +60,9 @@
         <div class="container">
             <nav class="nav-menu mobile-menu">
                 <ul>
-                    <li><a href="{{url('/Cart')}}">Giỏ hàng</a></li>
-                    <li><a href="{{url('/same-product')}}">Sản phẩm tương tự</a></li>
-                    <li><a href="{{url('/buy-again')}}">Mua lại hàng</a></li>
+                    <li><a href="{{ url('/Cart') }}">Giỏ hàng</a></li>
+                    <li><a href="{{ url('/same-product') }}">Sản phẩm tương tự</a></li>
+                    <li><a href="{{ url('/buy-again') }}">Mua lại hàng</a></li>
                 </ul>
             </nav>
             <div id="mobile-menu-wrap"></div>
@@ -73,44 +73,51 @@
     <section class="shopping-cart spad">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12" id ="list-cart">
+                <div class="col-lg-12" id="list-cart">
                     <div class="cart-table">
                         <table>
                             <thead>
                                 <tr>
-                                
+
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($cart as $item)
-                                <tr>
-                                    <td class="cart-pic-buy-again second-row"><img src="{{ asset('assets/images/products') }}/{{ $item->image_url }}" alt=""></td>
-                                    <td class="cart-title second-row">
-                                        <div class="row2">
-                                            <div class="col-lg-12 offset-lg-24">
-                                                <div class="proceed-checkout">
-                                                    <ul>
-                                                        <li class="subtotal">Tên sản phẩm  : <span>{{$item->name}}</span></li>
-                                                        <li class="cart-total">Giá :<span>{{number_format($item->price)}}₫</span></li>
-                                                        <li class="cart-total">Màu sắc :<span>{{$item->color}}</span></li>
-                                                        <li class="cart-total">Số lượng :<span>{{$item->quanty}}</span></li>
-                                                    </ul>
-                                                    
+                                @foreach ($cart as $item)
+                                    <tr>
+                                        <td class="cart-pic-buy-again second-row"><img src="{{ $item->image_url }}"
+                                                alt=""></td>
+                                        <td class="cart-title second-row">
+                                            <div class="row2">
+                                                <div class="col-lg-12 offset-lg-24">
+                                                    <div class="proceed-checkout">
+                                                        <ul>
+                                                            <li class="subtotal">Tên sản phẩm :
+                                                                <span>{{ $item->name }}</span></li>
+                                                            <li class="cart-total">Giá
+                                                                :<span>{{ number_format($item->price) }}₫</span></li>
+                                                            <li class="cart-total">Màu sắc
+                                                                :<span>{{ $item->color }}</span></li>
+                                                            <li class="cart-total">Số lượng
+                                                                :<span>{{ $item->quanty }}</span></li>
+                                                        </ul>
+
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row2">
-                                            <div class="col-lg-4 offset-lg-8">
-                                                <div class="proceed-checkout">
-                                                    <a onclick="AddCart({{$item->id_product}})" href="javascript:" class="proceed-btn">Mua lại hàng</a>
-                                                    <a href="#" class="proceed-btn-2" onclick="DeleteItemListCart({{$item->id_product}});">Xóa</a>
+                                            <div class="row2">
+                                                <div class="col-lg-4 offset-lg-8">
+                                                    <div class="proceed-checkout">
+                                                        <a onclick="AddCart({{ $item->id_product }})" href="javascript:"
+                                                            class="proceed-btn">Mua lại hàng</a>
+                                                        <a href="#" class="proceed-btn-2"
+                                                            onclick="DeleteItemListCart({{ $item->id_product }});">Xóa</a>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        
-                                    </td>
-                                    
-                                </tr>
+
+                                        </td>
+
+                                    </tr>
                                 @endforeach
                             </tbody>
                         </table>
@@ -119,7 +126,7 @@
             </div>
         </div>
     </section>
-    <!-- Shopping Cart Section End -->	
+    <!-- Shopping Cart Section End -->
 
     <!-- Footer Section Begin -->
     <footer class="footer-section">
@@ -152,30 +159,30 @@
     <script src="assets/js/bootstrap3/main.js"></script>
 
 
-     <!-- JavaScript -->
+    <!-- JavaScript -->
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
     <!-- Default theme -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
     <!-- Semantic UI theme -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css" />
     <!-- Bootstrap theme -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css" />
 
     <script>
-        function AddCart(id){
+        function AddCart(id) {
             $.ajax({
-                url:'buy-product-again/'+id,
-                type:'GET',
+                url: 'buy-product-again/' + id,
+                type: 'GET',
 
-                success:function(response){
+                success: function(response) {
                     RenderListCart(response);
                     alertify.success('Mua lại sản phẩm thành công');
                     // window.location.replace('/buy-again');
                 },
-                error:function(response , error){
+                error: function(response, error) {
                     // handleException(request , message , error);
                     console.log(error);
                     console.log(response);
@@ -183,30 +190,30 @@
             });
         }
 
-        function DeleteItemListCart(id){
+        function DeleteItemListCart(id) {
             //console.log(id);
             $.ajax({
-                url:'Delete-Item-Product/'+id,
-                type:'GET',
-            }).done(function(response){
-            
+                url: 'Delete-Item-Product/' + id,
+                type: 'GET',
+            }).done(function(response) {
+
                 RenderListCart(response);
                 alertify.success('Xóa sẩn phẩm thành công');
                 // window.location.replace('/buy-again');
             });
         }
-        
-        
-        function RenderListCart(response){
+
+
+        function RenderListCart(response) {
             $("#list-cart").empty();
             $("#list-cart").html(response);
             /*-------------------
-		    Quantity change
-	        --------------------- */
+    		    Quantity change
+    	        --------------------- */
             var proQty = $('.pro-qty');
             proQty.prepend('<span class="dec qtybtn">-</span>');
             proQty.append('<span class="inc qtybtn">+</span>');
-            proQty.on('click', '.qtybtn', function () {
+            proQty.on('click', '.qtybtn', function() {
                 var $button = $(this);
                 var oldValue = $button.parent().find('input').val();
                 if ($button.hasClass('inc')) {
