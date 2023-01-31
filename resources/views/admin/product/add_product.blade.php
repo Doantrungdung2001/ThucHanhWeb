@@ -24,7 +24,7 @@
                         <div class="row mb-3">
                             <label for="html5-url-input" class="col-md-2 col-form-label">Hình ảnh</label>
                             <div class="col-md-10">
-                                <input class="form-control" type="file" value="" id="html5-url-input"
+                                <input class="form-control" type="url" value="" id="html5-url-input"
                                     name="image_path">
                             </div>
                         </div>
