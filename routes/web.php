@@ -189,7 +189,7 @@ Route::get('/Api/totalQuanty-Product-Cart', 'App\Http\Controllers\CartController
 
 //Invoice
 Route::get('/create-invoice','App\Http\Controllers\InvoiceController@Invoice')->middleware('user');
-Route::get('/payment','App\Http\Controllers\InvoiceController@SaveInvoice')->middleware('user');
+Route::get('/done-payment','App\Http\Controllers\InvoiceController@SaveInvoice')->middleware('user');
 Route::get('/update-invoice','App\Http\Controllers\CartsController@UpdateInvoice')->middleware('user');
 
 //Payment

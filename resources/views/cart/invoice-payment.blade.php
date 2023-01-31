@@ -118,7 +118,7 @@
                         </table>
                     </div>
                 </div>
-                <form action="{{url('/update-invoice')}}" method="get">
+                <form action="{{url('/done-payment')}}" method="get">
                     @csrf
                     <button type="submit">Hoàn tất thanh toán</button>
                 </form>

@@ -29,8 +29,8 @@ class PaymentController extends Controller
         $vnp_TxnRef = $code_invocie; //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
         $vnp_OrderInfo = 'Thanh toan test';
         $vnp_OrderType = 'billpayment';
-        // $vnp_Amount = $data['totalPrice'] * 100;
-        $vnp_Amount = 20000 * 100;
+        $vnp_Amount = $data['totalPrice'] * 100;
+        // $vnp_Amount = 20000 * 100;
         $vnp_Locale = 'vn';
         $vnp_BankCode = 'NCB';
         $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];

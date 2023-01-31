@@ -75,12 +75,12 @@ class CartsController extends Controller
                     $cart_item->id_user = $id_user;
                     $cart_item->id_product = $item->id;
                     $cart_item->name = $item->name;
-                    $cart_item->quanty = 1;
-                    // $cart_item->size = $size->name;
-                    // $cart_item->color = $color->name;
-                    $cart_item->size = "XL";
+                    $cart_item->quanty = $quatity_prd;
+                    $cart_item->size = $size->name;
+                    $cart_item->color = $color->name;
+                    // $cart_item->size = "XL";
                     
-                    $cart_item->color = "Bule";
+                    // $cart_item->color = "Bule";
                     $cart_item->price = $item->price;
                     $cart_item->total_price = $item->price;
                     $cart_item->image_url = $item->image_path;
@@ -90,7 +90,7 @@ class CartsController extends Controller
                 }
                              
                 }
-                return $color_id;
+                //return $color_id;
         }
         //return $cart_item;
     }
@@ -145,9 +145,53 @@ class CartsController extends Controller
 
     public function AddToCart1(Request $request, $id) {
         //dd($request);
-        
+        if (Auth::check()) {
+            $id_user = Auth::user()->id;
+        } else {
+            return Redirect::to('/login');
+        }
         // $request->color;
-        return $request->quatity;
+        $cart_item = new ItemCart();
+        $color_id = $request->color;
+        $size_id = $request->size;
+        $quatity_prd = $request->quatity;
+        $item = DB::table('products')->where('id',$id)->first();
+        if($item){
+            if($item->quantity > 0){
+                $size =DB::table('sizes')->where('id',$size_id)->first();
+                $color =DB::table('colors')->where('id',$color_id)->first();
+                if(ItemCart::where('id_user',$id_user)->where('id_product',$id)->where('status',1)->exists()){
+                    $now_quanty = ItemCart::where('id_user',$id_user)->where('id_product',$id)->where('status',1)->first();
+                    $i = $now_quanty->quanty + 1;
+                    $cost = $now_quanty->price * $i;
+                    ItemCart::where('id_user',$id_user)
+                        ->where('id_product',$id)
+                        ->update(['quanty'=>$i]);
+                    ItemCart::where('id_user',$id_user)
+                            ->where('id_product',$id)
+                            ->update(['total_price'=>$cost]);
+                }else{
+                    $cart_item->id_user = $id_user;
+                    $cart_item->id_product = $item->id;
+                    $cart_item->name = $item->name;
+                    $cart_item->quanty = $quatity_prd = $request->quatity;
+                    $cart_item->size = $size->name;
+                    $cart_item->color = $color->name;
+                    // $cart_item->size = "XL";
+                    
+                    // $cart_item->color = "Bule";
+                    $cart_item->price = $item->price;
+                    $cart_item->total_price = $item->price;
+                    $cart_item->image_url = $item->image_path;
+                    $cart_item->status = 1;
+            
+                    $cart_item->save();
+                }
+                             
+                }
+                //return $color_id;
+        }
+        return redirect()->to('/Cart');
     }
     public function UpdateInvoice(Request $request){
         $id_user = Auth::user()->id;
@@ -161,7 +205,7 @@ class CartsController extends Controller
         $id_user = Auth::user()->id;
         if($id_user){
             $totalQuanty = DB::table('item_carts')->where('id_user',$id_user)->where('status',1)->sum('quanty');
-            return view('layouts.base',compact('totalQuanty'));
+            return view('layouts.base',['totalQuanty'=>$totalQuanty]);
         }
     }
         
