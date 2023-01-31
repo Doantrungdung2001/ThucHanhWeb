@@ -212,9 +212,6 @@
                                     <a href="{{ url('/Cart') }}" class="link-term mercado-item-title">Giỏ hàng</a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="/checkout" class="link-term mercado-item-title">Thanh Toán</a>
-                                </li>
-                                <li class="menu-item">
                                     <a href="#" class="link-term mercado-item-title">Liên Hệ</a>
                                 </li>
                             </ul>
