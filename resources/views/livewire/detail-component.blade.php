@@ -1,4 +1,4 @@
-a<main id="main" class="main-site">
+aa<main id="main" class="main-site">
     <div class="container">
         <div class="wrap-breadcrumb">
             <ul>
@@ -11,7 +11,8 @@ a<main id="main" class="main-site">
                 <div class="wrap-product-detail">
                     <div class="detail-media">
                         <div class="product-gallery">
-                            <img src="{{ $product->image_path }}" {{-- src="{{ asset('assets/images/products') }}/{{ $product->image_path }}" --}} alt="product thumbnail" />
+                            <img src="{{ asset('assets/images/products') }}/{{ $product->image_path }}"
+                                alt="product thumbnail" />
                         </div>
                     </div>
                     <div class="detail-info">
@@ -69,6 +70,7 @@ a<main id="main" class="main-site">
                                 </div>
                             </div>
                             <div class="wrap-butons">
+<<<<<<< HEAD
                                 {{-- <input class="btn add-to-cart" type="submit" value="Add to Cart">
                                 @if(Auth::check())                                 
                                     <script>window.location.reload()</script>
@@ -79,6 +81,13 @@ a<main id="main" class="main-site">
                                     <input class="btn add-to-cart" type="submit" onclick="AddCart({{$product->id}})" href="javascript:" value="Add to Cart">
                                     {{-- <a class="btn add-to-cart" onclick="AddCart({{$product->id}})" href="javascript:">Add To Cart</a> --}}
                                 @else
+=======
+                                {{-- <input class="btn add-to-cart" type="submit" value="Add to Cart"> --}}
+                                @if (Auth::check())
+                                    <a class="btn add-to-cart" onclick="AddCart({{ $product->id }})"
+                                        href="javascript:">Add To Cart</a>
+                                @else
+>>>>>>> 6bfe332faaae8e90c2447c4f0d6694e6e03936f1
                                     <a class="btn add-to-cart" href="{{ url('/login') }}">Add To Cart</a>
                                 @endif
                             </div>
@@ -252,8 +261,13 @@ a<main id="main" class="main-site">
 
                     success: function(response) {
                         RenderCart(response);
+<<<<<<< HEAD
                         alertify.success('Thêm sản phẩm thành công');
                         
+=======
+                        //alertify.success('Thêm sản phẩm thành công');
+
+>>>>>>> 6bfe332faaae8e90c2447c4f0d6694e6e03936f1
                         //window.location.replace('/Update-Total-Quantity');
                         //window.location.replace('/shop');
                     },

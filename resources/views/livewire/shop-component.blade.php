@@ -64,7 +64,8 @@
                                     <div class="product-thumnail">
                                         <a href="{{ route('product.details', ['slug' => $product->slug]) }}"
                                             title="{{ $product->name }}">
-                                            <figure><img src="{{ $product->image_path }}" {{-- src="{{ asset('assets/images/products') }}/{{ $product->image_path }}" --}}
+                                            <figure><img
+                                                    src="{{ asset('assets/images/products') }}/{{ $product->image_path }}"
                                                     alt="{{ $product->name }}"></figure>
                                         </a>
                                     </div>
