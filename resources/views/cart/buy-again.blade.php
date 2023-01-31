@@ -172,7 +172,7 @@
 
                 success:function(response){
                     RenderListCart(response);
-                    alertify.success('Thêm sản phẩm thành công');
+                    alertify.success('Mua lại sản phẩm thành công');
                     // window.location.replace('/buy-again');
                 },
                 error:function(response , error){

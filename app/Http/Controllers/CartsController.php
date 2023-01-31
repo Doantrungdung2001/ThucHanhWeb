@@ -40,6 +40,7 @@ class CartsController extends Controller
     public function BuyAgain(){
         $id_user = Auth::user()->id;
         $cart = DB::table('invoices')->where('id_user',$id_user)->where('status',1)->get();
+        // $cart = invoice::groupBy('id_product')->where('id_user',$id_user)->where('status',1)->get();
         return view('cart.buy-again',compact('cart'));   
     }
 
@@ -103,7 +104,7 @@ class CartsController extends Controller
         $id_user = Auth::user()->id;
         $cart_item = new ItemCart();
         $item = DB::table('invoices')->where('id',$id)->first();
-        if($item){
+        
             if(ItemCart::where('id_user',$id_user)->where('id_product',$id)->where('status',1)->exists()){
                 $now_quanty = ItemCart::where('id_user',$id_user)->where('id_product',$id)->where('status',1)->first();
                 $i = $now_quanty->quanty + 1;
@@ -131,7 +132,7 @@ class CartsController extends Controller
                              
             
                 //return $color_id;
-        }
+        
         $cart = DB::table('invoices')->where('id_user',$id_user)->where('status',1)->get();
         return view('cart.list-product',compact('cart'));
     }

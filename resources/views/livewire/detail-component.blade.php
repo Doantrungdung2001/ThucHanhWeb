@@ -73,7 +73,7 @@ aa<main id="main" class="main-site">
                                 @if(Auth::check())
                                     <input class="btn add-to-cart" type="submit" value="Add to Cart">
                                 @else
-                                    <a class="btn add-to-cart" href="{{ url('/login') }}">Add To Cart</a>
+                                    <a class="btn add-to-cart" href="{{ url('/login') }}">Thêm vào giỏ hàng</a>
                                 @endif
                                 {{-- <input class="btn add-to-cart" type="submit" value="Add to Cart"> --}}
 
@@ -89,7 +89,7 @@ aa<main id="main" class="main-site">
                     </div>
                     <div class="advance-info">
                         <div class="tab-control normal">
-                            <a href="#description" class="tab-control-item active">description</a>
+                            <a href="#description" class="tab-control-item active">Mô tả</a>
                         </div>
                         <div class="tab-contents">
                             <div class="tab-content-item active" id="description">
