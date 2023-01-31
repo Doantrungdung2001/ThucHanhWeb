@@ -167,7 +167,7 @@
     <script>
         function AddCart(id){
             $.ajax({
-                url:'detail/AddtoCart/'+id,
+                url:'buy-product-again/'+id,
                 type:'GET',
 
                 success:function(response){

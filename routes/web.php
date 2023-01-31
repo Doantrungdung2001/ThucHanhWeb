@@ -172,6 +172,7 @@ Route::get('/user-info', [
 //CART - CHECKOUT - INVOICE
 Route::get('/cart-home', 'App\Http\Controllers\CartsController@Index')->middleware('user');
 Route::get('/detail/AddtoCart/{id}', 'App\Http\Controllers\CartsController@AddToCart')->middleware('user');
+Route::get('/buy-product-again/{id}', 'App\Http\Controllers\CartsController@BuyAgainProduct')->middleware('user');
 Route::get('/Delete-Item-Cart/{id}', 'App\Http\Controllers\CartsController@DeleteItemToCart')->middleware('user');
 Route::get('/Delete-Item-Product/{id}', 'App\Http\Controllers\CartsController@DeleteItemListProduct')->middleware('user');
 Route::get('/Cart', 'App\Http\Controllers\CartsController@ViewtoCart')->middleware('user');

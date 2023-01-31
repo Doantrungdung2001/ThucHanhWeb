@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ItemCart;
+use App\Models\invoice;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -33,12 +34,12 @@ class CartsController extends Controller
             $brand_prd = DB::table('products')->where('brand_id',$item->brand_id)->get();
             return view('cart.same-product',['brand_product'=> $brand_prd]);
         }
-        return view('cart.cart');
+        //return view('cart.cart');
     }
 
     public function BuyAgain(){
         $id_user = Auth::user()->id;
-        $cart = DB::table('item_carts')->where('id_user',$id_user)->where('status',2)->get();
+        $cart = DB::table('invoices')->where('id_user',$id_user)->where('status',1)->get();
         return view('cart.buy-again',compact('cart'));   
     }
 
@@ -95,6 +96,45 @@ class CartsController extends Controller
         //return $cart_item;
     }
 
+    public function BuyAgainProduct(Request $req,$id){
+        //$req->value = 
+        // $id_user = 2;
+
+        $id_user = Auth::user()->id;
+        $cart_item = new ItemCart();
+        $item = DB::table('invoices')->where('id',$id)->first();
+        if($item){
+            if(ItemCart::where('id_user',$id_user)->where('id_product',$id)->where('status',1)->exists()){
+                $now_quanty = ItemCart::where('id_user',$id_user)->where('id_product',$id)->where('status',1)->first();
+                $i = $now_quanty->quanty + 1;
+                $cost = $now_quanty->price * $i;
+                ItemCart::where('id_user',$id_user)
+                    ->where('id_product',$id)
+                    ->update(['quanty'=>$i]);
+                ItemCart::where('id_user',$id_user)
+                        ->where('id_product',$id)
+                        ->update(['total_price'=>$cost]);
+            }else{
+                $cart_item->id_user = $id_user;
+                $cart_item->id_product = $item->id_product;
+                $cart_item->name = $item->name;
+                $cart_item->quanty = 1;
+                $cart_item->size = $item->size;
+                $cart_item->color = $item->color;
+                $cart_item->price = $item->price;
+                $cart_item->total_price = $item->price;
+                $cart_item->image_url = $item->image_url;
+                $cart_item->status = 1;
+        
+                $cart_item->save();
+            }    
+                             
+            
+                //return $color_id;
+        }
+        $cart = DB::table('invoices')->where('id_user',$id_user)->where('status',1)->get();
+        return view('cart.list-product',compact('cart'));
+    }
     public function ViewToCart(Request $req){
         $id_user = Auth::user()->id;
         $cart = DB::table('item_carts')->where('id_user', $id_user)->where('status',1)->get();
@@ -118,11 +158,11 @@ class CartsController extends Controller
 
     public function DeleteItemListProduct(Request $req,$id){
         $id_user = Auth::user()->id;
-       if(ItemCart::where('id_product',$id)->exists()){
-        ItemCart::where('id_product',$id)->where('id_user', $id_user)->where('status',2)
+       if(invoice::where('id_product',$id)->exists()){
+        invoice::where('id_product',$id)->where('id_user', $id_user)->where('status',1)
         ->update(['status'=>0]);
        }
-       $cart = DB::table('item_carts')->where('status',2)->get();
+       $cart = DB::table('invoices')->where('status',1)->get();
        return view('cart.list-product',compact('cart'));
     }
 

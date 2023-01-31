@@ -70,26 +70,19 @@ aa<main id="main" class="main-site">
                                 </div>
                             </div>
                             <div class="wrap-butons">
-<<<<<<< HEAD
-                                {{-- <input class="btn add-to-cart" type="submit" value="Add to Cart">
-                                @if(Auth::check())                                 
-                                    <script>window.location.reload()</script>
-                                @else
-                                    <script>window.location.assign('/login')</script>
-                                @endif --}}
                                 @if(Auth::check())
-                                    <input class="btn add-to-cart" type="submit" onclick="AddCart({{$product->id}})" href="javascript:" value="Add to Cart">
-                                    {{-- <a class="btn add-to-cart" onclick="AddCart({{$product->id}})" href="javascript:">Add To Cart</a> --}}
+                                    <input class="btn add-to-cart" type="submit" value="Add to Cart">
                                 @else
-=======
+                                    <a class="btn add-to-cart" href="{{ url('/login') }}">Add To Cart</a>
+                                @endif
                                 {{-- <input class="btn add-to-cart" type="submit" value="Add to Cart"> --}}
-                                @if (Auth::check())
+
+                                {{-- @if (Auth::check())
                                     <a class="btn add-to-cart" onclick="AddCart({{ $product->id }})"
                                         href="javascript:">Add To Cart</a>
                                 @else
->>>>>>> 6bfe332faaae8e90c2447c4f0d6694e6e03936f1
                                     <a class="btn add-to-cart" href="{{ url('/login') }}">Add To Cart</a>
-                                @endif
+                                @endif --}}
                             </div>
 
                         </form>
@@ -261,13 +254,9 @@ aa<main id="main" class="main-site">
 
                     success: function(response) {
                         RenderCart(response);
-<<<<<<< HEAD
                         alertify.success('Thêm sản phẩm thành công');
                         
-=======
                         //alertify.success('Thêm sản phẩm thành công');
-
->>>>>>> 6bfe332faaae8e90c2447c4f0d6694e6e03936f1
                         //window.location.replace('/Update-Total-Quantity');
                         //window.location.replace('/shop');
                     },
