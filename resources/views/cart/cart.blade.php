@@ -208,8 +208,9 @@
                 if ($("#quanty-item-" + id).val() == 0) {
                     DeleteItemListCart(id);
                 } else {
-                    if ($("#quanty-item-" + id).val() >= 100) {
-                        alertify.success('Cập nhật thất bại');
+                    if ($("#quanty-item-" + id).val() >= 10) {
+                        alertify.success('Số lượng mặt hàng không đủ');
+                        window.location.reload();
                     } else {
                         RenderListCart(response);
                         alertify.success('Cập nhật thành công');

@@ -35,7 +35,7 @@
                             <p>Màu sắc:</p>
                             @foreach ($product->colors()->select('color_id')->get() as $color)
                                 <input type="radio" id="{{ $color->color_id }}" name="color"
-                                    value="{{ $color->color_id }}">
+                                    value="{{ $colors[((int) $color->color_id) - 1]->name }}">
                                 <label
                                     for="{{ $color->color_id }}">{{ $colors[((int) $color->color_id) - 1]->name }}</label>
                             @endforeach
@@ -44,7 +44,7 @@
                             <p>Kích cỡ</p>
                             @foreach ($product->sizes()->select('size_id')->get() as $size)
                                 <input type="radio" id="{{ $size->size_id }}" name="size"
-                                    value="{{ $size->size_id }}">
+                                    value="{{ $sizes[((int) $size->size_id) - 1]->name }}">
                                 <label
                                     for="{{ $size->size_id }}">{{ $sizes[((int) $size->size_id) - 1]->name }}</label>
                             @endforeach
@@ -62,6 +62,7 @@
                             <div class="wrap-butons">
                                 @if (Auth::check())
                                     <input class="btn add-to-cart" type="submit" value="Thêm vào giỏ hàng">
+                                
                                 @else
                                     <a class="btn add-to-cart" href="{{ url('/login') }}">Thêm vào giỏ hàng</a>
                                 @endif
@@ -244,8 +245,7 @@
 
                     success: function(response) {
                         RenderCart(response);
-                        alertify.success('Thêm sản phẩm thành công');
-                        
+                        alertify.success('Thêm sản phẩm thành công');                   
                      
                     },
                     error: function(response, error) {
