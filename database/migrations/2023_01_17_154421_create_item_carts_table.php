@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('id_user');
             $table->integer('id_product');
             $table->string('name');
+            $table->integer('id_category')->nullable();
             $table->integer('quanty');
             $table->string('size');
             $table->string('color');

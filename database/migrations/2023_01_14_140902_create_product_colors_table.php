@@ -15,10 +15,9 @@ return new class extends Migration
     {
         Schema::create('product_colors', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('product_id')->unsigned();;
+            $table->bigInteger('product_id')->unsigned();
             $table->bigInteger('color_id')->unsigned();
             $table->timestamps();
-            $table->softDeletes();
 
             $table->foreign('color_id')->references('id')->on('colors')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreign('product_id')->references('id')->on('products')->cascadeOnDelete()->cascadeOnUpdate();

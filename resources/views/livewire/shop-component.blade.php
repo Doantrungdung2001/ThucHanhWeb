@@ -47,7 +47,8 @@
 
                         <div class="change-display-mode">
                             <a href="#" class="grid-mode display-mode active"><i class="fa fa-th"></i>Lưới</a>
-                            <a href="list.html" class="list-mode display-mode"><i class="fa fa-th-list"></i>Danh sách</a>
+                            <a href="list.html" class="list-mode display-mode"><i class="fa fa-th-list"></i>Danh
+                                sách</a>
                         </div>
 
                     </div>
@@ -56,7 +57,6 @@
                 <!--end wrap shop control-->
 
                 <div class="row">
-
                     <ul class="product-list grid-products equal-container">
                         @foreach ($products as $product)
                             <li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
@@ -68,12 +68,13 @@
                                                     style="width: 100; height: 150px">
                                             </figure>
                                         </a>
-                                        
+
                                     </div>
                                     <div class="product-info">
-                                        <a href="#" class="product-name"><span>{{ $product->name }}</span></a>
-                                        <div class="wrap-price"><span
-                                                class="product-price">{{ $product->price }} VND</span></div>
+                                        <a href="#" class="product-name"><span
+                                                style="font-size:15px">{{ $product->name }}</span></a>
+                                        <div class="wrap-price"><span class="product-price">{{ $product->price }}
+                                                VND</span></div>
                                         <a href="{{ route('product.details', ['slug' => $product->slug]) }}"
                                             class="btn add-to-cart">Chi tiết sản phẩm</a>
                                     </div>
@@ -81,9 +82,7 @@
                             </li>
                         @endforeach
                     </ul>
-
                 </div>
-
                 <div class="wrap-pagination-info">
                     {{ $products->links() }}
                     {{-- <ul class="page-numbers">
