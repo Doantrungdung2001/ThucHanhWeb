@@ -37,9 +37,9 @@
                             <h5>{{ $item->color }}</h5>
                         </td>
                         <td class="total-price first-row">{{ number_format($item->total_price) }}₫</td>
-                        <td class="close-td first-row"><i class="ti-save"
+                        <td class="close-td first-row"><i class="fa fa-save"
                                 onclick="SaveItemListCart({{ $item->id_product }});"></i></td>
-                        <td class="close-td first-row"><i class="ti-close"
+                        <td class="close-td first-row"><i class="fa fa-close"
                                 onclick="DeleteItemListCart({{ $item->id_product }});"></i></td>
 
                     </tr>
