@@ -35,7 +35,7 @@
                 title: {
                     position: 'bottom',
                     display: true,
-                    text: 'Người dùng'
+                    text: 'Người dùng: {{ $total[0] }}'
                 },
             },
         });
@@ -72,7 +72,7 @@
                 title: {
                     position: 'bottom',
                     display: true,
-                    text: 'Sản phẩm'
+                    text: 'Sản phẩm: {{ $total[1] }}'
                 },
             },
         });
@@ -81,42 +81,74 @@
 @section('admin_content')
     <h3>Chào mừng @php print(Auth::user()->name); @endphp đến với trang quản trị</h3>
     <div class="row">
-        <div class="col-md-6 col-lg-4 col-xl-4 order-0 mb-4">
+        <div class="col-lg-8 mb-4 order-0">
             <div class="card h-100">
                 <div class="card-header d-flex align-items-center justify-content-between">
                     <h5 class="card-title m-0 me-2">Thống kê doanh thu</h5>
                 </div>
                 <div class="card-body">
-                    <ul class="p-0 m-0">
-                        <li class="d-flex mb-4 pb-1">
-                            <div class="avatar flex-shrink-0 me-3">
-                                <img src="../assets/img/icons/unicons/wallet.png" alt="User" class="rounded" />
-                            </div>
-                            <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                <div class="me-2">
-                                    <small class="text-muted d-block mb-1">Tổng số đơn hàng</small>
+                    <div class="col-lg-6 col-md-12 col-6 mb-4">
+                        <ul class="p-0 m-0">
+                            <li class="d-flex mb-4 pb-1">
+                                <div class="avatar flex-shrink-0 me-3">
+                                    <img src="../assets/img/icons/unicons/wallet.png" alt="User" class="rounded" />
                                 </div>
-                                <div class="user-progress d-flex align-items-center gap-1">
-                                    <h6 class="mb-0">{{ $total[2] }}</h6>
-                                    <span class="text-muted">đơn hàng</span>
+                                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                    <div class="me-2">
+                                        <small class="text-muted d-block mb-1">Tổng số đơn hàng</small>
+                                    </div>
+                                    <div class="user-progress d-flex align-items-center gap-1">
+                                        <h6 class="mb-0">{{ $total[2] }}</h6>
+                                        <span class="text-muted">đơn hàng</span>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-                        <li class="d-flex mb-4 pb-1">
-                            <div class="avatar flex-shrink-0 me-3">
-                                <img src="../assets/img/icons/unicons/paypal.png" alt="User" class="rounded" />
-                            </div>
-                            <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                <div class="me-2">
-                                    <small class="text-muted d-block mb-1">Tổng doanh thu</small>
+                            </li>
+                            <li class="d-flex mb-4 pb-1">
+                                <div class="avatar flex-shrink-0 me-3">
+                                    <img src="../assets/img/icons/unicons/paypal.png" alt="User" class="rounded" />
                                 </div>
-                                <div class="user-progress d-flex align-items-center gap-1">
-                                    <h6 class="mb-0">{{ $total[3] }}</h6>
-                                    <span class="text-muted">VND</span>
+                                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                    <div class="me-2">
+                                        <small class="text-muted d-block mb-1">Tổng doanh thu</small>
+                                    </div>
+                                    <div class="user-progress d-flex align-items-center gap-1">
+                                        <h6 class="mb-0">{{ $total[3] }}</h6>
+                                        <span class="text-muted">VND</span>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-                    </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    {{-- <div class="col-lg-6 col-md-12 col-6 mb-4">
+                        <span class="fw-semibold d-block mb-1">Tổng số người dùng</span>
+                        <h3 class="card-title mb-2">{{ $total[0] }}</h3>
+
+                        <span>Tống số sản phẩm</span>
+                        <h3 class="card-title text-nowrap mb-1">{{ $total[1] }}</h3>
+                    </div> --}}
+                </div>
+                <div class="card-header d-flex align-items-center justify-content-between">
+                    <h5 class="card-title m-0 me-2">Top sản phẩm bán chạy</h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive text-nowrap">
+                        <table class="table">
+                            <thead>
+                                <tr class="text-nowrap">
+                                    <th>Tên sản phẩm</th>
+                                    <th>Số lượng</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($topProduct as $item)
+                                    <tr>
+                                        <td>{{ $item->name }}</td>
+                                        <td>{{ $item->totalProduct }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -135,41 +167,6 @@
                             <canvas id="myPieChart1" style="width:100%;max-width:700px"></canvas>
                         </li>
                     </ul>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-lg-4 order-2 mb-4">
-            <div class="row">
-                <div class="col-lg-6 col-md-12 col-6 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="card-title d-flex align-items-start justify-content-between">
-                                <div class="avatar flex-shrink-0">
-                                    <span class="avatar-initial rounded bg-label-success">
-                                        <i class='bx bx-user' style='color:#26ce33'></i>
-                                    </span>
-                                </div>
-                            </div>
-
-                            <span class="fw-semibold d-block mb-1">Tổng số người dùng</span>
-                            <h3 class="card-title mb-2">{{ $total[0] }}</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-12 col-6 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="card-title d-flex align-items-start justify-content-between">
-                                <div class="avatar flex-shrink-0">
-                                    <span class="avatar-initial rounded bg-label-primary">
-                                        <i class='bx bxl-product-hunt'></i>
-                                    </span>
-                                </div>
-                            </div>
-                            <span>Tống số sản phẩm</span>
-                            <h3 class="card-title text-nowrap mb-1">{{ $total[1] }}</h3>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

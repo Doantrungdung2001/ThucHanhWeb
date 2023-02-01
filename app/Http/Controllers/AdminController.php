@@ -75,7 +75,13 @@ class AdminController extends Controller
             $money += $invoice->quanty * $invoice->price;
         }
         array_push($total, $money);
-        //dd($products1);
-        return view('admin.dashboard', compact('total','chart', 'chart1'));
+
+        $topProduct = $this->invoice
+        ->select('name', DB::raw('SUM(quanty) as totalProduct'))
+        ->groupBy('name')
+        ->orderBy('name')
+        ->limit(3)
+        ->get();
+        return view('admin.dashboard', compact('total','chart', 'chart1', 'topProduct'));
     }
 }
