@@ -4,8 +4,8 @@
 
         <div class="wrap-breadcrumb">
             <ul>
-                <li class="item-link"><a href="/" class="link">home</a></li>
-                <li class="item-link"><span>Product Categories</span></li>
+                <li class="item-link"><a href="/" class="link">Trang chủ</a></li>
+                <li class="item-link"><span>Danh mục sản phẩm</span></li>
                 <li class="item-link"><span>{{ $category_name }}</span></li>
             </ul>
         </div>
@@ -27,28 +27,28 @@
 
                         <div class="sort-item orderby ">
                             <select name="orderby" class="use-chosen" wire:model='sorting'>
-                                <option value="default" selected="selected">Default sorting</option>
-                                <option value="date">Sort by newness</option>
-                                <option value="price">Sort by price: low to high</option>
-                                <option value="price_desc">Sort by price: high to low</option>
+                                <option value="default" selected="selected">Mặc định</option>
+                                <option value="date">Mới nhất</option>
+                                <option value="price">Giá: thấp đến cao</option>
+                                <option value="price_desc">Giá: cao đến thấp</option>
                             </select>
                         </div>
 
                         <div class="sort-item product-per-page">
                             <select name="post-per-page" class="use-chosen" wire:model='pagesize'>
-                                <option value="12" selected="selected">12 per page</option>
-                                <option value="16">16 per page</option>
-                                <option value="18">18 per page</option>
-                                <option value="21">21 per page</option>
-                                <option value="24">24 per page</option>
-                                <option value="30">30 per page</option>
-                                <option value="32">32 per page</option>
+                                <option value="12" selected="selected">12</option>
+                                <option value="16">16</option>
+                                <option value="18">18</option>
+                                <option value="21">21</option>
+                                <option value="24">24</option>
+                                <option value="30">30</option>
+                                <option value="32">32</option>
                             </select>
                         </div>
 
                         <div class="change-display-mode">
-                            <a href="#" class="grid-mode display-mode active"><i class="fa fa-th"></i>Grid</a>
-                            <a href="list.html" class="list-mode display-mode"><i class="fa fa-th-list"></i>List</a>
+                            <a href="#" class="grid-mode display-mode active"><i class="fa fa-th"></i>Lưới</a>
+                            <a href="list.html" class="list-mode display-mode"><i class="fa fa-th-list"></i>Danh sách</a>
                         </div>
 
                     </div>
@@ -71,7 +71,7 @@
                                     <div class="product-info">
                                         <a href="#" class="product-name"><span>{{ $product->name }}</span></a>
                                         <div class="wrap-price"><span
-                                                class="product-price">{{ $product->regular_price }}</span></div>
+                                                class="product-price">{{ $product->price }}</span></div>
                                         <a href="{{ route('product.details', ['slug' => $product->slug]) }}"
                                             class="btn add-to-cart">Chi tiết sản phẩm</a>
                                     </div>

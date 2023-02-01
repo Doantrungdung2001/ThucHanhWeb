@@ -2,8 +2,8 @@
     <div class="container">
         <div class="wrap-breadcrumb">
             <ul>
-                <li class="item-link"><a href="#" class="link">home</a></li>
-                <li class="item-link"><span>detail</span></li>
+                <li class="item-link"><a href="#" class="link">Trang chủ</a></li>
+                <li class="item-link"><span>Chi tiết sản phẩm</span></li>
             </ul>
         </div>
         <div class="row">
@@ -25,20 +25,9 @@
                             <a href="#" class="count-review">(05 review)</a>
                         </div>
                         <h2 class="product-name">{{ $product->name }}</h2>
-                        {{-- <div class="short-desc">
-                            <ul>
-                                <li>7,9-inch LED-backlit, 130Gb</li>
-                                <li>Dual-core A7 with quad-core graphics</li>
-                                <li>FaceTime HD Camera 7.0 MP Photos</li>
-                            </ul>
-                        </div> --}}
-                        {{-- <div class="wrap-social">
-                            <a class="link-socail" href="#"><img
-                                    src="{{ asset('assets/images/social-list.png') }}" alt=""></a>
-                        </div> --}}
                         <div class="wrap-price"><span class="product-price">{{ $product->price }} VND</span></div>
                         <div class="stock-info in-stock">
-                            <p class="availability">Availability: <b>In Stock</b></p>
+                            <p class="availability">Tình trạng <b>Còn hàng</b></p>
                         </div>
                         <form action="{{ route('product.addToCart', ['id' => $product->id]) }}" method="get"
                             id="change-item-cart">
@@ -61,7 +50,7 @@
                             @endforeach
 
                             <div class="quantity">
-                                <span>Quantity:</span>
+                                <span>Số lượng:</span>
                                 <div class="quantity-input">
                                     <input id="quantity" type="text" name="quatity" value="1" data-max="120"
                                         pattern="[0-9]*">
@@ -72,7 +61,7 @@
                             </div>
                             <div class="wrap-butons">
                                 @if (Auth::check())
-                                    <input class="btn add-to-cart" type="submit" value="Add to Cart">
+                                    <input class="btn add-to-cart" type="submit" value="Thêm vào giỏ hàng">
                                 @else
                                     <a class="btn add-to-cart" href="{{ url('/login') }}">Thêm vào giỏ hàng</a>
                                 @endif
@@ -90,7 +79,7 @@
                     </div>
                     <div class="advance-info">
                         <div class="tab-control normal">
-                            <a href="#description" class="tab-control-item active">Mô tả</a>
+                            <a href="#description" class="tab-control-item active">Mô tả sản phẩm</a>
                         </div>
                         <div class="tab-contents">
                             <div class="tab-content-item active" id="description">
@@ -111,9 +100,9 @@
                                 <a class="link-to-service" href="#">
                                     <i class="fa fa-truck" aria-hidden="true"></i>
                                     <div class="right-content">
-                                        <b class="title">Free Shipping</b>
-                                        <span class="subtitle">On Oder Over $99</span>
-                                        <p class="desc">Lorem Ipsum is simply dummy text of the printing...</p>
+                                        <b class="title">Miễn phí giao hàng</b>
+                                        <span class="subtitle">Đối với đơn hàng trên 200k</span>
+                                        <p class="desc"></p>
                                     </div>
                                 </a>
                             </li>
@@ -122,9 +111,9 @@
                                 <a class="link-to-service" href="#">
                                     <i class="fa fa-gift" aria-hidden="true"></i>
                                     <div class="right-content">
-                                        <b class="title">Special Offer</b>
-                                        <span class="subtitle">Get a gift!</span>
-                                        <p class="desc">Lorem Ipsum is simply dummy text of the printing...</p>
+                                        <b class="title">Khuyến mãi đặc biệt</b>
+                                        <span class="subtitle">Quà tặng kèm theo hấp dẫn</span>
+                                        <p class="desc"></p>
                                     </div>
                                 </a>
                             </li>
@@ -133,9 +122,9 @@
                                 <a class="link-to-service" href="#">
                                     <i class="fa fa-reply" aria-hidden="true"></i>
                                     <div class="right-content">
-                                        <b class="title">Order Return</b>
-                                        <span class="subtitle">Return within 7 days</span>
-                                        <p class="desc">Lorem Ipsum is simply dummy text of the printing...</p>
+                                        <b class="title">Chính sách đổi trả</b>
+                                        <span class="subtitle">Hoàn trả hàng trong vòng 7 ngày đầu tiên</span>
+                                        <p class="desc"></p>
                                     </div>
                                 </a>
                             </li>

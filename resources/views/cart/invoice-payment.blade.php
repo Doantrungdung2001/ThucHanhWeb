@@ -34,14 +34,14 @@
                 <a class="pt-2 d-inline-block" href="{{ url('/') }}" data-abc="true"></a>
                 <div class="float-right">
                     <h3 class="mb-0">Hóa đơn</h3>
-                    Date: 12 Jun,2019
+                    Ngày: <?php print(date('M,d Y')) ?>
                 </div>
             </div>
             <div class="card-body">
                 <div class="row mb-4">
                     <div class="col-sm-6">
                         <h5 class="mb-3">Từ:</h5>
-                        <h3 class="text-dark mb-1">Shopp Thầy Hóa</h3>
+                        <h3 class="text-dark mb-1">Shop Thầy Hóa</h3>
                         <div>29,Trần Đại Nghĩa</div>
                         <div>Hai Bà Trưng,Hà Nội</div>
                         <div>Email: dung.dt194521@sis.hust.edu.vn</div>

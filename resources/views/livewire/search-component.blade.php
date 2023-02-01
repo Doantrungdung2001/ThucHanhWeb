@@ -4,8 +4,8 @@
 
         <div class="wrap-breadcrumb">
             <ul>
-                <li class="item-link"><a href="#" class="link">home</a></li>
-                <li class="item-link"><span>Digital & Electronics</span></li>
+                <li class="item-link"><a href="#" class="link">Trang chủ</a></li>
+                <li class="item-link"><span>Sản Phẩm</span></li>
             </ul>
         </div>
         <div class="row">
@@ -20,7 +20,7 @@
 
                 <div class="wrap-shop-control">
 
-                    <h1 class="shop-title">Digital & Electronics</h1>
+                    <h1 class="shop-title">Sản Phẩm</h1>
 
                     <div class="wrap-right">
 
@@ -71,7 +71,7 @@
                                             <a href="#" class="product-name"><span>{{ $product->name }}</span></a>
                                             <div class="wrap-price"><span
                                                     class="product-price">{{ $product->regular_price }}</span></div>
-                                            <a href="#" class="btn add-to-cart">Add To Cart</a>
+                                            <a href="#" class="btn add-to-cart">Thêm vào giỏ hàng</a>
                                         </div>
                                     </div>
                                 </li>
