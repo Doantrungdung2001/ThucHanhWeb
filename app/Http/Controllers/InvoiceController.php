@@ -38,10 +38,14 @@ class InvoiceController extends Controller
                 'image_url'=>$item->image_url,
                 'status'=>1
             ]);
+            $color_id = DB::table('colors')->where('name', $item->color)->first();
+            $size_id = DB::table('sizes')->where('name', $item->size)->first();
+            $quantity_item = DB::table('quantities')->where('product_id',$item->id_product)->where('color_id', $color_id->id)->where('size_id', $size_id->id)->first();
+
             $prd = DB::table('products')->find($item->id_product);
-            $quanty_now = $prd->quantity;
+            $quanty_now = $quantity_item->quantity;
             $quantity_update = $quanty_now - $item->quanty;
-            Product::where('id',$item->id_product)
+            DB::table('quantities')->where('product_id',$item->id_product)->where('color_id', $color_id->id)->where('size_id', $size_id->id)
                     ->update(['quantity'=>$quantity_update]);
         }
         // foreach($product as $item){  

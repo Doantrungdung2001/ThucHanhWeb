@@ -193,20 +193,23 @@ class CartsController extends Controller
         }
         // $request->color;
         $cart_item = new ItemCart();
-        $color_id = $request->color;
-        $size_id = $request->size;
+        $color = $request->color;
+        $size = $request->size;
         $quatity_prd = $request->quatity;
         $item = DB::table('products')->where('id',$id)->first();
         if($item){
-            if($item->quantity < $quatity_prd){
+            $color_id = DB::table('colors')->where('name', $color)->first();
+            $size_id = DB::table('sizes')->where('name', $size)->first();
+            $quantity_item = DB::table('quantities')->where('product_id',$id)->where('color_id', $color_id->id)->where('size_id', $size_id->id)->first();
+            if($quantity_item->quantity < $quatity_prd){
                 // Session::put('message','Số lượng mặt hàng không đủ!!!');
                 if(ItemCart::where('id_user',$id_user)->where('id_product',$id)->where('status',1)->exists()){
                     $now_quanty = ItemCart::where('id_user',$id_user)->where('id_product',$id)->where('status',1)->first();
     
-                    $cost = $now_quanty->price * $item->quantity;
+                    $cost = $now_quanty->price * $quantity_item->quantity;
                     ItemCart::where('id_user',$id_user)
                         ->where('id_product',$id)
-                        ->update(['quanty'=>$item->quantity]);
+                        ->update(['quanty'=>$quantity_item->quantity]);
                     ItemCart::where('id_user',$id_user)
                             ->where('id_product',$id)
                             ->update(['total_price'=>$cost]);
@@ -214,9 +217,9 @@ class CartsController extends Controller
                     $cart_item->id_user = $id_user;
                     $cart_item->id_product = $item->id;
                     $cart_item->name = $item->name;
-                    $cart_item->quanty = $item->quantity-1;
-                    $cart_item->size = $size_id;
-                    $cart_item->color = $color_id;
+                    $cart_item->quanty = $quantity_item->quantity-1;
+                    $cart_item->size = $size;
+                    $cart_item->color = $color;
                         // $cart_item->size = "XL";
                         
                         // $cart_item->color = "Bule";
@@ -245,8 +248,8 @@ class CartsController extends Controller
                     $cart_item->id_product = $item->id;
                     $cart_item->name = $item->name;
                     $cart_item->quanty = $quatity_prd;
-                    $cart_item->size = $size_id;
-                    $cart_item->color = $color_id;
+                    $cart_item->size = $size;
+                    $cart_item->color = $color;
                     // $cart_item->size = "XL";
                     
                     // $cart_item->color = "Bule";
@@ -261,7 +264,7 @@ class CartsController extends Controller
             }
                 //return $color_id;
         }
-        // dd($request);
+        //dd($quantity_item);
     }
     public function UpdateInvoice(Request $request){
         $id_user = Auth::user()->id;
