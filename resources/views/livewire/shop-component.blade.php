@@ -72,7 +72,7 @@
                                     </div>
                                     <div class="product-info">
                                         <a href="#" class="product-name"><span
-                                                style="font-size:15px">{{ $product->name }}</span></a>
+                                                style="font-size:15px; height:50px">{{ $product->name }}</span></a>
                                         <div class="wrap-price"><span class="product-price">{{ $product->price }}
                                                 VND</span></div>
                                         <a href="{{ route('product.details', ['slug' => $product->slug]) }}"
