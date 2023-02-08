@@ -11,8 +11,7 @@
                 <div class="wrap-product-detail">
                     <div class="detail-media">
                         <div class="product-gallery">
-                            <img src="{{ $product->image_path }}"
-                                alt="product thumbnail" />
+                            <img src="{{ $product->image_path }}" alt="product thumbnail" />
                         </div>
                     </div>
                     <div class="detail-info">
@@ -62,7 +61,6 @@
                             <div class="wrap-butons">
                                 @if (Auth::check())
                                     <input class="btn add-to-cart" type="submit" value="Thêm vào giỏ hàng">
-                                
                                 @else
                                     <a class="btn add-to-cart" href="{{ url('/login') }}">Thêm vào giỏ hàng</a>
                                 @endif
@@ -132,91 +130,6 @@
                         </ul>
                     </div>
                 </div><!-- Categories widget-->
-
-                <div class="widget mercado-widget widget-product">
-                    <h2 class="widget-title">Popular Products</h2>
-                    <div class="widget-content">
-                        <ul class="products">
-                            <li class="product-item">
-                                <div class="product product-widget-style">
-                                    <div class="thumbnnail">
-                                        <a href="detail.html"
-                                            title="Radiant-360 R6 Wireless Omnidirectional Speaker [White]">
-                                            <figure><img src="{{ asset('assets/images/products/digital_1.jpg') }}"
-                                                    alt="">
-                                            </figure>
-                                        </a>
-                                    </div>
-                                    <div class="product-info">
-                                        <a href="#" class="product-name"><span>Radiant-360 R6 Wireless
-                                                Omnidirectional
-                                                Speaker...</span></a>
-                                        <div class="wrap-price"><span class="product-price">$168.00</span></div>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li class="product-item">
-                                <div class="product product-widget-style">
-                                    <div class="thumbnnail">
-                                        <a href="detail.html"
-                                            title="Radiant-360 R6 Wireless Omnidirectional Speaker [White]">
-                                            <figure><img src="{{ asset('assets/images/products/digital_17.jpg') }}"
-                                                    alt="">
-                                            </figure>
-                                        </a>
-                                    </div>
-                                    <div class="product-info">
-                                        <a href="#" class="product-name"><span>Radiant-360 R6 Wireless
-                                                Omnidirectional
-                                                Speaker...</span></a>
-                                        <div class="wrap-price"><span class="product-price">$168.00</span></div>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li class="product-item">
-                                <div class="product product-widget-style">
-                                    <div class="thumbnnail">
-                                        <a href="detail.html"
-                                            title="Radiant-360 R6 Wireless Omnidirectional Speaker [White]">
-                                            <figure><img src="{{ asset('assets/images/products/digital_18.jpg') }}"
-                                                    alt="">
-                                            </figure>
-                                        </a>
-                                    </div>
-                                    <div class="product-info">
-                                        <a href="#" class="product-name"><span>Radiant-360 R6 Wireless
-                                                Omnidirectional
-                                                Speaker...</span></a>
-                                        <div class="wrap-price"><span class="product-price">$168.00</span></div>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li class="product-item">
-                                <div class="product product-widget-style">
-                                    <div class="thumbnnail">
-                                        <a href="detail.html"
-                                            title="Radiant-360 R6 Wireless Omnidirectional Speaker [White]">
-                                            <figure><img src="{{ asset('assets/images/products/digital_20.jpg') }}"
-                                                    alt="">
-                                            </figure>
-                                        </a>
-                                    </div>
-                                    <div class="product-info">
-                                        <a href="#" class="product-name"><span>Radiant-360 R6 Wireless
-                                                Omnidirectional
-                                                Speaker...</span></a>
-                                        <div class="wrap-price"><span class="product-price">$168.00</span></div>
-                                    </div>
-                                </div>
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-
             </div>
             <!--end sitebar-->
         </div>
@@ -245,8 +158,8 @@
 
                     success: function(response) {
                         RenderCart(response);
-                        alertify.success('Thêm sản phẩm thành công');                   
-                     
+                        alertify.success('Thêm sản phẩm thành công');
+
                     },
                     error: function(response, error) {
                         // handleException(request , message , error);
