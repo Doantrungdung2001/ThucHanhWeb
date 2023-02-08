@@ -151,7 +151,6 @@ class ProductController extends Controller
                 'content' => $request->content,
                 'category_id' => $request->category_id,
                 'brand_id' => $request->brand_id,
-                'quantity' => 0
             ];
             $product = $this->product->create($dataProductCreate);
 
@@ -223,7 +222,6 @@ class ProductController extends Controller
                 'content' => $request->content,
                 'category_id' => $request->category_id,
                 'brand_id' => $request->brand_id,
-                'quantity' => 0
             ];
             $this->product->find($id)->update($dataProductUpdate);
             $product = $this->product->find($id);
